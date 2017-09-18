@@ -19,7 +19,6 @@ class TestrMainWindow(QMainWindow):
 
         #  used later as a container for all of the questions in the program
         self.questionList = qc.questionList
-        print(qc.questionList)
         self.currentIndex = 0
 
         self.stack = QStackedWidget()
@@ -53,14 +52,14 @@ class TestrMainWindow(QMainWindow):
         navButtonSizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
         self.prevButton = QPushButton("<< Prev")
         self.prevButton.setObjectName("previousbutton")
-        self.prevButton.setMaximumWidth(50)
+        self.prevButton.setMaximumWidth(80)
         self.prevButton.setMaximumHeight(80)
         self.prevButton.setSizePolicy(navButtonSizePolicy)
         self.prevButton.clicked.connect(self.prevQuestion_emit)
 
         self.nextButton = QPushButton("Next >>")
         self.nextButton.setObjectName("nextbutton")
-        self.nextButton.setMaximumWidth(50)
+        self.nextButton.setMaximumWidth(80)
         self.nextButton.setMaximumHeight(80)
         self.nextButton.setSizePolicy(navButtonSizePolicy)
         self.nextButton.clicked.connect(self.nextQuestion_emit)
@@ -109,8 +108,10 @@ class TestrMainWindow(QMainWindow):
     def prevQuestion_emit(self):
         self.changeQuestionSignal.emit("previousquestion")
 
+
     def nextQuestion_emit(self):
         self.changeQuestionSignal.emit("nextquestion")
+
 
 
     def userCode_emit(self):
@@ -134,6 +135,7 @@ class TestrMainWindow(QMainWindow):
                 self.currentIndex -= 1
         elif sender == "nextquestion":
             self.currentIndex = (self.currentIndex + 1) % questionListLen
+        self.sidebar.currentQuestionIndex = self.currentIndex
         self.updateQuestionInformation()
 
 

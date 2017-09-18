@@ -7,7 +7,10 @@ class Question():
                                  "Recursion", "Sorting and Searching"]
 
         self.questionInformation = "Information goes here"
-        self.initialFunction = "def functionName(var1, var2):\n\tcode goes here..."
+        self.functionName = ""
+        self.functionName = ""
+        self.variables = []
+        self.initialFunction = ""
         self.title = "Question Title"
         self.type = ""
         self.hint1 = ""
@@ -20,12 +23,15 @@ questionList = []
 
 isUnique = Question()
 isUnique.title = "Is Unique"
-isUnique.initialFunction = "def isUnique():\n\treturn 'r'"
+isUnique.functionName = "isUnique"
+isUnique.variables = ["str"]
+isUnique.initialFunction = "def {}({}):".format(isUnique.functionName, isUnique.variables[0])
 isUnique.questionInformation = "Implement an algorithm to determine if a string has all unique characters. Return a boolean value."
 isUnique.type = isUnique.questionTypeList[0]
 isUnique.hint1 = "Try a Hash Table"
 isUnique.hint2 = "Could a bit vector be useful?"
 isUnique.hint3 = "don't forget about the set function in python!"
+
 questionList.append(isUnique)
 
 

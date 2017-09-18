@@ -1,6 +1,7 @@
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
+from MainWindow.questionClassPackage import questionClass as qc
 
 import sys
 import os
@@ -10,9 +11,12 @@ import importlib
 
 class Sidebar(QStackedWidget):
 
+    questionList = qc.questionList
+    currentQuestionIndex = 0
+
     userCode = pyqtSignal(str)
 
-    save_path = "C:/Users/Brian/Documents/school/PythonProjects/Testr/MainWindow/SideBarWidget"
+    save_path = "C:\\Users\\brian\\Documents\\Programming\\Python\\python projects\\TestrApplication\\MainWindow\\SideBarWidget"
 
     firstRun = True
 
@@ -65,7 +69,9 @@ class Sidebar(QStackedWidget):
             self.importAndRunCode()
             os.remove(self.filePath)
         except Exception as e:
-            print(e)
+            self.showError(str(e))
+            
+
 
     def setQuestionInfo(self, info):
         self.questionTextBox.setText(info)
@@ -82,6 +88,7 @@ class Sidebar(QStackedWidget):
             userFile.close()
 
         except Exception as e:
+            self.showError(str(e))
             print(e)
 
     """
@@ -96,13 +103,24 @@ class Sidebar(QStackedWidget):
         else:
             importlib.reload(userCode)
 
-
-        result = userCode.isUnique()
+        # need to know variable number, type, if the function exists etc...
+        #  inspect module
+        fn = eval("userCode." + dir(userCode)[-1])
+        result = fn("")
 
         if result is str:
             self.outputBox.setText(result)
         else:
             self.outputBox.setText(str(result))
+
+    def showError(self, exception):
+        errorMsg = QMessageBox()
+        errorMsg.setIcon(QMessageBox.Warning)
+        errorMsg.setWindowTitle("Exception Detected")
+        errorMsg.setText(exception)
+        errorMsg.exec_()
+
+
 
 
 
