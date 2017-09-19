@@ -8,9 +8,11 @@ import sys
 
 
 class TestrMainWindow(QMainWindow):
-
-    changePageIndex = pyqtSignal(int)
-    changeQuestionSignal = pyqtSignal(str)
+    """
+    setting up any pyqtSignals needed
+    """
+    changePageIndex = pyqtSignal(int)  # a signal that emits the page index we are on in the main StackedWidger
+    changeQuestionSignal = pyqtSignal(str)  # signal which emits which button was pressed "previous/next"
 
     def __init__(self, parent=None):
         super(QMainWindow, self).__init__(parent)
@@ -19,7 +21,7 @@ class TestrMainWindow(QMainWindow):
 
         #  used later as a container for all of the questions in the program
         self.questionList = qc.questionList
-        self.currentIndex = 0
+        self.currentIndex = 0  # current index of the mainStacked widget self.stack
 
         self.stack = QStackedWidget()
         self.setCentralWidget(self.stack)
@@ -101,21 +103,36 @@ class TestrMainWindow(QMainWindow):
     place emits in this section
     """
 
+    """
+    emits the changePageIndex signal
+    :returns switch to page index 0
+    """
     def index1_emit(self):
         self.changePageIndex.emit(1)
 
+    """
+    emits the changePageIndex signal
+    :returns switch to page index 1
+    """
     def index0_emit(self):
         self.changePageIndex.emit(0)
 
+    """
+    emits changeQuestionSignal with the parameter "previousquestion"
+    """
     def prevQuestion_emit(self):
         self.changeQuestionSignal.emit("previousquestion")
 
-
+    """
+    emits changeQuestionSignal with the parameter "nextquestion"
+    """
     def nextQuestion_emit(self):
         self.changeQuestionSignal.emit("nextquestion")
 
 
-
+    """
+    sends the coding box string over to the sidebar widget
+    """
     def userCode_emit(self):
         self.sidebar.userCode.emit(self.textEdit.toPlainText())
 
@@ -123,10 +140,18 @@ class TestrMainWindow(QMainWindow):
     end emit section
     """
 
-
+    """
+    changes current main Stacked Widget index
+    :param the index to set the page to
+    """
     def changePageIndexFunction(self, index):
         self.stack.setCurrentIndex(index)
 
+
+    """
+    changes the question when previous or next button are clicked
+    :param object name of signal sender
+    """
     def changeQuesion(self, sender):
 
         questionListLen = len(self.questionList)
@@ -137,11 +162,8 @@ class TestrMainWindow(QMainWindow):
                 self.currentIndex -= 1
         elif sender == "nextquestion":
             self.currentIndex = (self.currentIndex + 1) % questionListLen
-        self.sidebar.currentQuestionIndex = self.currentIndex
+        self.sidebar.currentQuestionIndex = self.currentIndex  # this is where sidebar keeps track of which question we are on
         self.updateQuestionInformation()
-
-
-
 
     """
     define any signals that need to be used
@@ -150,9 +172,6 @@ class TestrMainWindow(QMainWindow):
         self.changePageIndex.connect(self.changePageIndexFunction)
         self.sidebar.userCode.connect(self.sidebar.on_run_code)
         self.changeQuestionSignal.connect(self.changeQuesion)
-
-
-
 
     """
     used to add Menu Actions to a menu easier
@@ -181,6 +200,10 @@ class TestrMainWindow(QMainWindow):
             action.setCheckable(True)
         return action
 
+    """
+    function defines any actions or buttons / shortcuts in the menubar.
+    add all menu bar functionality here
+    """
     def defineMenuBarActions(self):
 
         # creating menu actions:
@@ -202,6 +225,10 @@ class TestrMainWindow(QMainWindow):
         self.menuBar.addAction(self.testPageNavAction)
         self.menuBar.addAction(self.questionBrowserNavAction)
 
+    """
+    defines the page layout
+    add any layout functionality here
+    """
     def defineLayout(self):
 
         # layout shenanigans
@@ -232,7 +259,10 @@ class TestrMainWindow(QMainWindow):
 
         self.questionPage.setLayout(self.totalLayout)
 
-
+    """
+    defines the sidebar Widget
+    the sidebar widget is a custom widget that was defined in another class, this area is responsible for instantiting it
+    """
     def defineSideBar(self):
         self.sidebar = Sidebar()
         sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Expanding)
@@ -249,6 +279,9 @@ class TestrMainWindow(QMainWindow):
         self.hintsAndHelpButton = QPushButton("Hints and Help")
         self.hintsAndHelpButton.setMinimumSize(QSize(100, 50))
 
+    """
+    define stylesheets
+    """
     def defineStyleSheets(self):
         self.setStyleSheet("""
         QCentralWidget {
