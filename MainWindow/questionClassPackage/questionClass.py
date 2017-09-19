@@ -45,7 +45,9 @@ questionList.append(isUnique)
 
 URLify = Question()
 URLify.title = "URLify"
-URLify.initialFunction = "def URLify(str1, str2):\n\tcode here..."
+URLify.functionName = "URLify"
+URLify.variables = ["var1"]
+URLify.initialFunction = "def {}({}):".format(URLify.functionName, URLify.variables[0])
 URLify.questionInformation = "Write a method to replace all spaces in a string with '%20'. You may assume that the string has sufficient space at the end to hold all" \
                              "additional characters, and that you are given the 'True' length of the string. return a string"
 URLify.type = URLify.questionTypeList[0]

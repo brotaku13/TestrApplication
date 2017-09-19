@@ -113,16 +113,29 @@ class Sidebar(QStackedWidget):
         function = eval("userCode." + dir(userCode)[functionIndex])
 
         self.outputBox.setText("outputting user code...\n")
-        self.outputBox.append("Input\t| \tExpected\t| \tRecieved\t| \tCorrect")
+        testsPassed = 0.0
+        testNumber = 1
         for variables, expected in qc.questionList[self.currentQuestionIndex].testingDict.items():
             correct = False
             if len(variables) == 1:
                 userResult = function(variables[0])
                 if userResult == expected:
                     correct = True
-                self.outputBox.append("{}\t| \t{}\t| \t{}\t| \t{}".format(str(variables[0]), str(expected), str(userResult), str(correct)))
+                    testsPassed += 1
+                #self.outputBox.append("{}\t| \t{}\t| \t{}\t| \t{}".format(str(variables[0]), str(expected), str(userResult), str(correct)))
+                self.outputBox.append("Test {}:".format(testNumber))
+                self.outputBox.append("\tInput: {}".format(str(variables[0])))
+                self.outputBox.append("\tExpected: {}".format(str(expected)))
+                self.outputBox.append("\tRecieved: {}".format(str(userResult)))
+                self.outputBox.append("\tPassed: {}".format(str(correct)))
+                testNumber += 1
 
-
+            elif len(variables) == 2:
+                userResult = function(variables[0], variables[0])
+                if userResult == expected:
+                    correct = True
+                self.outputBox.append("{},{}\t| \t{}\t| \t{}\t| \t{}".format(str(variables[0]),str(variables[1]), str(expected), str(userResult), str(correct)))
+        self.outputBox.append("\nTests passed: {:.2f}%".format((testsPassed / len(qc.questionList[self.currentQuestionIndex].testingDict))* 100))
 
     def showError(self, exception):
         errorMsg = QMessageBox()

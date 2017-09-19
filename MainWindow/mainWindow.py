@@ -90,7 +90,7 @@ class TestrMainWindow(QMainWindow):
         self.defineLayout()
         self.defineMenuBarActions()
         self.defineSignalConnections()
-        self.defineStyleSheets()
+        #self.defineStyleSheets()
 
 
 
