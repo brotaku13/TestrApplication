@@ -11,7 +11,7 @@ import importlib
 
 class Sidebar(QStackedWidget):
 
-    questionList = qc.questionList
+
     currentQuestionIndex = 0
 
     userCode = pyqtSignal(str)
@@ -48,6 +48,7 @@ class Sidebar(QStackedWidget):
         #output box will go here
         self.outputBox = QTextEdit(self.questionInfoTab)
         self.outputBox.setText("output will be generated here")
+        self.outputBox.setLineWrapMode(QTextEdit.NoWrap)
 
         # run code pushButton
         self.runCodeButton = QPushButton("Run Code")
@@ -70,7 +71,7 @@ class Sidebar(QStackedWidget):
             os.remove(self.filePath)
         except Exception as e:
             self.showError(str(e))
-            
+
 
 
     def setQuestionInfo(self, info):
@@ -105,13 +106,23 @@ class Sidebar(QStackedWidget):
 
         # need to know variable number, type, if the function exists etc...
         #  inspect module
-        fn = eval("userCode." + dir(userCode)[-1])
-        result = fn("")
 
-        if result is str:
-            self.outputBox.setText(result)
-        else:
-            self.outputBox.setText(str(result))
+        if qc.questionList[self.currentQuestionIndex].functionName in dir(userCode):
+            functionIndex = dir(userCode).index(qc.questionList[self.currentQuestionIndex].functionName)
+
+        function = eval("userCode." + dir(userCode)[functionIndex])
+
+        self.outputBox.setText("outputting user code...\n")
+        self.outputBox.append("Input\t| \tExpected\t| \tRecieved\t| \tCorrect")
+        for variables, expected in qc.questionList[self.currentQuestionIndex].testingDict.items():
+            correct = False
+            if len(variables) == 1:
+                userResult = function(variables[0])
+                if userResult == expected:
+                    correct = True
+                self.outputBox.append("{}\t| \t{}\t| \t{}\t| \t{}".format(str(variables[0]), str(expected), str(userResult), str(correct)))
+
+
 
     def showError(self, exception):
         errorMsg = QMessageBox()

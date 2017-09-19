@@ -15,7 +15,7 @@ class TestrMainWindow(QMainWindow):
     def __init__(self, parent=None):
         super(QMainWindow, self).__init__(parent)
         self.resize(1300, 900)
-        self.setStyleSheet("QTextEdit {font:12pt 'Consolas'}")
+
 
         #  used later as a container for all of the questions in the program
         self.questionList = qc.questionList
@@ -70,6 +70,7 @@ class TestrMainWindow(QMainWindow):
         self.textEdit.setText("def functionName(): \n\tetc...")
         textEditFont = QFont()
         textEditFont.setFamily("Consolas")
+        textEditFont.setStyleHint(QFont.Monospace)
         tabMetric = QFontMetrics(textEditFont)
         tabSpace = tabMetric.width("M" * 5)
         self.textEdit.setTabStopWidth(tabSpace)
@@ -89,6 +90,7 @@ class TestrMainWindow(QMainWindow):
         self.defineLayout()
         self.defineMenuBarActions()
         self.defineSignalConnections()
+        self.defineStyleSheets()
 
 
 
@@ -247,6 +249,44 @@ class TestrMainWindow(QMainWindow):
         self.hintsAndHelpButton = QPushButton("Hints and Help")
         self.hintsAndHelpButton.setMinimumSize(QSize(100, 50))
 
+    def defineStyleSheets(self):
+        self.setStyleSheet("""
+        QCentralWidget {
+            background-color:rgb(63, 63, 63);
+        }
+        QStackedWidget {
+            background-color:rgb(63, 63, 63);
+            color:rgb(26, 198, 26);
+            selection-color:rgb(0,0,0);
+            selection-background-color:rgb(26, 198, 26);
+            font-family: "Ariel";
+
+        }
+        QTextEdit {
+            background-color:rgb(44, 45, 44);
+            color:rgb(26, 198, 26);
+            selection-color:rgb(0,0,0);
+            selection-background-color:rgb(26, 198, 26);
+            font-family: "Consolas";
+            font-size: 10pt;
+            border:0px;
+        }
+        QLabel {
+            color:rgb(26, 198, 26);
+            selection-color:rgb(0,0,0);
+            selection-background-color:rgb(26, 198, 26);
+        }
+
+        QPushButton {
+            background-color:black;
+            color:rgb(26, 198, 26);
+            border-radius:10px;
+        }
+        QMenuBar{
+            background-color:black;
+            color:rgb(26, 198, 26);
+        }
+        """)
 
     """
     updates text fields within the applications page
