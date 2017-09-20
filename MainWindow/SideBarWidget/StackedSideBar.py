@@ -3,14 +3,12 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from MainWindow.questionClassPackage import questionClass as qc
 
-import sys
 import os
 import importlib
 
 
 
 class Sidebar(QStackedWidget):
-
 
     currentQuestionIndex = 0  #current question index initially set to zer0
                                 # may need to change with time... maybe reset to question left off at
