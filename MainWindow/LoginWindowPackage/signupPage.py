@@ -35,8 +35,12 @@ class SignupPage(QWidget):
         self.regiserBtn = QPushButton("Register")
         self.cancelBtn = QPushButton("Cancel")
 
+        #self.defineButtonClick()
         self.defineLayout()
 
+    """
+    defines layout
+    """
     def defineLayout(self):
         form = QGridLayout()
         form.addWidget(self.nameLabel, 0, 0)
@@ -66,6 +70,31 @@ class SignupPage(QWidget):
 
         self.setLayout(totalFormLayout)
 
+
+    """
+    defines button clicks
+    """
     def defineButtonClick(self):
-        self.regiserBtn.clicked.connect()
+        self.regiserBtn.clicked.connect(self.registerUser())
         self.cancelBtn.clicked.connect()
+
+
+    """
+    function which retrieves information from user and stores in variables
+    calls the function to store variables in SQL
+    """
+    def registerUser(self):
+        self.firstName = self.firstNameField.text()
+        self.lastName = self.lastNameField.text()
+        self.email = self.emailField.text()
+        self.username = self.userNameField.text()
+        self.password = self.passwordField.text()
+
+        #calls the function to store variables in the SQL database
+        self.storeinSQL()
+        #should return user to login page after information is stored
+
+    def storeInSQL(self):
+        return
+
+

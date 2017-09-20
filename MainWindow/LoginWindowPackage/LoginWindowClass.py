@@ -46,6 +46,9 @@ class LoginWindow(QDialog):
 
 
 
+    """
+    defines layout
+    """
     def defineLayout(self):
         layout = QVBoxLayout()
 
@@ -92,11 +95,18 @@ class LoginWindow(QDialog):
 
 
 
+    """
 
+    defines button behavior
+    """
     def buttonBehavior(self):
         self.loginBtn.clicked.connect(self.loginCheck)
         self.newUserBtn.clicked.connect(self.newUserSignUp)
 
+
+    """
+    checks login fields against the .txt on file and closes dialog if credentials are accepted
+    """
     def loginCheck(self):
 
         f = open(self.resource_path, 'r')
@@ -120,11 +130,17 @@ class LoginWindow(QDialog):
             self.showLoginError()
             self.userNameField.setFocus()
 
+    """
+    switches to the new user registration
+    """
     def newUserSignUp(self):
 
         self.stack.setCurrentIndex(1)
 
 
+    """
+    shows an error dialog
+    """
     def showLoginError(self):
         errorMsg = QMessageBox()
         errorMsg.setIcon(QMessageBox.Warning)
@@ -132,13 +148,6 @@ class LoginWindow(QDialog):
         errorMsg.setText("It appears that the username or password was incorrect, please re-enter your credentials")
         errorMsg.exec_()
 
-
-"""
-app = QApplication(sys.argv)
-loginWindow = LoginWindow()
-loginWindow.show()
-sys.exit(app.exec_())
-"""
 
 
 
