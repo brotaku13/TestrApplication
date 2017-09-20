@@ -6,12 +6,12 @@ import sys
 
 class SignupPage(QWidget):
 
+
+    pageIndexSignal = pyqtSignal(int)
+
     def __init__(self, parent=None):
         super(SignupPage, self).__init__(parent)
-
-
         self.nameLabel = QLabel("Name")
-
 
         nameFont = QFont()
 
@@ -35,7 +35,7 @@ class SignupPage(QWidget):
         self.regiserBtn = QPushButton("Register")
         self.cancelBtn = QPushButton("Cancel")
 
-        #self.defineButtonClick()
+        self.defineButtonClick()
         self.defineLayout()
 
     """
@@ -75,8 +75,12 @@ class SignupPage(QWidget):
     defines button clicks
     """
     def defineButtonClick(self):
-        self.regiserBtn.clicked.connect(self.registerUser())
-        self.cancelBtn.clicked.connect()
+        self.regiserBtn.clicked.connect(self.registerUser)
+        self.cancelBtn.clicked.connect(self.emit_pageSignal_on_click)
+
+    def emit_pageSignal_on_click(self):
+        print("emits 0")
+        self.pageIndexSignal.emit(0)
 
 
     """
@@ -84,6 +88,10 @@ class SignupPage(QWidget):
     calls the function to store variables in SQL
     """
     def registerUser(self):
+        # this function needs to do the error checking too! dont forget!
+
+
+
         self.firstName = self.firstNameField.text()
         self.lastName = self.lastNameField.text()
         self.email = self.emailField.text()
@@ -91,8 +99,10 @@ class SignupPage(QWidget):
         self.password = self.passwordField.text()
 
         #calls the function to store variables in the SQL database
-        self.storeinSQL()
+        #self.storeinSQL()
+
         #should return user to login page after information is stored
+        #change page index here
 
     def storeInSQL(self):
         return

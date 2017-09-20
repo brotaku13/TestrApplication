@@ -10,6 +10,10 @@ class LoginWindow(QDialog):
     resource_path = "C:\\Users\\brian\\Documents\\Programming\\Python\\python projects\\TestrApplication\\MainWindow\\Resources\\userInformation"
     resource_path = os.path.join(resource_path, "loginInformation.txt")
 
+    loginPageIndex = 0
+
+
+
     def __init__(self, parent=None):
         super(LoginWindow, self).__init__(parent)
         self.resize(500, 700)
@@ -44,6 +48,7 @@ class LoginWindow(QDialog):
         self.buttonBehavior()
         self.defineLayout()
 
+        self.signupPage.pageIndexSignal.connect(self.changePageIndex)
 
 
     """
@@ -137,6 +142,10 @@ class LoginWindow(QDialog):
 
         self.stack.setCurrentIndex(1)
 
+
+    @pyqtSlot(int)
+    def changePageIndex(self, index):
+        self.stack.setCurrentIndex(index)
 
     """
     shows an error dialog
