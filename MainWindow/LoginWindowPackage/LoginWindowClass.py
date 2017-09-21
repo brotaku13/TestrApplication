@@ -98,6 +98,9 @@ class LoginWindow(QDialog):
 
         self.setLayout(totalPageLayout)
 
+        self.shortcut = QShortcut(QKeySequence("Return"), self)
+        self.shortcut.activated.connect(self.loginCheck)
+
 
 
     """
@@ -113,7 +116,7 @@ class LoginWindow(QDialog):
     checks login fields against the .txt on file and closes dialog if credentials are accepted
     """
     def loginCheck(self):
-
+        print("worked")
         f = open(self.resource_path, 'r')
 
         self.userName = self.userNameField.text()

@@ -79,7 +79,7 @@ questionList.append(conversion)
 deleteMiddleNode = Question()
 deleteMiddleNode.title = "Delete Node"
 deleteMiddleNode.functionName = "deleteMiddleNode"
-deleteMiddleNode.variables = ["LinkedListNode n"]
+deleteMiddleNode.variables = ["Node"]
 deleteMiddleNode.initialFunction = "def {}({}):".format(deleteMiddleNode.functionName, deleteMiddleNode.variables[0])
 deleteMiddleNode.questionInformation = "Implement an algorithm to delete a node in the middle (i.e., any node but the first and last node, not necessarily the exact middle) of a singly linked list, given only access to that node. " \
                                        "\nEXAMPLE \nlnput: The node c from the linked list a->b->c->d->e->f \nResult: nothing is returned, but the new linked list looks like a->b->d->e- >f."
@@ -152,8 +152,8 @@ questionList.append(romanInteger)
 oneAway = Question()
 oneAway.title = "One Away"
 oneAway.functionName = "oneAway"
-oneAway.variables = ["str" , "str"]
-oneAway.initialFunction = "def {} ({}) :".format(oneAway.functionName, oneAway.variable[0], oneAway.variable[1])
+oneAway.variables = ["str1" , "str2"]
+oneAway.initialFunction = "def {} ({}) :".format(oneAway.functionName, oneAway.variables[0], oneAway.variables[1])
 oneAway.questionInformation  = "There are three types of edits that can be performed on strings: insert a character, remove a character, or replace a character." \
                                "Given two strings, write a function to check if they are one edit(or zero edits) away."
 oneAway.type = oneAway.questionTypeList[0]
