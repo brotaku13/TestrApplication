@@ -2,6 +2,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from MainWindow.questionClassPackage import questionClass as qc
+from MainWindow.SideBarWidget.HintsAndTips import HintsAndTipsClass
 
 import os
 import importlib
@@ -10,7 +11,7 @@ import importlib
 
 class Sidebar(QStackedWidget):
 
-    currentQuestionIndex = 0  #current question index initially set to zer0
+    currentQuestionIndex = 0  #current question index initially set to zero
                                 # may need to change with time... maybe reset to question left off at
                                 # changed in MainWindow when prev/next button are pressed
 
@@ -24,7 +25,7 @@ class Sidebar(QStackedWidget):
     def __init__(self, parent=None):
         super(QStackedWidget, self).__init__(parent)
         self.questionInfoTab = QWidget()
-        self.hintsAndHelpTab = QWidget()
+        self.hintsAndHelpTab = HintsAndTipsClass()
         self.addWidget(self.questionInfoTab)
         self.addWidget(self.hintsAndHelpTab)
 
@@ -64,6 +65,8 @@ class Sidebar(QStackedWidget):
         infoLayout.addWidget(self.runCodeButton)
 
         self.questionInfoTab.setLayout(infoLayout)
+
+
 
     """
     slot which collects the users code and runs the saveCode and RunCode function

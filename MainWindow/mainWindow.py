@@ -12,7 +12,8 @@ class TestrMainWindow(QMainWindow):
     setting up any pyqtSignals needed
     """
     changePageIndex = pyqtSignal(int)  # a signal that emits the page index we are on in the main StackedWidger
-    changeQuestionSignal = pyqtSignal(str)  # signal which emits which button was pressed "previous/next"
+    changeQuestionSignal = pyqtSignal(int)  # signal which emits which button was pressed "previous/next"
+    sidebarIndexSignal = pyqtSignal(int)
 
     def __init__(self, parent=None):
         super(QMainWindow, self).__init__(parent)
@@ -21,7 +22,7 @@ class TestrMainWindow(QMainWindow):
 
         #  used later as a container for all of the questions in the program
         self.questionList = qc.questionList
-        self.currentIndex = 0  # current index of the mainStacked widget self.stack
+        self.currentQuestionIndex = 0  # current index of the mainStacked widget self.stack
 
         self.stack = QStackedWidget()
         self.setCentralWidget(self.stack)
@@ -57,14 +58,14 @@ class TestrMainWindow(QMainWindow):
         self.prevButton.setMaximumWidth(80)
         self.prevButton.setMaximumHeight(80)
         self.prevButton.setSizePolicy(navButtonSizePolicy)
-        self.prevButton.clicked.connect(self.prevQuestion_emit)
+        self.prevButton.clicked.connect(self.changeQuestionIndex)
 
         self.nextButton = QPushButton("Next >>")
         self.nextButton.setObjectName("nextbutton")
         self.nextButton.setMaximumWidth(80)
         self.nextButton.setMaximumHeight(80)
         self.nextButton.setSizePolicy(navButtonSizePolicy)
-        self.nextButton.clicked.connect(self.nextQuestion_emit)
+        self.nextButton.clicked.connect(self.changeQuestionIndex)
 
 
         # setting up textEdit
@@ -94,14 +95,8 @@ class TestrMainWindow(QMainWindow):
         self.defineSignalConnections()
         #self.defineStyleSheets()
 
-
-
         # basic update text fields function
         self.updateQuestionInformation()
-
-    """
-    place emits in this section
-    """
 
     """
     emits the changePageIndex signal
@@ -117,28 +112,21 @@ class TestrMainWindow(QMainWindow):
     def index0_emit(self):
         self.changePageIndex.emit(0)
 
-    """
-    emits changeQuestionSignal with the parameter "previousquestion"
-    """
-    def prevQuestion_emit(self):
-        self.changeQuestionSignal.emit("previousquestion")
 
-    """
-    emits changeQuestionSignal with the parameter "nextquestion"
-    """
-    def nextQuestion_emit(self):
-        self.changeQuestionSignal.emit("nextquestion")
-
-
-    """
-    sends the coding box string over to the sidebar widget
-    """
     def userCode_emit(self):
         self.sidebar.userCode.emit(self.textEdit.toPlainText())
 
-    """
-    end emit section
-    """
+
+    def sidebar_index_emit(self):
+        sender = self.sender()
+
+        if sender.objectName() == "hintsandhelpbutton":
+
+            self.sidebarIndexSignal.emit(1)
+        else:
+
+            self.sidebarIndexSignal.emit(0)
+
 
     """
     changes current main Stacked Widget index
@@ -148,21 +136,35 @@ class TestrMainWindow(QMainWindow):
         self.stack.setCurrentIndex(index)
 
 
+    @pyqtSlot(int)
+    def setSideBarIndex(self, index):
+        self.sidebar.setCurrentIndex(index)
+
+    @pyqtSlot(int)
+    def changeQuestion(self, index):
+        self.sidebar.currentQuestionIndex = index
+        self.sidebar.hintsAndHelpTab.currentQuestionIndex = index
+        self.sidebar.hintsAndHelpTab.clearHints()
+
+
     """
     changes the question when previous or next button are clicked
     :param object name of signal sender
     """
-    def changeQuesion(self, sender):
-
+    def changeQuestionIndex(self):
+        sender = self.sender()
         questionListLen = len(self.questionList)
-        if sender == "previousquestion":
-            if self.currentIndex == 0:
-                self.currentIndex = questionListLen - 1
+
+        if sender.objectName() == "previousbutton":
+            if self.currentQuestionIndex == 0:
+                self.currentQuestionIndex = questionListLen - 1
             else:
-                self.currentIndex -= 1
-        elif sender == "nextquestion":
-            self.currentIndex = (self.currentIndex + 1) % questionListLen
-        self.sidebar.currentQuestionIndex = self.currentIndex  # this is where sidebar keeps track of which question we are on
+                self.currentQuestionIndex -= 1
+        elif sender.objectName() == "nextbutton":
+            self.currentQuestionIndex = (self.currentQuestionIndex + 1) % questionListLen
+
+        self.changeQuestionSignal.emit(self.currentQuestionIndex)
+
         self.updateQuestionInformation()
 
     """
@@ -171,7 +173,8 @@ class TestrMainWindow(QMainWindow):
     def defineSignalConnections(self):
         self.changePageIndex.connect(self.changePageIndexFunction)
         self.sidebar.userCode.connect(self.sidebar.on_run_code)
-        self.changeQuestionSignal.connect(self.changeQuesion)
+        self.changeQuestionSignal.connect(self.changeQuestion)
+        self.sidebarIndexSignal.connect(self.setSideBarIndex)
 
     """
     used to add Menu Actions to a menu easier
@@ -214,13 +217,8 @@ class TestrMainWindow(QMainWindow):
         self.fileMenu.addAction(quitAction)
 
         self.questionBrowserNavAction = self.createAction("Question Browser", self.index1_emit, "Crtl+2", "Navigate to Question Browser")
-        #self.questionBrowserNavAction = QAction("Question Browser", self)
-        #self.questionBrowserNavAction.triggered.connect(self.index1_emit)
 
         self.testPageNavAction = self.createAction("&Testing Page", self.index0_emit, "Ctrl+1", "Navigate to testing screen")
-        #self.testPageNavAction = QAction("Testing Page", self)
-        #self.testPageNavAction.triggered.connect(self.index0_emit)
-
 
         self.menuBar.addAction(self.testPageNavAction)
         self.menuBar.addAction(self.questionBrowserNavAction)
@@ -274,10 +272,14 @@ class TestrMainWindow(QMainWindow):
 
         self.questionInfoButton = QPushButton("Question Information")
         self.questionInfoButton.setMinimumSize(QSize(100, 50))
-
+        self.questionInfoButton.setObjectName("questioninfobutton")
+        self.questionInfoButton.clicked.connect(self.sidebar_index_emit)
 
         self.hintsAndHelpButton = QPushButton("Hints and Help")
         self.hintsAndHelpButton.setMinimumSize(QSize(100, 50))
+        self.hintsAndHelpButton.setObjectName("hintsandhelpbutton")
+        self.hintsAndHelpButton.clicked.connect(self.sidebar_index_emit)
+
 
     """
     define stylesheets
@@ -326,10 +328,10 @@ class TestrMainWindow(QMainWindow):
     """
     def updateQuestionInformation(self):
 
-        self.questionTitleLabel.setText(qc.questionList[self.currentIndex].title)
-        self.textEdit.setText(qc.questionList[self.currentIndex].initialFunction)
-        self.sidebar.setQuestionInfo(qc.questionList[self.currentIndex].questionInformation)
-        self.status.showMessage("You Switched to {}".format(qc.questionList[self.currentIndex].title), 3000)
+        self.questionTitleLabel.setText(qc.questionList[self.currentQuestionIndex].title)
+        self.textEdit.setText(qc.questionList[self.currentQuestionIndex].initialFunction)
+        self.sidebar.setQuestionInfo(qc.questionList[self.currentQuestionIndex].questionInformation)
+        self.status.showMessage("You Switched to {}".format(qc.questionList[self.currentQuestionIndex].title), 3000)
 
         # initialize hints section here as well
 
