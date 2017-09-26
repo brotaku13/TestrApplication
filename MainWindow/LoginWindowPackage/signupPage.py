@@ -102,6 +102,7 @@ class SignupPage(QWidget):
             self.storeInSQL()
         else:
             #make a QDialog
+            return
 
         #calls the function to store variables in the SQL database
         #self.storeinSQL()

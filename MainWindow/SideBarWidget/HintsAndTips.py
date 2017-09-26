@@ -17,17 +17,17 @@ class HintsAndTipsClass(QWidget):
         self.showHint1 = QPushButton("Show Hint 1")
         self.showHint1.setObjectName("hint1button")
 
-        self.showHint2 = QPushButton("Show Hint 2")
-        self.showHint2.setObjectName("hint2button")
+        self.example = QPushButton("Show Example")
+        self.example.setObjectName("exampleButton")
 
-        self.showHint3 = QPushButton("Show hint 3")
+        self.showHint3 = QPushButton("Show Hint 3")
         self.showHint3.setObjectName("hint3button")
 
         self.hint1View = QTextEdit()
         self.hint1View.setReadOnly(True)
 
-        self.hint2View = QTextEdit()
-        self.hint2View.setReadOnly(True)
+        self.exampleView = QTextEdit()
+        self.exampleView.setReadOnly(True)
 
         self.hint3View = QTextEdit()
         self.hint3View.setReadOnly(True)
@@ -43,11 +43,11 @@ class HintsAndTipsClass(QWidget):
         hint1HLayout = QHBoxLayout()
         hint1HLayout.addLayout(hint1VLayout)
 
-        hint2VLayout = QVBoxLayout()
-        hint2VLayout.addWidget(self.showHint2)
-        hint2VLayout.addWidget(self.hint2View)
-        hint2HLayout = QHBoxLayout()
-        hint2HLayout.addLayout(hint2VLayout)
+        exampleLayout = QVBoxLayout()
+        exampleLayout.addWidget(self.example)
+        exampleLayout.addWidget(self.exampleView)
+        exampleLayout1 = QHBoxLayout()
+        exampleLayout1.addLayout(exampleLayout)
 
         hint3VLayout = QVBoxLayout()
         hint3VLayout.addWidget(self.showHint3)
@@ -60,7 +60,7 @@ class HintsAndTipsClass(QWidget):
         vspacer1 = QSpacerItem(20, 100, QSizePolicy.Expanding, QSizePolicy.Preferred)
         totalLayout.addItem(vspacer1)
 
-        totalLayout.addLayout(hint2HLayout)
+        totalLayout.addLayout(exampleLayout1)
         vspacer2 = QSpacerItem(20, 100, QSizePolicy.Expanding, QSizePolicy.Preferred)
         totalLayout.addItem(vspacer2)
 
@@ -71,7 +71,7 @@ class HintsAndTipsClass(QWidget):
 
     def defineButtonActions(self):
         self.showHint1.clicked.connect(self.revealHint)
-        self.showHint2.clicked.connect(self.revealHint)
+        self.example.clicked.connect(self.revealHint)
         self.showHint3.clicked.connect(self.revealHint)
 
 
@@ -83,8 +83,8 @@ class HintsAndTipsClass(QWidget):
         sender = self.sender()
         if sender.objectName() == "hint1button":
             self.hint1View.setText(qc.questionList[self.currentQuestionIndex].hint1)
-        elif sender.objectName() == "hint2button":
-            self.hint2View.setText(qc.questionList[self.currentQuestionIndex].hint2)
+        elif sender.objectName() == "exampleButton":
+            self.exampleView.setText(qc.questionList[self.currentQuestionIndex].example)
         else:
             self.hint3View.setText(qc.questionList[self.currentQuestionIndex].hint3)
 
@@ -94,6 +94,5 @@ class HintsAndTipsClass(QWidget):
     def clearHints(self):
 
         self.hint1View.clear()
-        self.hint2View.clear()
+        self.exampleView.clear()
         self.hint3View.clear()
-

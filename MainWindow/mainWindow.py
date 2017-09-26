@@ -3,11 +3,15 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from MainWindow.SideBarWidget.StackedSideBar import Sidebar
 import MainWindow.questionClassPackage.questionClass as qc
-
+import os
 import sys
 
 
 class TestrMainWindow(QMainWindow):
+
+    icon_path = os.path.dirname("C:\\Users\\brian\\Documents\\Programming\\Python\\python projects\\TestrApplication\\MainWindow\\Resources")
+    icon_path = os.path.join(icon_path, "checklist.png")
+
     """
     setting up any pyqtSignals needed
     """
@@ -18,6 +22,9 @@ class TestrMainWindow(QMainWindow):
     def __init__(self, parent=None):
         super(QMainWindow, self).__init__(parent)
         self.resize(1300, 900)
+
+        self.setWindowIcon(QIcon(os.path.join(os.path.dirname(sys.modules[__name__].__file__), 'test_passed-512')))
+        self.setWindowTitle("Testr")
 
 
         #  used later as a container for all of the questions in the program
