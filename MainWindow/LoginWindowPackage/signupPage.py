@@ -78,6 +78,7 @@ class SignupPage(QWidget):
         self.regiserBtn.clicked.connect(self.registerUser)
         self.cancelBtn.clicked.connect(self.emit_pageSignal_on_click)
 
+
     def emit_pageSignal_on_click(self):
         print("emits 0")
         self.pageIndexSignal.emit(0)
@@ -96,22 +97,38 @@ class SignupPage(QWidget):
         self.username = self.userNameField.text()
         self.password = self.passwordField.text()
 
-        if self.legit_email(self.email) and self.legit_name(self.firstName) and self.legit_name(self.lastName) and self.legit_password(self.password) and self.legit_username(self.username):
-            self.firstName = self.firstName.title()
-            self.lastName = self.lastName.title()
-            self.storeInSQL()
-        else:
-            #make a QDialog
-            return
+        self.firstName = self.firstName.title()
+        self.lastName = self.lastName.title()
 
-        #calls the function to store variables in the SQL database
-        #self.storeinSQL()
 
-        #should return user to login page after information is stored
-        #change page index here
+        try:
+            self.legit_name(self.firstName)
+            self.legit_name(self.lastName)
+            self.legit_email(self.email)
+            self.legit_username(self.username)
+            self.legit_password(self.password)
+        except name_exception as e:
+            self.showRegisterError("Name Error", e)
+        except email_exception as e:
+            self.showRegisterError("Email Error", e)
+        except username_Exception as e:
+            self.showRegisterError("Username Error", e)
+        except Exception as e:
+            self.showRegisterError("Password Error", e)
+
+
+        # calls the function to store variables in the SQL database
+        # self.storeinSQL()
+
+        # should return user to login page after information is stored
+        # change page index here
 
     def storeInSQL(self):
         return
+
+    def check(self):
+
+        return False
 
 
     def legit_email(self, email: str) -> bool:
@@ -119,62 +136,63 @@ class SignupPage(QWidget):
         boolean based on if it was a good email
         returns T/F depnding if its good
         '''
-        if len(email) == 0:
-            print('You must enter an email!')
-            return False
+        if len(email) < 7:
+            raise email_exception("not an email of appropriate length")
 
-        if '@' not in email:
-            print('Sorry, you need an "@" in your email.')
-            return False
+        elif '@' not in email:
+            raise email_exception("No @ found in email")
 
-        if email[-4::] != '.com':
-            print('Hey, you need to have a ".com"\
-     at the end of your email')
-            return False
+        elif email[-4::] != '.com':
+            raise email_exception("no .com found in email")
 
-        return True
 
     def legit_name(self, name: str) -> bool:
         '''checks both first and last names to see if they're legit
             has to be at least 2 letters, no special symbols
             function returns T/F depending if its good
         '''
-
-        legit_letters = 'abcdefghijklmnopqrstuvwxyz'
         if len(name) <= 1:
-            print('We discriminate against people with one\
-     letter or non-existant names')
-            print('Just kidding! Try again! Type in a real name!')
-            return False
+            raise name_exception("Name length must be more than 1")
 
-        for letter in name:
-            if letter not in legit_letters:
-                print("Please only use actual letters for your name.")
-                return False
-
-        return True
+        if not name.isalpha():
+            raise name_exception("only letters are allowed in name")
 
     def legit_username(self, username: str) -> bool:
         legit_characters = '0123456789_abcdefghijklmnopqrstuvwxyz.'
 
         if len(username) < 5:
-            print('Your username should be at least 5 characters.')
-            return False
+            raise username_Exception("Username must be more than 5 characters")
 
         for letter in username:
             if letter not in legit_characters:
-                print('You can only use numbers, letters and a "." and a "_"')
-                return False
-        return True
+                raise username_Exception("Illegal character found in username")
 
     def legit_password(self, password: str) -> bool:
         if len(password) < 6:
-            print('Your password should be at least 6 letters!')
-            return False
+            raise password_exception("Password must be longer than 6 characters")
 
         if ' ' in password:
-            print('You cannot have consecutive spaces in your password!')
-            return False
-        return True
+            raise password_exception("Cannot have spaces in password")
+
+
+    def showRegisterError(self, title, e):
+        errorMsg = QMessageBox()
+        errorMsg.setIcon(QMessageBox.Warning)
+        errorMsg.setWindowTitle(title)
+        errorMsg.setText(str(e))
+        errorMsg.exec_()
+
+
+class email_exception(Exception):
+    pass
+
+class name_exception(Exception):
+    pass
+
+class password_exception(Exception):
+    pass
+
+class username_Exception(Exception):
+    pass
 
 
