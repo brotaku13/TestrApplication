@@ -20,8 +20,8 @@ class HintsAndTipsClass(QWidget):
         self.example = QPushButton("Show Example")
         self.example.setObjectName("exampleButton")
 
-        self.showHint3 = QPushButton("Show Hint 3")
-        self.showHint3.setObjectName("hint3button")
+        self.showAnswer = QPushButton("Show Answer")
+        self.showAnswer.setObjectName("answerButton")
 
         self.hint1View = QTextEdit()
         self.hint1View.setReadOnly(True)
@@ -29,8 +29,8 @@ class HintsAndTipsClass(QWidget):
         self.exampleView = QTextEdit()
         self.exampleView.setReadOnly(True)
 
-        self.hint3View = QTextEdit()
-        self.hint3View.setReadOnly(True)
+        self.answerView = QTextEdit()
+        self.answerView.setReadOnly(True)
 
         self.defineButtonActions()
         self.defineLayout()
@@ -49,22 +49,22 @@ class HintsAndTipsClass(QWidget):
         exampleLayout1 = QHBoxLayout()
         exampleLayout1.addLayout(exampleLayout)
 
-        hint3VLayout = QVBoxLayout()
-        hint3VLayout.addWidget(self.showHint3)
-        hint3VLayout.addWidget(self.hint3View)
-        hint3HLayout = QHBoxLayout()
-        hint3HLayout.addLayout(hint3VLayout)
+        answerLayout = QVBoxLayout()
+        answerLayout.addWidget(self.showAnswer)
+        answerLayout.addWidget(self.answerView)
+        answerLayout1 = QHBoxLayout()
+        answerLayout1.addLayout(answerLayout)
 
         totalLayout = QVBoxLayout()
         totalLayout.addLayout(hint1HLayout)
-        vspacer1 = QSpacerItem(20, 100, QSizePolicy.Expanding, QSizePolicy.Preferred)
+        vspacer1 = QSpacerItem(20, 20, QSizePolicy.Expanding, QSizePolicy.Preferred) # second number is space between all text boxes and such?
         totalLayout.addItem(vspacer1)
 
         totalLayout.addLayout(exampleLayout1)
-        vspacer2 = QSpacerItem(20, 100, QSizePolicy.Expanding, QSizePolicy.Preferred)
+        vspacer2 = QSpacerItem(20, 20, QSizePolicy.Expanding, QSizePolicy.Preferred)
         totalLayout.addItem(vspacer2)
 
-        totalLayout.addLayout(hint3HLayout)
+        totalLayout.addLayout(answerLayout1)
 
 
         self.setLayout(totalLayout)
@@ -72,7 +72,7 @@ class HintsAndTipsClass(QWidget):
     def defineButtonActions(self):
         self.showHint1.clicked.connect(self.revealHint)
         self.example.clicked.connect(self.revealHint)
-        self.showHint3.clicked.connect(self.revealHint)
+        self.showAnswer.clicked.connect(self.revealHint)
 
 
     """
@@ -82,11 +82,19 @@ class HintsAndTipsClass(QWidget):
 
         sender = self.sender()
         if sender.objectName() == "hint1button":
-            self.hint1View.setText(qc.questionList[self.currentQuestionIndex].hint1)
+            if qc.questionList[self.currentQuestionIndex].count == 0 :
+                self.hint1View.setText(qc.questionList[self.currentQuestionIndex].hint1)
+                qc.questionList[self.currentQuestionIndex].count += 1
+            elif qc.questionList[self.currentQuestionIndex].count == 1 :
+                self.hint1View.append(qc.questionList[self.currentQuestionIndex].hint2)
+                qc.questionList[self.currentQuestionIndex].count += 1
+            else:
+                self.hint1View.append(qc.questionList[self.currentQuestionIndex].hint3)
+                qc.questionList[self.currentQuestionIndex].count += 1
         elif sender.objectName() == "exampleButton":
             self.exampleView.setText(qc.questionList[self.currentQuestionIndex].example)
         else:
-            self.hint3View.setText(qc.questionList[self.currentQuestionIndex].hint3)
+            self.answerView.setText(qc.questionList[self.currentQuestionIndex].answer)
 
     """
     clears hints when the question index is changed
@@ -95,4 +103,4 @@ class HintsAndTipsClass(QWidget):
 
         self.hint1View.clear()
         self.exampleView.clear()
-        self.hint3View.clear()
+        self.answerView.clear()

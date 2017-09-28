@@ -9,9 +9,9 @@ def main():
     app = QApplication(sys.argv)
     loginWindow = login()
     testrInstance = mainWindow.TestrMainWindow()
-    if loginWindow.exec_():  # uncomment to allow login window
-        testrInstance.show()
-        sys.exit(app.exec_())
+    #if loginWindow.exec_():  # uncomment to allow login window
+    testrInstance.show()
+    sys.exit(app.exec_())
 
 
 if __name__ == '__main__':

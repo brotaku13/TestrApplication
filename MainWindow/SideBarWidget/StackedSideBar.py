@@ -18,21 +18,23 @@ class Sidebar(QStackedWidget):
     userCode = pyqtSignal(str)  #  signal to collect code user writes from the coding window in the MainWindow class
 
     #  this will have to be changed per user machine. please open the file where this python file is stored and copy the address here
-    save_path = "C:\\Users\\brian\\Documents\\Programming\\Python\\python projects\\TestrApplication\\MainWindow\\SideBarWidget"
+    save_path = "/Users/godsinred/Desktop/TestrApplication-master/MainWindow/SideBarWidget"
 
     firstRun = True  # checks to see if userCode module needs to be reloaded
 
     def __init__(self, parent=None):
         super(QStackedWidget, self).__init__(parent)
         self.questionInfoTab = QWidget()
+        self.exampleQuestion = QWidget()
         self.hintsAndHelpTab = HintsAndTipsClass()
         self.addWidget(self.questionInfoTab)
         self.addWidget(self.hintsAndHelpTab)
+        self.addWidget(self.exampleQuestion)
 
         # setting up question information
         self.questionInfoLabel = QLabel("Question Information: ")
         labelFont = QFont()
-        labelFont.setPointSize(20)
+        labelFont.setPointSize(12)
         labelFont.setFamily("Trebuchet MS")
         self.questionInfoLabel.setFont(labelFont)
         self.questionInfoLabel.setAlignment(Qt.AlignBottom | Qt.AlignLeft)
@@ -42,6 +44,16 @@ class Sidebar(QStackedWidget):
         self.questionTextBox.setText("put question information here....")
         self.questionTextBox.setReadOnly(True)
 
+        # Example Label
+        self.exampleLabel = QLabel("Example Information: ")
+        self.exampleLabel.setFont(labelFont)
+        self.exampleLabel.setAlignment(Qt.AlignBottom | Qt.AlignLeft)
+
+        # Example Information
+        self.exampleTextBox = QTextEdit(self.exampleQuestion)
+        self.exampleTextBox.setText(qc.questionList[self.currentQuestionIndex].example)
+        self.exampleTextBox.setReadOnly(True)
+
         #output title label
         self.outputTitleLabel = QLabel("Output Generated:")
         self.outputTitleLabel.setFont(labelFont)
@@ -49,6 +61,7 @@ class Sidebar(QStackedWidget):
 
         #output box will go here
         self.outputBox = QTextEdit(self.questionInfoTab)
+        self.outputBox.setMinimumHeight(400)
         self.outputBox.setText("output will be generated here")
         self.outputBox.setLineWrapMode(QTextEdit.NoWrap)
         self.outputBox.setReadOnly(True)
@@ -60,9 +73,12 @@ class Sidebar(QStackedWidget):
         infoLayout = QVBoxLayout()
         infoLayout.addWidget(self.questionInfoLabel)
         infoLayout.addWidget(self.questionTextBox)
+        infoLayout.addWidget(self.exampleLabel)
+        infoLayout.addWidget(self.exampleTextBox)
         infoLayout.addWidget(self.outputTitleLabel)
         infoLayout.addWidget(self.outputBox)
         infoLayout.addWidget(self.runCodeButton)
+
 
         self.questionInfoTab.setLayout(infoLayout)
 
@@ -171,16 +187,3 @@ class Sidebar(QStackedWidget):
         errorMsg.setWindowTitle("Exception Detected")
         errorMsg.setText(exception)
         errorMsg.exec_()
-
-
-
-
-
-
-
-
-
-
-
-
-
