@@ -142,7 +142,7 @@ questionList.append(oneAway)
 twoSum = Question()
 twoSum.title = "Two Sum"
 twoSum.functionName = "twoSum"
-twoSum.variables = ["int[]", "int"]
+twoSum.variables = ["intList", "int"]
 twoSum.initialFunction = "def {} ({}) :".format(twoSum.functionName, twoSum.variables[0], twoSum.variables[1])
 twoSum.questionInformation = "Given an array of integers, return indices of the two numbers such that they add up to a specific target." \
                              "You may assume that each input would have exactly one solution, and you may not use the same element twice."
