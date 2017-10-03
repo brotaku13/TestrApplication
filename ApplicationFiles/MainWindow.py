@@ -1,7 +1,8 @@
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
-from Testr.ApplicationFiles.TestrWidgets.CodingWindow import CodingWindow
+from ApplicationFiles.TestrWidgets.CodingWindow import CodingWindow
+import ApplicationFiles.Resources.filepaths as path
 import os
 import sys
 
@@ -11,7 +12,7 @@ class mainWindow(QMainWindow):
         super(QMainWindow, self).__init__(parent)
         self.resize(1300, 900)
 
-        self.setWindowIcon(QIcon("C:\\Users\\Brian\\Documents\\school\\PythonProjects\\Testr\\ApplicationFiles\\Resources\\test_passed-512.png"))
+        self.setWindowIcon(QIcon(path.mainWindowIcon))
 
         self.setWindowTitle("Testr")
 

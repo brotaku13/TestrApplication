@@ -1,7 +1,7 @@
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
-import Testr.ApplicationFiles.Resources.QuestionClass as qc
+import ApplicationFiles.Resources.QuestionClass as qc
 
 class QuestionInformation(QWidget):
 

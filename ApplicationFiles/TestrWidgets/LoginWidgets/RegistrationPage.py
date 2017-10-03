@@ -1,7 +1,7 @@
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
-import Testr.ApplicationFiles.Resources.filepaths as path
+import ApplicationFiles.Resources.filepaths as path
 
 class RegistrationPage(QWidget):
 

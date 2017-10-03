@@ -1,8 +1,8 @@
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
-from Testr.ApplicationFiles.TestrWidgets.LoginWidgets.LoginPage import LoginPage
-from Testr.ApplicationFiles.TestrWidgets.LoginWidgets.RegistrationPage import RegistrationPage
+from .LoginPage import LoginPage
+from .RegistrationPage import RegistrationPage
 import os
 import sys
 

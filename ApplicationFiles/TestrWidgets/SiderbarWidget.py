@@ -1,10 +1,11 @@
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
-from Testr.ApplicationFiles.TestrWidgets.SidebarWidgets.HintsAndHelp import HintsAndHelp
-from Testr.ApplicationFiles.TestrWidgets.SidebarWidgets.QuestionInformation import QuestionInformation
-import Testr.ApplicationFiles.Resources.QuestionClass as qc
-import Testr.ApplicationFiles.Resources.filepaths as path
+from ApplicationFiles.TestrWidgets.SidebarWidgets.HintsAndHelp import HintsAndHelp
+from ApplicationFiles.TestrWidgets.SidebarWidgets.QuestionInformation import QuestionInformation
+import ApplicationFiles.Resources.QuestionClass as qc
+import ApplicationFiles.Resources.filepaths as path
+
 import os
 import importlib
 
@@ -67,7 +68,7 @@ class Sidebar(QWidget):
     """
 
     def importAndRunCode(self):
-        from Testr.ApplicationFiles.Resources import userCode
+        from ApplicationFiles.Resources import userCode
 
         if self.firstRun:
             self.firstRun = False

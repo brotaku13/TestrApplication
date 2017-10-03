@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import *
-from Testr.ApplicationFiles.MainWindow import mainWindow
-from Testr.ApplicationFiles.TestrWidgets.LoginWidgets.LoginWindow import MainLoginWindow as login
+from ApplicationFiles.MainWindow import mainWindow
+from ApplicationFiles.TestrWidgets.LoginWidgets.LoginWindow import MainLoginWindow as login
 import sys
 
 def main():

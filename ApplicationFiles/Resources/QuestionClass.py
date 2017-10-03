@@ -36,7 +36,7 @@ isUnique.initialFunction = "def {}({}):".format(isUnique.functionName, isUnique.
 isUnique.questionInformation = "Implement an algorithm to determine if a string has all unique characters. Return a boolean value."
 isUnique.type = isUnique.questionTypeList[0]
 isUnique.testingDict = {("abcd",): True,
-                        ("2nf Frt",): False,
+                        ("2nf Frt",): True,
                         ("aaaa78c ",): False,
                         ("12345as",): True,
                         ("AsdF 658",): True,
@@ -45,7 +45,11 @@ isUnique.hintList.append("How can you iterate through a string? Keep in mind the
 isUnique.hintList.append("How can you tell if a string has more than one of the same character?\n")
 isUnique.hintList.append("Try using a nested loop to iterate through the string and compare each character to all the characters before it.\n")
 isUnique.example = "\"abc\" is a unique string while \"aaa\" is not."
-isUnique.answer = "answer goes here!"
+isUnique.answer = "# Assuming character set is ASCII (128 characters)\n    i" \
+"f len(str) > 128:\n        return False\n\n    char_set = [False for _ in range" \
+"(128)]\n    for char in str:\n        val = ord(char)\n        if char_set[val]" \
+":\n            # Char already found in string\n            return False\n        c" \
+"har_set[val] = True\n\n    return True"
 questionList.append(isUnique)
 
 

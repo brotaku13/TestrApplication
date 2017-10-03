@@ -1,7 +1,7 @@
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
-import Testr.ApplicationFiles.Resources.filepaths as path
+import ApplicationFiles.Resources.filepaths as path
 import os
 import sys
 
@@ -88,8 +88,10 @@ class LoginPage(QWidget):
         self.pageIndexSignal.emit(1)
 
     def loginCheck(self):
-        f = open(path.loginCredentialsPath, 'r')
-
+        try:
+            f = open(path.loginCredentialsPath, 'r')
+        except Exception as e:
+            print(str(e))
         self.userName = self.userNameField.text()
         self.password = self.passwordField.text()
 
