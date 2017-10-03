@@ -1,18 +1,15 @@
-from PyQt5.QtCore import *
-from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
-from MainWindow import mainWindow
-from MainWindow.LoginWindowPackage.LoginWindowClass import LoginWindow as login
+from Testr.ApplicationFiles.MainWindow import mainWindow
+from Testr.ApplicationFiles.TestrWidgets.LoginWidgets.LoginWindow import MainLoginWindow as login
 import sys
 
 def main():
     app = QApplication(sys.argv)
+    testrInstance = mainWindow()
     loginWindow = login()
-    testrInstance = mainWindow.TestrMainWindow()
-    #if loginWindow.exec_():  # uncomment to allow login window
-    testrInstance.show()
-    sys.exit(app.exec_())
-
+    if loginWindow.exec_():
+        testrInstance.show()
+        sys.exit(app.exec_())
 
 if __name__ == '__main__':
     main()

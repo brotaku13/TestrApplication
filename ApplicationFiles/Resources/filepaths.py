@@ -1,0 +1,2 @@
+loginCredentialsPath = "C:\\Users\\Brian\\Documents\\school\\PythonProjects\\Testr\\ApplicationFiles\\Resources\\loginInformation.txt"
+userCodeSavePath = "C:\\Users\\Brian\\Documents\\school\\PythonProjects\\Testr\\ApplicationFiles\\Resources"
