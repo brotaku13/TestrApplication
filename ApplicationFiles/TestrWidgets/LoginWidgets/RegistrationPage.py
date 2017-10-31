@@ -139,7 +139,7 @@ class RegistrationPage(QWidget):
             raise username_Exception("Username must be more than 5 characters")
 
         for letter in username:
-            if letter not in legit_characters:
+            if letter.lower() not in legit_characters:
                 raise username_Exception("Illegal character found in username")
 
     def legit_password(self, password: str) -> bool:

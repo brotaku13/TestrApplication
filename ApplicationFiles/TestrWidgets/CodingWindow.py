@@ -69,9 +69,6 @@ class CodingWindow(QWidget):
     def changeSideBarIndex(self, index):
         self.sidebar.sidebarPages.setCurrentIndex(index)
 
-
-
-
     @pyqtSlot(int)
     def changeQuestion(self, index):
         return

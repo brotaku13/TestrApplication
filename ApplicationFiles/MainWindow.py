@@ -3,10 +3,13 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from ApplicationFiles.TestrWidgets.CodingWindow import CodingWindow
 import ApplicationFiles.Resources.filepaths as path
+from ApplicationFiles.TestrWidgets.navigationPage import NavigationPage
 import os
 import sys
 
 class mainWindow(QMainWindow):
+
+    changePageSignal = pyqtSignal(int)
 
     def __init__(self, parent=None):
         super(QMainWindow, self).__init__(parent)
@@ -24,8 +27,14 @@ class mainWindow(QMainWindow):
         self.codingWindow = CodingWindow()
         self.stack.addWidget(self.codingWindow)
 
-        #sets up statusbar and menubar, both are objects of the mainwindow, not of the widgets inside of it.
+        self.navigationPage = NavigationPage()
+        self.stack.addWidget(self.navigationPage)
+
         self.mainWindowProperties()
+        #self.defineStyleSheets()
+        #connect function for changing the page index
+        self.changePageSignal.connect(self.changePageIndexSlot)
+
 
     def mainWindowProperties(self):
 
@@ -39,9 +48,19 @@ class mainWindow(QMainWindow):
         #defining menubar
         self.defineMenuBarActions()
 
+    def changePageEmit(self):
+        if self.sender().objectName() == "questionbrowsernavaction":
+            self.changePageSignal.emit(1)
+        elif self.sender().objectName() == "questionpage":
+            self.changePageSignal.emit(0)
+
+    @pyqtSlot(int)
+    def changePageIndexSlot(self, index):
+        self.stack.setCurrentIndex(index)
+
     """
-        factory method for creating an action...used in menubar creation
-        """
+    factory method for creating an action...used in menubar creation
+    """
 
     def createAction(self, text, slot=None, shortcut=None, tip=None, checkable=False, signal="triggered"):
         action = QAction(text, self)
@@ -61,7 +80,6 @@ class mainWindow(QMainWindow):
     function defines any actions or buttons / shortcuts in the menubar.
     add all menu bar functionality here
     """
-
     def defineMenuBarActions(self):
 
         # creating menu actions:
@@ -74,12 +92,12 @@ class mainWindow(QMainWindow):
         """
         todo: create menubar actions
         """
-        #self.questionBrowserNavAction = self.createAction("Question Browser", self.index1_emit, "Crtl+2", "Navigate to Question Browser")
-
-        #self.testPageNavAction = self.createAction("&Testing Page", self.index0_emit, "Ctrl+1", "Navigate to testing screen")
-
-        #self.menuBar.addAction(self.testPageNavAction)
-        #self.menuBar.addAction(self.questionBrowserNavAction)
+        self.questionBrowserNavAction = self.createAction("Question Browser", self.changePageEmit, "Crtl+2", "Navigate to Question Browser")
+        self.questionBrowserNavAction.setObjectName("questionbrowsernavaction")
+        self.questionPage = self.createAction("&Testing Page", self.changePageEmit, "Ctrl+1", "Navigate to testing screen")
+        self.questionPage.setObjectName("questionpage")
+        self.menuBar.addAction(self.questionPage)
+        self.menuBar.addAction(self.questionBrowserNavAction)
 
     def defineStyleSheets(self):
         self.setStyleSheet("""

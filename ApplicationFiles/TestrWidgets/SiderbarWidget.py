@@ -51,6 +51,7 @@ class Sidebar(QWidget):
 
     def saveCode(self, userCode):
         self.filePath = os.path.join(path.userCodeSavePath, "userCode.py")
+
         try:
             userFile = open(self.filePath, "w")
             userFile.write(userCode)

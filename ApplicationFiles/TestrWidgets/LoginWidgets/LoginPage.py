@@ -89,7 +89,7 @@ class LoginPage(QWidget):
 
     def loginCheck(self):
         try:
-            f = open(path.loginCredentialsPath, 'r')
+           f = open(path.loginCredentialsPath, 'r')
         except Exception as e:
             print(str(e))
         self.userName = self.userNameField.text()
@@ -98,7 +98,7 @@ class LoginPage(QWidget):
         accept = False
         for line in f:
             infoList = line.split(";")
-            if infoList[0] == self.userName and infoList[1] == self.password:
+            if infoList[0] == self.userName and infoList[1].rstrip() == self.password:
                 f.close()
                 accept = True
                 break

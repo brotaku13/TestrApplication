@@ -71,7 +71,12 @@ URLify.hintList.append("How can you tell if a string has a space in it?\n")
 URLify.hintList.append("How can you insert a string into another string?\n")
 URLify.hintList.append("Try building a string and when you encounter a space add '%20' instead of the whitespace.\n")
 URLify.example = "For instance, \"Interviews are important!\" will become \"Interviews%20are%20important!\""
-URLify.answer = "Answer goes here"
+URLify.answer = "def urlify(string, length):\n\t '''function replaces single spaces with %20 and" \
+" removes trailing spaces'''\n\t new_index = len(string)\n\n\n\t for i in revers" \
+"ed(range(length)):\n\t if string[i] == ' ':\n\t # Replace spaces\n" \
+"\t string[new_index - 3:new_index] = '%20'\n\t new_index -= " \
+"3\n\t else:\n\t # Move characters\n\t string[new_index -" \
+" 1] = string[i]\n\t new_index -= 1\n\n\n\t return string"
 questionList.append(URLify)
 
 
@@ -113,7 +118,13 @@ tripleStep.hintList.append("How can you calculate all the possibilities that can
 tripleStep.hintList.append("Try using a recusive function to calculate all the possibilities and return 1 when there are no more steps to take\n")
 tripleStep.hintList.append("Add the recursivve possibilities together and instead of multiplying them\n")
 tripleStep.example = "Example Goes here"
-tripleStep.answer = "Answer Goes here"
+tripleStep.answer = "def TripleHop(x):\n\tif x < 0:\n\t\treturn 0\n\tif x == 0:\n\t return 1\n\tif x == 1" \
+":\n\t return 1\n\treturn TripleHop(x - 1) + TripleHop(x - 2) + TripleHop(x -" \
+" 3)\n\n\ndef Method2(x):\n\tmemo = [-1] * (x + 1)\n\treturn TripleHopRecursive(x, memo" \
+")\n\n\ndef TripleHopRecursive(x, memo):\n\tif x < 0:\n\t return 0\n\tmemo[0] = 1\n" \
+"\tif x >= 1:\n\t memo[1] = 1\n\tif x >= 2:\n\t memo[2] = memo[1] + memo[" \
+"0]\n\tif x > 2:\n\t\tfor i in range(3, x + 1):\n\t\t\tmemo[i] = memo[i - 1] + memo[i - 2" \
+"] + memo[i - 3]\n\treturn memo[x]"
 questionList.append(tripleStep)
 
 #jonathon done

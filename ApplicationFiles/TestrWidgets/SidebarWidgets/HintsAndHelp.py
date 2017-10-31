@@ -8,11 +8,9 @@ class HintsAndHelp(QWidget):
     def __init__(self, parent=None):
         super(HintsAndHelp, self).__init__(parent)
 
-        self.showHint = QPushButton("Show Hint 1")
+        self.showHint = QPushButton("Show Hint")
         self.showHint.setObjectName("hint1button")
 
-        self.example = QPushButton("Show Example")
-        self.example.setObjectName("exampleButton")
 
         self.showAnswer = QPushButton("Show Answer")
         self.showAnswer.setObjectName("answerButton")
@@ -20,10 +18,8 @@ class HintsAndHelp(QWidget):
         self.hintView = QTextEdit()
         self.hintView.setReadOnly(True)
 
-        self.exampleView = QTextEdit()
-        self.exampleView.setReadOnly(True)
-
         self.answerView = QTextEdit()
+        self.answerView.setMinimumHeight(400)
         self.answerView.setReadOnly(True)
 
         self.defineButtonActions()
@@ -36,11 +32,6 @@ class HintsAndHelp(QWidget):
         hint1HLayout = QHBoxLayout()
         hint1HLayout.addLayout(hint1VLayout)
 
-        exampleLayout = QVBoxLayout()
-        exampleLayout.addWidget(self.example)
-        exampleLayout.addWidget(self.exampleView)
-        exampleLayout1 = QHBoxLayout()
-        exampleLayout1.addLayout(exampleLayout)
 
         answerLayout = QVBoxLayout()
         answerLayout.addWidget(self.showAnswer)
@@ -53,7 +44,6 @@ class HintsAndHelp(QWidget):
         vspacer1 = QSpacerItem(20, 20, QSizePolicy.Expanding, QSizePolicy.Preferred)  # second number is space between all text boxes and such?
         totalLayout.addItem(vspacer1)
 
-        totalLayout.addLayout(exampleLayout1)
         vspacer2 = QSpacerItem(20, 20, QSizePolicy.Expanding, QSizePolicy.Preferred)
         totalLayout.addItem(vspacer2)
 
@@ -63,7 +53,6 @@ class HintsAndHelp(QWidget):
 
     def defineButtonActions(self):
         self.showHint.clicked.connect(self.revealHint)
-        self.example.clicked.connect(self.revealHint)
         self.showAnswer.clicked.connect(self.revealHint)
 
     """
@@ -79,10 +68,6 @@ class HintsAndHelp(QWidget):
             qc.questionList[qc.currentQuestionIndex].hintShown[qc.questionList[qc.currentQuestionIndex].hintNumber] = True
             qc.questionList[qc.currentQuestionIndex].hintNumber += 1
 
-
-        elif sender.objectName() == "exampleButton":
-            self.exampleView.setText(qc.questionList[qc.currentQuestionIndex].example)
-
         elif sender.objectName() == "answerButton":
             self.answerView.setText(qc.questionList[qc.currentQuestionIndex].answer)
 
@@ -94,7 +79,6 @@ class HintsAndHelp(QWidget):
                 self.hintView.append("***Hint {}***\n".format(qc.questionList[qc.currentQuestionIndex].hintList[hintIndex]))
                 hintIndex += 1
 
-        self.exampleView.clear()
 
 
 
