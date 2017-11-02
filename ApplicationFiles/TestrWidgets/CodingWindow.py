@@ -31,7 +31,7 @@ class CodingWindow(QWidget):
         self.defineLayout()
 
 
-        self.changeQuestionSignal.connect(self.changeQuestion)
+        #self.changeQuestionSignal.connect(self.changeQuestion)
         self.sidebarIndexSignal.connect(self.changeSideBarIndex)
         self.userCodeSignal.connect(self.sidebar.runUserCode)
         self.sidebar.runCodeButton.clicked.connect(self.emitUserCode)
@@ -57,25 +57,14 @@ class CodingWindow(QWidget):
 
     def sidebar_index_emit(self):
         sender = self.sender()
-
         if sender.objectName() == "hintsandhelpbutton":
-
             self.sidebarIndexSignal.emit(1)
         else:
-
             self.sidebarIndexSignal.emit(0)
 
     @pyqtSlot(int)
     def changeSideBarIndex(self, index):
         self.sidebar.sidebarPages.setCurrentIndex(index)
-
-    @pyqtSlot(int)
-    def changeQuestion(self, index):
-        return
-        ## these need to be redone somehow
-        #self.sidebar.currentQuestionIndex = index
-        #self.sidebar.hintsAndHelpTab.currentQuestionIndex = index
-        #self.sidebar.hintsAndHelpTab.clearHints()
 
 
     def defineButtons(self):

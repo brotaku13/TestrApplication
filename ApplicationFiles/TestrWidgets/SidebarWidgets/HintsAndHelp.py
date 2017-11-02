@@ -20,6 +20,13 @@ class HintsAndHelp(QWidget):
 
         self.answerView = QTextEdit()
         self.answerView.setMinimumHeight(400)
+        textEditFont = QFont()
+        textEditFont.setFamily("Consolas")
+        textEditFont.setStyleHint(QFont.Monospace)
+        tabMetric = QFontMetrics(textEditFont)
+        tabSpace = tabMetric.width("M" * 5)
+        self.answerView.setTabStopWidth(tabSpace)
+        self.answerView.setLineWrapMode(QTextEdit.NoWrap)
         self.answerView.setReadOnly(True)
 
         self.defineButtonActions()

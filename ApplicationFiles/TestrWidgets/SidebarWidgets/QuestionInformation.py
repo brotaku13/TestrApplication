@@ -37,11 +37,19 @@ class QuestionInformation(QWidget):
         self.outputTitleLabel.setAlignment(Qt.AlignBottom | Qt.AlignLeft)
 
         # output box will go here
+
+        """
         self.outputBox = QTextEdit()
         self.outputBox.setMinimumHeight(400)
-        self.outputBox.setText("Output will be generated here")
         self.outputBox.setLineWrapMode(QTextEdit.NoWrap)
+        self.outputBox.setText("Output will be generated here")
         self.outputBox.setReadOnly(True)
+        """
+
+
+        self.report = QTableWidget()
+        self.report.setMinimumHeight(400)
+        self.report.setEditTriggers(QAbstractItemView.NoEditTriggers)
 
         # run code pushButton
 
@@ -53,7 +61,7 @@ class QuestionInformation(QWidget):
         infoLayout.addWidget(self.exampleLabel)
         infoLayout.addWidget(self.exampleTextBox)
         infoLayout.addWidget(self.outputTitleLabel)
-        infoLayout.addWidget(self.outputBox)
+        infoLayout.addWidget(self.report)
 
 
         self.setLayout(infoLayout)

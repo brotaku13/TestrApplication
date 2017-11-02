@@ -31,7 +31,7 @@ class MainLoginWindow(QDialog):
 
     @pyqtSlot()
     def acceptDialog(self):
-        print("emited successfully")
+
         self.accept()
 
     @pyqtSlot(int)

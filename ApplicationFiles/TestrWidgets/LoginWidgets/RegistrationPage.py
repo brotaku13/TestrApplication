@@ -93,11 +93,11 @@ class RegistrationPage(QWidget):
 
 
         try:
-            self.legit_name(self.firstName)
-            self.legit_name(self.lastName)
-            self.legit_email(self.email)
-            self.legit_username(self.username)
-            self.legit_password(self.password)
+            self.checkName(self.firstName)
+            self.checkName(self.lastName)
+            self.checkEmail(self.email)
+            self.checkUsername(self.username)
+            self.checkPassword(self.password)
             noAcceptionsThrown = True
         except name_exception as e:
             self.showRegisterError("Name Error", e)
@@ -114,7 +114,7 @@ class RegistrationPage(QWidget):
             f.close()
             self.emit_pageSignal_on_click()
 
-    def legit_email(self, email: str) -> bool:
+    def checkEmail(self, email: str) -> bool:
         if len(email) < 7:
             raise email_exception("not an email of appropriate length")
 
@@ -125,14 +125,14 @@ class RegistrationPage(QWidget):
             raise email_exception("no .com found in email")
 
 
-    def legit_name(self, name: str) -> bool:
+    def checkName(self, name: str) -> bool:
         if len(name) <= 1:
             raise name_exception("Name length must be more than 1")
 
         if not name.isalpha():
             raise name_exception("only letters are allowed in name")
 
-    def legit_username(self, username: str) -> bool:
+    def checkUsername(self, username: str) -> bool:
         legit_characters = '0123456789_abcdefghijklmnopqrstuvwxyz.'
 
         if len(username) < 5:
@@ -142,7 +142,7 @@ class RegistrationPage(QWidget):
             if letter.lower() not in legit_characters:
                 raise username_Exception("Illegal character found in username")
 
-    def legit_password(self, password: str) -> bool:
+    def checkPassword(self, password: str) -> bool:
         if len(password) < 6:
             raise password_exception("Password must be longer than 6 characters")
 

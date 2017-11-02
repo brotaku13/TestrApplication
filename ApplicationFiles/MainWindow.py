@@ -35,6 +35,8 @@ class mainWindow(QMainWindow):
         #connect function for changing the page index
         self.changePageSignal.connect(self.changePageIndexSlot)
 
+        self.navigationPage.questionBrowser.questionSelectedSignal.connect(self.changeQuestionIndexSlot)
+        self.navigationPage.questionBrowser.changePageSignal.connect(self.changePageIndexSlot)
 
     def mainWindowProperties(self):
 
@@ -57,6 +59,10 @@ class mainWindow(QMainWindow):
     @pyqtSlot(int)
     def changePageIndexSlot(self, index):
         self.stack.setCurrentIndex(index)
+
+    @pyqtSlot(int)
+    def changeQuestionIndexSlot(self, index):
+        self.codingWindow.updateQuestionInformation()
 
     """
     factory method for creating an action...used in menubar creation

@@ -6,7 +6,8 @@ import sys
 
 class QuestionBrowser(QWidget):
 
-
+    questionSelectedSignal = pyqtSignal(int)
+    changePageSignal = pyqtSignal(int)
 
     def __init__(self, parent=None):
 
@@ -25,6 +26,7 @@ class QuestionBrowser(QWidget):
         #self.questionInfo.setFrameStyle(QFrame.NoFrame)
 
         self.goToQuestionBtn = QPushButton("Go to Question")
+        self.goToQuestionBtn.clicked.connect(self.emit_new_question_selected)
 
         self.defineLayout()
 
@@ -77,10 +79,12 @@ class QuestionBrowser(QWidget):
 
         # select rows instead of individual cells
         self.table.setSelectionBehavior(QAbstractItemView.SelectRows)
-
         self.table.setEditTriggers(QAbstractItemView.NoEditTriggers)
-
         self.table.itemSelectionChanged.connect(self.questionSelected)
+
+    def emit_new_question_selected(self):
+        self.questionSelectedSignal.emit(qc.currentQuestionIndex)
+        self.changePageSignal.emit(0)
 
 
     def questionSelected(self):
@@ -95,7 +99,6 @@ class QuestionBrowser(QWidget):
         qc.currentQuestionIndex = index
         self.questionTitle.setText(qc.questionList[index].title)
         self.questionInfo.setText(qc.questionList[index].questionInformation)
-
 
 
 """

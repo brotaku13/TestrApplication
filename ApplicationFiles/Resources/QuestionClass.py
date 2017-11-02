@@ -7,7 +7,6 @@ class Question():
 
         self.questionInformation = "Information goes here"
         self.functionName = ""
-        self.functionName = ""
         self.variables = []
         self.initialFunction = ""
         self.title = "Question Title"
@@ -57,7 +56,7 @@ questionList.append(isUnique)
 URLify = Question()
 URLify.title = "URLify"
 URLify.functionName = "URLify"
-URLify.variables = ["var1"]
+URLify.variables = ["string"]
 URLify.initialFunction = "def {}({}):".format(URLify.functionName, URLify.variables[0])
 URLify.type = isUnique.questionTypeList[0]
 URLify.questionInformation = "Write a method to replace all spaces in a string with '%20'. You may assume that the string has sufficient space at the end to hold all" \
@@ -71,12 +70,7 @@ URLify.hintList.append("How can you tell if a string has a space in it?\n")
 URLify.hintList.append("How can you insert a string into another string?\n")
 URLify.hintList.append("Try building a string and when you encounter a space add '%20' instead of the whitespace.\n")
 URLify.example = "For instance, \"Interviews are important!\" will become \"Interviews%20are%20important!\""
-URLify.answer = "def urlify(string, length):\n\t '''function replaces single spaces with %20 and" \
-" removes trailing spaces'''\n\t new_index = len(string)\n\n\n\t for i in revers" \
-"ed(range(length)):\n\t if string[i] == ' ':\n\t # Replace spaces\n" \
-"\t string[new_index - 3:new_index] = '%20'\n\t new_index -= " \
-"3\n\t else:\n\t # Move characters\n\t string[new_index -" \
-" 1] = string[i]\n\t new_index -= 1\n\n\n\t return string"
+URLify.answer = URLify.answer = "import string\nimport re\n\ndef URLify(string):\n\tstring = string.strip()\n\tstring = re.sub(r\"[\s+]\", '%20', string)\n\n\treturn string"
 questionList.append(URLify)
 
 
@@ -118,13 +112,13 @@ tripleStep.hintList.append("How can you calculate all the possibilities that can
 tripleStep.hintList.append("Try using a recusive function to calculate all the possibilities and return 1 when there are no more steps to take\n")
 tripleStep.hintList.append("Add the recursivve possibilities together and instead of multiplying them\n")
 tripleStep.example = "Example Goes here"
-tripleStep.answer = "def TripleHop(x):\n\tif x < 0:\n\t\treturn 0\n\tif x == 0:\n\t return 1\n\tif x == 1" \
-":\n\t return 1\n\treturn TripleHop(x - 1) + TripleHop(x - 2) + TripleHop(x -" \
-" 3)\n\n\ndef Method2(x):\n\tmemo = [-1] * (x + 1)\n\treturn TripleHopRecursive(x, memo" \
-")\n\n\ndef TripleHopRecursive(x, memo):\n\tif x < 0:\n\t return 0\n\tmemo[0] = 1\n" \
-"\tif x >= 1:\n\t memo[1] = 1\n\tif x >= 2:\n\t memo[2] = memo[1] + memo[" \
-"0]\n\tif x > 2:\n\t\tfor i in range(3, x + 1):\n\t\t\tmemo[i] = memo[i - 1] + memo[i - 2" \
-"] + memo[i - 3]\n\treturn memo[x]"
+tripleStep.answer = "def tripleStep(num):\n\tif num < 0:\n\t\treturn 0\n\tif num == 0:\n\t\treturn 1\n\tif num == 1" \
+":\n\t\treturn 1\n\treturn tripleStep(num - 1) + tripleStep(num - 2) + rripleStep(num -" \
+" 3)\n\n\ndef Method2(num):\n\tmemo = [-1] * (num + 1)\n\treturn TripleHopRecursive(num, memo" \
+")\n\n\ndef TripleHopRecursive(num, memo):\n\tif num < 0:\n\t return 0\n\tmemo[0] = 1\n" \
+"\tif x >= 1:\n\t memo[1] = 1\n\tif num >= 2:\n\t memo[2] = memo[1] + memo[" \
+"0]\n\tif num > 2:\n\t\tfor i in range(3, num + 1):\n\t\t\tmemo[i] = memo[i - 1] + memo[i - 2" \
+"] + memo[i - 3]\n\treturn memo[num]"
 questionList.append(tripleStep)
 
 #jonathon done
@@ -167,6 +161,26 @@ oneAway.hintList.append("Count the number of changes being made to the string. O
 oneAway.hintList.append("Try using the length of the string in your algorithm to determine if there were any changes.")
 oneAway.hintList.append("Check to make sure that you are iterating through the string properly.")
 oneAway.example = "if str1 = 'Coding' and str2 = 'Coing, then you would return True, as the two strings are only 1 edit away (inserting d). Also, if str1 = 'Tester' and str2 = 'tastr' then you would return false, as there are two edits that would need to be performed."
-oneAway.answer = "Answer goes here"
+oneAway.answer = ""
 questionList.append(oneAway)
 
+
+
+charCounter = Question()
+charCounter.title = "charCut"
+charCounter.functionName = "charCut"
+charCounter.variables = ["str1"]
+charCounter.initialFunction = "def {}({}):".format(charCounter.functionName, charCounter.variables[0])
+charCounter.questionInformation = "given the string, return the string without the first letter"
+charCounter.type = charCounter.questionTypeList[0]
+charCounter.testingDict = {("heye", ): "eye",
+                           ("hellol", ): "ellol",
+                           ("abc", ): "bc",
+                           ("jello",): "ello",
+                           ("haha", ): "aha"}
+charCounter.hintList.append("Try doing it one statement")
+charCounter.hintList.append("Use a return")
+charCounter.hintList.append("Slice the string!")
+charCounter.example = "For instance, if you have the word 'Coding', it would return 'oding'"
+charCounter.answer = "return str1[1:]"
+questionList.append(charCounter)

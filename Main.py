@@ -7,6 +7,7 @@ def main():
     app = QApplication(sys.argv)
     testrInstance = mainWindow()
     loginWindow = login()
+
     if loginWindow.exec_():
         testrInstance.show()
         sys.exit(app.exec_())
