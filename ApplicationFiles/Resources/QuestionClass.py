@@ -82,10 +82,10 @@ conversion.variables = ["num1", "num2"]
 conversion.initialFunction = "def {}({}, {}):".format(conversion.functionName, conversion.variables[0], conversion.variables[1])
 conversion.questionInformation = "Write a function to determine the number of bits you would need to flip to convert integer A to integer B. "
 conversion.type = conversion.questionTypeList[4]
-conversion.testingDict = {("11101",): 29,
-                          ("1000011",): 67,
-                          ("1110010",): 114,
-                          ("11111111",): 255}
+conversion.testingDict = {("11101", "10011"): 3,
+                          ("1000011", "1111111"): 4,
+                          ("1110010", "1010101"): 4,
+                          ("11111111", "00000000"): 8}
 conversion.hintList.append("Remember binary numbers are : 2^4 + 2^3 + 2^2 + 0 + 2^0 = 29?\n")
 conversion.hintList.append("How can you compare if one bit is different that another one?\n")
 conversion.hintList.append("Think about what an XOR indicates. If you do a XOR b, where does the result have 1s? Where does it have Os?\n")

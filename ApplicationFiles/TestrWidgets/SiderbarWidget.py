@@ -85,10 +85,12 @@ class Sidebar(QWidget):
             # this iis where the magic happens. converting the users code into a function we can call in this widget
             function = eval("userCode." + dir(userCode)[functionIndex])
 
-            # outputting usercode using predefined tests and recieved versus expected result
-            self.questionInformationTab.outputBox.setText("outputting user code...\n")
             testsPassed = 0.0
-            testNumber = 1
+            testNumber = 0
+
+            incorrectColor = QColor(255, 178, 178)
+            correctColor = QColor(143, 224, 162)
+
             for variables, expected in qc.questionList[qc.currentQuestionIndex].testingDict.items():
                 correct = False
                 if len(variables) == 1:
@@ -97,34 +99,55 @@ class Sidebar(QWidget):
                         correct = True
                         testsPassed += 1
 
-                    # self.outputBox.append("{}\t| \t{}\t| \t{}\t| \t{}".format(str(variables[0]), str(expected), str(userResult), str(correct)))
-                    self.questionInformationTab.outputBox.append("Test {}:".format(testNumber))
-                    self.questionInformationTab.outputBox.append("\tInput: {}".format(str(variables[0])))
-                    self.questionInformationTab.outputBox.append("\tExpected: {}".format(str(expected)))
-                    self.questionInformationTab.outputBox.append("\tRecieved: {}".format(str(userResult)))
-                    self.questionInformationTab.outputBox.append("\tPassed: {}".format(str(correct)))
-                    testNumber += 1
+                    expectedText = str(expected)
+                    userResultText = str(userResult)
+                    expectedResultItem = QTableWidgetItem(expectedText)
+                    userResultItem = QTableWidgetItem(userResultText)
+
+                    if correct:
+                        expectedResultItem.setBackground(correctColor)
+                        userResultItem.setBackground(correctColor)
+                    else:
+                        expectedResultItem.setBackground(incorrectColor)
+                        userResultItem.setBackground(incorrectColor)
+
+                    self.questionInformationTab.report.setItem(testNumber, 0, expectedResultItem)
+                    self.questionInformationTab.report.setItem(testNumber, 1, userResultItem)
 
                 elif len(variables) == 2:
                     userResult = function(variables[0], variables[1])
                     if userResult == expected:
                         correct = True
-                    self.questionInformationTab.outputBox.append("Test {}:".format(testNumber))
-                    self.questionInformationTab.outputBox.append("\tInput: {}, {}".format(str(variables[0], str(variables[1]))))
-                    self.questionInformationTab.outputBox.append("\tExpected: {}".format(str(expected)))
-                    self.questionInformationTab.outputBox.append("\tRecieved: {}".format(str(userResult)))
-                    self.questionInformationTab.outputBox.append("\tPassed: {}".format(str(correct)))
-                    testNumber += 1
 
-            # outputs user text. this can be extended to keep track of questions correctly answered as well as percentage answered
-            self.questionInformationTab.outputBox.append("\nTests passed: {:.2f}%".format((testsPassed / len(qc.questionList[qc.currentQuestionIndex].testingDict)) * 100))
+                    expectedText = str(expected)
+                    userResultText = str(userResult)
+                    expectedResultItem = QTableWidgetItem(expectedText)
+                    userResultItem = QTableWidgetItem(userResultText)
+
+                    if correct:
+                        expectedResultItem.setBackground(correctColor)
+                        userResultItem.setBackground(correctColor)
+                    else:
+                        expectedResultItem.setBackground(incorrectColor)
+                        userResultItem.setBackground(incorrectColor)
+
+                    self.questionInformationTab.report.setItem(testNumber, 0, expectedResultItem)
+                    self.questionInformationTab.report.setItem(testNumber, 1, userResultItem)
+
+                testNumber += 1
         else:
             self.showError("Function was not found. Do not delete the original function name.")
+
+
+
 
     """
     executes an error dialog box...effectively acts as a debugger of sorts for the user.... albeit not a very good one
     :param the exception which will be displayed..
     """
+
+
+
 
     def showError(self, exception):
         errorMsg = QMessageBox()

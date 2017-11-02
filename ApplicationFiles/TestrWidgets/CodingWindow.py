@@ -7,9 +7,11 @@ from .SiderbarWidget import Sidebar
 
 class CodingWindow(QWidget):
 
-    changeQuestionSignal = pyqtSignal(int)  # signal which emits which button was pressed "previous/next"
+    #changeQuestionSignal = pyqtSignal(int)  # signal which emits which button was pressed "previous/next"
     sidebarIndexSignal = pyqtSignal(int)
     userCodeSignal = pyqtSignal(str)
+    updateReportRows = pyqtSignal()
+    updateShowAnswer = pyqtSignal()
 
     def __init__(self, parent=None):
         super(CodingWindow, self).__init__(parent)
@@ -51,9 +53,10 @@ class CodingWindow(QWidget):
         elif sender.objectName() == "nextbutton":
             qc.currentQuestionIndex = (qc.currentQuestionIndex + 1) % questionListLen
 
-        self.changeQuestionSignal.emit(qc.currentQuestionIndex)
-
+        #self.changeQuestionSignal.emit(qc.currentQuestionIndex)
         self.updateQuestionInformation()
+
+
 
     def sidebar_index_emit(self):
         sender = self.sender()
@@ -157,7 +160,13 @@ class CodingWindow(QWidget):
         self.questionTitleLabel.setText(qc.questionList[qc.currentQuestionIndex].title)
         self.textEdit.setText(qc.questionList[qc.currentQuestionIndex].initialFunction)
         self.sidebar.updateQuestionInformation()
+
+        self.updateReportRows.emit()
+        self.updateShowAnswer.emit()
+
         #self.status.showMessage("You Switched to {}".format(qc.questionList[qc.currentQuestionIndex].title), 3000)
 
         # initialize hints section here as well
+
+
 

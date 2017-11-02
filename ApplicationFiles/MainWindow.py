@@ -4,6 +4,7 @@ from PyQt5.QtWidgets import *
 from ApplicationFiles.TestrWidgets.CodingWindow import CodingWindow
 import ApplicationFiles.Resources.filepaths as path
 from ApplicationFiles.TestrWidgets.navigationPage import NavigationPage
+import ApplicationFiles.Resources.QuestionClass as qc
 import os
 import sys
 
@@ -24,11 +25,12 @@ class mainWindow(QMainWindow):
         self.setCentralWidget(self.stack)
         self.stack.setObjectName('stackedWidget')
 
-        self.codingWindow = CodingWindow()
-        self.stack.addWidget(self.codingWindow)
-
         self.navigationPage = NavigationPage()
-        self.stack.addWidget(self.navigationPage)
+        self.stack.addWidget(self.navigationPage)  # navigationPage is index 0
+
+        self.codingWindow = CodingWindow()
+        self.stack.addWidget(self.codingWindow)  # coding Window is index 1
+
 
         self.mainWindowProperties()
         #self.defineStyleSheets()
@@ -37,6 +39,10 @@ class mainWindow(QMainWindow):
 
         self.navigationPage.questionBrowser.questionSelectedSignal.connect(self.changeQuestionIndexSlot)
         self.navigationPage.questionBrowser.changePageSignal.connect(self.changePageIndexSlot)
+
+        self.codingWindow.updateReportRows.connect(self.codingWindow.sidebar.questionInformationTab.updateReportRows)
+        self.codingWindow.updateShowAnswer.connect(self.codingWindow.sidebar.hintsAndHelpTab.stateCheck)
+
 
     def mainWindowProperties(self):
 
@@ -52,9 +58,9 @@ class mainWindow(QMainWindow):
 
     def changePageEmit(self):
         if self.sender().objectName() == "questionbrowsernavaction":
-            self.changePageSignal.emit(1)
-        elif self.sender().objectName() == "questionpage":
             self.changePageSignal.emit(0)
+        elif self.sender().objectName() == "questionpage":
+            self.changePageSignal.emit(1)
 
     @pyqtSlot(int)
     def changePageIndexSlot(self, index):
@@ -63,6 +69,7 @@ class mainWindow(QMainWindow):
     @pyqtSlot(int)
     def changeQuestionIndexSlot(self, index):
         self.codingWindow.updateQuestionInformation()
+
 
     """
     factory method for creating an action...used in menubar creation

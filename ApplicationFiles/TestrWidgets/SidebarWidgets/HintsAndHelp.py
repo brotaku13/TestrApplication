@@ -12,7 +12,7 @@ class HintsAndHelp(QWidget):
         self.showHint.setObjectName("hint1button")
 
 
-        self.showAnswer = QPushButton("Show Answer")
+        self.showAnswer = QCheckBox("Show Answer")
         self.showAnswer.setObjectName("answerButton")
 
         self.hintView = QTextEdit()
@@ -60,11 +60,17 @@ class HintsAndHelp(QWidget):
 
     def defineButtonActions(self):
         self.showHint.clicked.connect(self.revealHint)
-        self.showAnswer.clicked.connect(self.revealHint)
+        self.showAnswer.stateChanged.connect(self.stateCheck)
 
     """
     reveals hint based upon which button was clicked
     """
+
+    def stateCheck(self):
+        if self.showAnswer.isChecked():
+            self.answerView.setText(qc.questionList[qc.currentQuestionIndex].answer)
+        else:
+            self.answerView.setText('')
 
     def revealHint(self):
 

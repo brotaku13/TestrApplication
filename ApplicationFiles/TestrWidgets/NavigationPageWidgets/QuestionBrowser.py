@@ -17,7 +17,9 @@ class QuestionBrowser(QWidget):
         self.table = QTableWidget(len(qc.questionList), 2)
 
         self.questionTitle = QLabel("Question Title")
-
+        font = QFont()
+        font.setPointSize(16)
+        self.questionTitle.setFont(font)
         self.questionInfo = QTextEdit("question information")
         self.questionInfo.setReadOnly(True)
 
@@ -82,9 +84,10 @@ class QuestionBrowser(QWidget):
         self.table.setEditTriggers(QAbstractItemView.NoEditTriggers)
         self.table.itemSelectionChanged.connect(self.questionSelected)
 
+
     def emit_new_question_selected(self):
         self.questionSelectedSignal.emit(qc.currentQuestionIndex)
-        self.changePageSignal.emit(0)
+        self.changePageSignal.emit(1)
 
 
     def questionSelected(self):

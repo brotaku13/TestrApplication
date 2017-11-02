@@ -47,10 +47,19 @@ class QuestionInformation(QWidget):
         """
 
 
-        self.report = QTableWidget()
+        self.report = QTableWidget(len(qc.questionList[qc.currentQuestionIndex].testingDict), 2)
         self.report.setMinimumHeight(400)
-        self.report.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.report.verticalHeader().hide()
+        header = self.report.horizontalHeader()
+        header.setSectionResizeMode(0, QHeaderView.Stretch)
+        header.setSectionResizeMode(1, QHeaderView.Stretch)
 
+        horHeaders = ["User Output", "Expected Output"]
+        self.report.setHorizontalHeaderLabels(horHeaders)
+
+        self.report.setShowGrid(False)
+        self.report.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.report.setSelectionBehavior(QAbstractItemView.SelectRows)
         # run code pushButton
 
 
@@ -65,5 +74,20 @@ class QuestionInformation(QWidget):
 
 
         self.setLayout(infoLayout)
+
+    @pyqtSlot()
+    def updateReportRows(self):
+
+        currentRows = self.report.rowCount()
+        neededRows = len(qc.questionList[qc.currentQuestionIndex].testingDict)
+
+        for i in range(currentRows):
+            self.report.removeRow(0)
+
+        for i in range(neededRows):
+            self.report.insertRow(self.report.rowCount())
+
+
+
 
 

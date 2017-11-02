@@ -1,1 +1,1 @@
-def isUnique(str):
+def bitSwapRequired(num1, num2):
