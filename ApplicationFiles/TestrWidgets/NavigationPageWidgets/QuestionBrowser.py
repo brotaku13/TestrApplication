@@ -33,6 +33,7 @@ class QuestionBrowser(QWidget):
         self.defineLayout()
 
 
+
     def defineLayout(self):
 
         questionInfoSide = QVBoxLayout()
@@ -102,6 +103,8 @@ class QuestionBrowser(QWidget):
         qc.currentQuestionIndex = index
         self.questionTitle.setText(qc.questionList[index].title)
         self.questionInfo.setText(qc.questionList[index].questionInformation)
+
+
 
 
 """

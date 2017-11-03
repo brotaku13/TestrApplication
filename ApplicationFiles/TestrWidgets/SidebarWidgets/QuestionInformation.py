@@ -32,9 +32,15 @@ class QuestionInformation(QWidget):
         self.exampleTextBox.setReadOnly(True)
 
         # output title label
-        self.outputTitleLabel = QLabel("Output Generated:")
+        self.outputTitleLabel = QLabel("Output Report:")
         self.outputTitleLabel.setFont(labelFont)
         self.outputTitleLabel.setAlignment(Qt.AlignBottom | Qt.AlignLeft)
+
+        #grade Label
+        self.grade = QLabel("")
+        self.grade.setFont(labelFont)
+        self.grade.setAlignment(Qt.AlignBottom | Qt.AlignRight)
+
 
         # output box will go here
 
@@ -54,7 +60,7 @@ class QuestionInformation(QWidget):
         header.setSectionResizeMode(0, QHeaderView.Stretch)
         header.setSectionResizeMode(1, QHeaderView.Stretch)
 
-        horHeaders = ["User Output", "Expected Output"]
+        horHeaders = ["Expected Output", "User Output"]
         self.report.setHorizontalHeaderLabels(horHeaders)
 
         self.report.setShowGrid(False)
@@ -69,7 +75,14 @@ class QuestionInformation(QWidget):
         infoLayout.addWidget(self.questionTextBox)
         infoLayout.addWidget(self.exampleLabel)
         infoLayout.addWidget(self.exampleTextBox)
-        infoLayout.addWidget(self.outputTitleLabel)
+
+        gradeLayout = QHBoxLayout()
+        gradeLayout.addWidget(self.outputTitleLabel)
+        gradeLayout.addWidget(self.grade)
+
+        infoLayout.addLayout(gradeLayout)
+
+
         infoLayout.addWidget(self.report)
 
 
@@ -80,6 +93,7 @@ class QuestionInformation(QWidget):
 
         currentRows = self.report.rowCount()
         neededRows = len(qc.questionList[qc.currentQuestionIndex].testingDict)
+        self.grade.clear()
 
         for i in range(currentRows):
             self.report.removeRow(0)

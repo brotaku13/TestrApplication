@@ -135,6 +135,9 @@ class Sidebar(QWidget):
                     self.questionInformationTab.report.setItem(testNumber, 1, userResultItem)
 
                 testNumber += 1
+
+            self.questionInformationTab.grade.setText("{:.2f}%".format(testsPassed / testNumber))
+
         else:
             self.showError("Function was not found. Do not delete the original function name.")
 

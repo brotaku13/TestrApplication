@@ -1,1 +1,0 @@
-def bitSwapRequired(num1, num2):

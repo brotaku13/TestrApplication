@@ -14,9 +14,12 @@ class NavigationPage(QWidget):
         self.questionBrowser = QuestionBrowser()
         self.defineLayout()
 
+
     def defineLayout(self):
         totalLayout = QVBoxLayout()
         totalLayout.addWidget(self.account)
         totalLayout.addWidget(self.questionBrowser)
 
         self.setLayout(totalLayout)
+
+
