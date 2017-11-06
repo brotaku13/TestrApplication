@@ -4,6 +4,7 @@ from PyQt5.QtWidgets import *
 from ApplicationFiles.TestrWidgets.CodingWindow import CodingWindow
 import ApplicationFiles.Resources.filepaths as path
 from ApplicationFiles.TestrWidgets.navigationPage import NavigationPage
+from ApplicationFiles.TestrWidgets.GlossaryWidgets.Definitions import Definitions
 import ApplicationFiles.Resources.QuestionClass as qc
 import os
 import sys
@@ -30,6 +31,9 @@ class mainWindow(QMainWindow):
 
         self.codingWindow = CodingWindow()
         self.stack.addWidget(self.codingWindow)  # coding Window is index 1
+
+        self.glossary = Definitions()   # Defintions should be index 2
+        self.stack.addWidget(self.glossary)
 
 
         self.mainWindowProperties()
@@ -59,8 +63,11 @@ class mainWindow(QMainWindow):
     def changePageEmit(self):
         if self.sender().objectName() == "questionbrowsernavaction":
             self.changePageSignal.emit(0)
-        elif self.sender().objectName() == "questionpage":
+        elif self.sender().objectName() == "codingpage":
             self.changePageSignal.emit(1)
+        elif self.sender().objectName() == "glossarypage":
+            self.changePageSignal.emit(2)
+
 
     @pyqtSlot(int)
     def changePageIndexSlot(self, index):
@@ -107,10 +114,20 @@ class mainWindow(QMainWindow):
         """
         self.questionBrowserNavAction = self.createAction("Question Browser", self.changePageEmit, "Crtl+2", "Navigate to Question Browser")
         self.questionBrowserNavAction.setObjectName("questionbrowsernavaction")
+
+
         self.questionPage = self.createAction("&Testing Page", self.changePageEmit, "Ctrl+1", "Navigate to testing screen")
-        self.questionPage.setObjectName("questionpage")
+        self.questionPage.setObjectName("codingpage")
+
+        self.glossaryPage = self.createAction("&Glossary", self.changePageEmit, "Ctrl+3", "Navigate to Glossary")
+        self.glossaryPage.setObjectName("glossarypage")
+
+
         self.menuBar.addAction(self.questionPage)
         self.menuBar.addAction(self.questionBrowserNavAction)
+        self.menuBar.addAction(self.glossaryPage)
+
+
 
     def defineStyleSheets(self):
         self.setStyleSheet("""
