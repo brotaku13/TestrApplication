@@ -150,11 +150,6 @@ class Definitions(QWidget):
         self.table.setEditTriggers(QAbstractItemView.NoEditTriggers)
         self.table.itemSelectionChanged.connect(self.definitionSelected)
 
-#don't think this is needed?
-    def emit_new_question_selected(self):
-        self.questionSelectedSignal.emit(qc.currentQuestionIndex)
-        self.changePageSignal.emit(1)
-
 
     def definitionSelected(self):
         row = self.table.currentRow()

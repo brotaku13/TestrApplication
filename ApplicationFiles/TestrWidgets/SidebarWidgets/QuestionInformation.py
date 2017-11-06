@@ -42,17 +42,6 @@ class QuestionInformation(QWidget):
         self.grade.setAlignment(Qt.AlignBottom | Qt.AlignRight)
 
 
-        # output box will go here
-
-        """
-        self.outputBox = QTextEdit()
-        self.outputBox.setMinimumHeight(400)
-        self.outputBox.setLineWrapMode(QTextEdit.NoWrap)
-        self.outputBox.setText("Output will be generated here")
-        self.outputBox.setReadOnly(True)
-        """
-
-
         self.report = QTableWidget(len(qc.questionList[qc.currentQuestionIndex].testingDict), 2)
         self.report.setMinimumHeight(400)
         self.report.verticalHeader().hide()

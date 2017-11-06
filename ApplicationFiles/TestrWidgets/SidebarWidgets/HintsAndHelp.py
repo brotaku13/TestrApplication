@@ -5,6 +5,9 @@ import ApplicationFiles.Resources.QuestionClass as qc
 
 class HintsAndHelp(QWidget):
 
+    changeToGlossary = pyqtSignal(int)
+
+
     def __init__(self, parent=None):
         super(HintsAndHelp, self).__init__(parent)
 
@@ -17,6 +20,13 @@ class HintsAndHelp(QWidget):
 
         self.hintView = QTextEdit()
         self.hintView.setReadOnly(True)
+
+        self.glossary = QPushButton("Glossary")
+
+        self.hyperLinkLabel = QLabel("Hyperlink Here")
+        self.hyperLinkLabel.setOpenExternalLinks(True)
+        self.hyperLinkLabel.setAlignment(Qt.AlignRight | Qt.AlignBottom)
+
 
         self.answerView = QTextEdit()
         self.answerView.setMinimumHeight(400)
@@ -34,11 +44,17 @@ class HintsAndHelp(QWidget):
 
     def defineLayout(self):
         hint1VLayout = QVBoxLayout()
-        hint1VLayout.addWidget(self.showHint)
         hint1VLayout.addWidget(self.hintView)
+
+        glossaryHelp = QHBoxLayout()
+        glossaryHelp.addWidget(self.showHint)
+        glossaryHelp.addWidget(self.glossary)
+        glossaryHelp.addWidget(self.hyperLinkLabel)
+
+        hint1VLayout.addLayout(glossaryHelp)
+
         hint1HLayout = QHBoxLayout()
         hint1HLayout.addLayout(hint1VLayout)
-
 
         answerLayout = QVBoxLayout()
         answerLayout.addWidget(self.showAnswer)
@@ -61,6 +77,10 @@ class HintsAndHelp(QWidget):
     def defineButtonActions(self):
         self.showHint.clicked.connect(self.revealHint)
         self.showAnswer.stateChanged.connect(self.stateCheck)
+        self.glossary.clicked.connect(self.change_to_glossary_emit)
+
+    def change_to_glossary_emit(self):
+        self.changeToGlossary.emit(2)
 
     """
     reveals hint based upon which button was clicked

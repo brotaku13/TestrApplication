@@ -47,6 +47,8 @@ class mainWindow(QMainWindow):
         self.codingWindow.updateReportRows.connect(self.codingWindow.sidebar.questionInformationTab.updateReportRows)
         self.codingWindow.updateShowAnswer.connect(self.codingWindow.sidebar.hintsAndHelpTab.stateCheck)
 
+        self.codingWindow.sidebar.hintsAndHelpTab.changeToGlossary.connect(self.changePageIndexSlot)
+
 
     def mainWindowProperties(self):
 
@@ -76,6 +78,7 @@ class mainWindow(QMainWindow):
     @pyqtSlot(int)
     def changeQuestionIndexSlot(self, index):
         self.codingWindow.updateQuestionInformation()
+
 
 
     """

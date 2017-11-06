@@ -160,9 +160,11 @@ class CodingWindow(QWidget):
         self.questionTitleLabel.setText(qc.questionList[qc.currentQuestionIndex].title)
         self.textEdit.setText(qc.questionList[qc.currentQuestionIndex].initialFunction)
         self.sidebar.updateQuestionInformation()
+        self.sidebar.hintsAndHelpTab.hyperLinkLabel.setText(qc.questionList[qc.currentQuestionIndex].hyperlink)
 
         self.updateReportRows.emit()
         self.updateShowAnswer.emit()
+
 
         #self.status.showMessage("You Switched to {}".format(qc.questionList[qc.currentQuestionIndex].title), 3000)
 
