@@ -3,6 +3,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 import ApplicationFiles.Resources.QuestionClass as qc
 from .SiderbarWidget import Sidebar
+import ApplicationFiles.Resources.SaveInfo as save
 
 
 class CodingWindow(QWidget):
@@ -158,9 +159,15 @@ class CodingWindow(QWidget):
     def updateQuestionInformation(self):
 
         self.questionTitleLabel.setText(qc.questionList[qc.currentQuestionIndex].title)
-        self.textEdit.setText(qc.questionList[qc.currentQuestionIndex].initialFunction)
+
         self.sidebar.updateQuestionInformation()
         self.sidebar.hintsAndHelpTab.hyperLinkLabel.setText(qc.questionList[qc.currentQuestionIndex].hyperlink)
+
+        ## checks if code created exists, and loads that instead of template
+        if save.checkExists(qc.questionList[qc.currentQuestionIndex].title):
+            self.textEdit.setText(save.openCode())
+        else:
+            self.textEdit.setText(qc.questionList[qc.currentQuestionIndex].initialFunction)
 
         self.updateReportRows.emit()
         self.updateShowAnswer.emit()

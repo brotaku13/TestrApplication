@@ -2,8 +2,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 import ApplicationFiles.Resources.filepaths as path
-import os
-import sys
+import ApplicationFiles.Resources.SaveInfo as save
 
 class LoginPage(QWidget):
 
@@ -105,6 +104,9 @@ class LoginPage(QWidget):
         f.close()
 
         if accept:
+            ## saves account information
+            save.saveAccount(self.userName)
+
             self.acceptSignal.emit()
             print("accepted....")
         else:

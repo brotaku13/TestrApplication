@@ -8,9 +8,9 @@ def main():
     testrInstance = mainWindow()
     loginWindow = login()
 
-    #if loginWindow.exec_():
-    testrInstance.show()
-    sys.exit(app.exec_())
+    if loginWindow.exec_():
+        testrInstance.show()
+        sys.exit(app.exec_())
 
 if __name__ == '__main__':
     main()

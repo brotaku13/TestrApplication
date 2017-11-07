@@ -5,6 +5,7 @@ from ApplicationFiles.TestrWidgets.SidebarWidgets.HintsAndHelp import HintsAndHe
 from ApplicationFiles.TestrWidgets.SidebarWidgets.QuestionInformation import QuestionInformation
 import ApplicationFiles.Resources.QuestionClass as qc
 import ApplicationFiles.Resources.filepaths as path
+import ApplicationFiles.Resources.SaveInfo as save
 
 import os
 import importlib
@@ -42,6 +43,7 @@ class Sidebar(QWidget):
     @pyqtSlot(str)
     def runUserCode(self, code):
         self.saveCode(code)
+        save.saveCode(code)
         try:
             self.importAndRunCode()
             os.remove(self.filePath)

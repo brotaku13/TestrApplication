@@ -12,13 +12,13 @@ class Definitions(QWidget):
     questionSelectedSignal = pyqtSignal(int)
     changePageSignal = pyqtSignal(int)
 
-    definitionLinks = {"Lists" : '<span><a href="https://stackoverflow.com/search?q=lists">Click for additional help.</a><span>',
+    definitionLinks = {"Lists" : '<a href="https://stackoverflow.com/search?q=lists">Click for additional help.</a>',
                        "Loops" : '<a href="https://stackoverflow.com/search?q=loops">Click for additional help.</a>',
                        "Functions": '<a href="https://stackoverflow.com/search?q=functions">Click for additional help.</a>',
                        "Classes" : '<a href="https://stackoverflow.com/search?q=classes">Click for additional help.</a>'}
                 #LISTS
     definitionList = {"Lists" : "The most basic data structure in Python is the sequence. Each element of a sequence is assigned a number - its position or index. "
-                          "The first index is zero, the second index is one, and so forth.\n\nPython has six built-in types of sequences, "
+                          "The first index is zero, the second index is one, and so forth. Python has six built-in types of sequences, "
                           "but the most common ones are lists and tuples, which we would see in this tutorial.\nThere are certain things you can do with all sequence types. "
                           "These operations include indexing, slicing, adding, multiplying, and checking for membership. In addition, "
                           "Python has built-in functions for finding the length of a sequence and for finding its largest and smallest elements."
@@ -110,6 +110,7 @@ class Definitions(QWidget):
 
         self.definitionInfo = QTextBrowser()
 
+        self.definitionInfo.setOpenLinks(True)
         self.definitionInfo.setOpenExternalLinks(True)
         self.definitionInfo.setReadOnly(True)
 
@@ -131,7 +132,7 @@ class Definitions(QWidget):
 
         #place holder for embedded hyperlink
         self.tablespacer = QSpacerItem(100, 500, QSizePolicy.Expanding, QSizePolicy.Preferred)
-        #questionListSide.addItem(self.tablespacer)
+
 
         totalLayout = QHBoxLayout()
         totalLayout.addLayout(questionListSide)
@@ -178,4 +179,4 @@ class Definitions(QWidget):
         self.definitionInfo.setText(self.definitionList[tableText])
 
         self.definitionInfo.append("\n\n")
-        self.definitionInfo.append(self.definitionLinks[tableText])
+        #self.definitionInfo.append("<span>{}</span>".format(self.definitionLinks[tableText]))

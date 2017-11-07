@@ -7,3 +7,5 @@ userCodeSavePath = "C:\\Users\\brian\\Documents\\Programming\\Python\\pythonProj
 
 # filepath of icon in resources folder
 mainWindowIcon = "C:\\Users\\brian\\Documents\\Programming\\Python\\pythonProjects\\Testr\\ApplicationFiles\\Resources\\test_passed-512.png"
+
+UsersDirectory = "C:\\Users\\brian\\Documents\\Programming\\Python\\pythonProjects\\Testr\\ApplicationFiles\\Resources\\Users"
