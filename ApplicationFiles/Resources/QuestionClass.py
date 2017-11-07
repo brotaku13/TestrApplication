@@ -1,9 +1,15 @@
 class Question():
 
     def __init__(self):
-        self.questionTypeList = ["Arrays and Strings", "Linked Lists", "Stacks and Queues", "Trees and Graphs",
-                                 "Bit Manipulation", "Math and Logic Puzzles", "Object oriented Design",
-                                 "Recursion", "Sorting and Searching"]
+        self.questionTypeList = ["Arrays and Strings",
+                                 "Linked Lists",
+                                 "Stacks and Queues",
+                                 "Trees and Graphs",
+                                 "Bit Manipulation",
+                                 "Math and Logic Puzzles",
+                                 "Object oriented Design",
+                                 "Recursion",
+                                 "Sorting and Searching"]
 
         self.questionInformation = "Information goes here"
         self.functionName = ""
@@ -106,7 +112,7 @@ tripleStep.functionName = "tripleStep"
 tripleStep.variables = ["num"]
 tripleStep.initialFunction = "def {}({}):".format(tripleStep.functionName, tripleStep.variables[0])
 tripleStep.questionInformation = "A child is running up a staircase with n steps and can hop either 1 step, 2 steps, or 3 steps at a time. Implement a method to count how many possible ways the child can run up the stairs. Return an integer."
-tripleStep.type = tripleStep.questionTypeList[0]
+tripleStep.type = tripleStep.questionTypeList[5]
 tripleStep.testingDict = {(19,): 66012,
                           (10,): 274,
                           (1,): 1,
@@ -118,7 +124,7 @@ tripleStep.hintList.append("Try using a recusive function to calculate all the p
 tripleStep.hintList.append("Add the recursivve possibilities together and instead of multiplying them\n")
 tripleStep.example = "Example Goes here"
 tripleStep.answer = "def tripleStep(num):\n\tif num < 0:\n\t\treturn 0\n\tif num == 0:\n\t\treturn 1\n\tif num == 1" \
-":\n\t\treturn 1\n\treturn tripleStep(num - 1) + tripleStep(num - 2) + rripleStep(num -" \
+":\n\t\treturn 1\n\treturn tripleStep(num - 1) + tripleStep(num - 2) + tripleStep(num -" \
 " 3)\n\n\ndef Method2(num):\n\tmemo = [-1] * (num + 1)\n\treturn TripleHopRecursive(num, memo" \
 ")\n\n\ndef TripleHopRecursive(num, memo):\n\tif num < 0:\n\t return 0\n\tmemo[0] = 1\n" \
 "\tif x >= 1:\n\t memo[1] = 1\n\tif num >= 2:\n\t memo[2] = memo[1] + memo[" \
@@ -145,7 +151,10 @@ romanInteger.hintList.append("Did you get all the possible conversions? Remember
 romanInteger.hintList.append("X placed before L or C indicates ten less, so forty is XL (ten less than fifty) and ninety is XC (ten less than a hundred)\n")
 romanInteger.hintList.append("C placed before D or M indicates a hundred less, so four hundred is CD (a hundred less than five hundred) and nine hundred is CM (a hundred less than a thousand)\n")
 romanInteger.example = "The roman numeral 14 is expressed as XIV, so given this numeral, the function would return 14."
-romanInteger.answer = "Answer goes here."
+romanInteger.answer = "    roman = {'I':1, 'V':5, 'X':10, 'L':50, 'C':100, 'D':500, 'M':1000}\n    total"
+" = 0\n    for index in range(len(num)-1):\n        type = 1 if roman[num[index]]>=rom"
+"an[num[index+1]] else -1\n        total += type*roman[num[index]]\n    return total +"
+" roman[num[len(num)-1]]"
 romanInteger.hyperlink = '<a href="https://www.youtube.com/watch?v=os4x1oFB9iY">Need more help?</a>'
 questionList.append(romanInteger)
 
@@ -193,3 +202,62 @@ charCounter.example = "For instance, if you have the word 'Coding', it would ret
 charCounter.answer = "return str1[1:]"
 charCounter.hyperlink = '<a href="https://www.youtube.com/watch?v=k9TUPpGqYTo">Need more help?</a>'
 questionList.append(charCounter)
+
+elementPrint = Question()
+elementPrint.title = 'Printing numbers'
+elementPrint.functionName = 'numberPrint'
+elementPrint.variables = ['num']
+elementPrint.initialFunction = 'def {}({}):'.format(elementPrint.functionName, elementPrint.variables[0])
+elementPrint.questionInformation = 'given an int, print each num of it per line'
+elementPrint.type = elementPrint.questionTypeList[0]
+elementPrint.testingDict = {('12345', ): '1\n2\n3\n4\n5',
+                         ('1', ): '1',
+                         ('10', ): '1\n0',
+                         ('-10', ): '-1\n0',
+                         ('01', ): '0\n1'}
+elementPrint.hintList.append("Use a str() ")
+elementPrint.hintList.append("for loop helps")
+elementPrint.hintList.append("don't worry about negatives ")
+elementPrint.example = "For e.g. if you were given 10, you would\
+print 1 on the first line and 0 on the second"
+elementPrint.answer = "    for i in str(num):\n        print(i)"
+questionList.append(elementPrint)
+
+negativeCheck = Question()
+negativeCheck.title = 'Negative Int Checker'
+negativeCheck.functionName = 'negativeCheck'
+negativeCheck.variables = ['num']
+negativeCheck.initialFunction = 'def {}({}):'.format(negativeCheck.functionName, negativeCheck.variables[0])
+negativeCheck.questionInformation = 'given an integer, check if it is negative or not'
+negativeCheck.type = negativeCheck.questionTypeList[5]
+negativeCheck.testingDict = {(-1, ): True,
+                         (10, ): False,
+                         (-10, ): True,
+                         (0, ): False,
+                         (1, ): False}
+negativeCheck.hintList.append("Use an if/else")
+negativeCheck.hintList.append("Boolean operators help")
+negativeCheck.hintList.append(" 0 is not a negative nor positive number ")
+negativeCheck.example = "For instance, if you're given '10', \
+you would return False because 10 is positive and not negative"
+negativeCheck.answer = "return num < 0"
+questionList.append(negativeCheck)
+
+helloUser = Question()
+helloUser.title = 'Hello User'
+helloUser.functionName = 'helloUser'
+helloUser.variables = ['name']
+helloUser.initialFunction = 'def {}({}):'.format(helloUser.functionName, helloUser.variables[0])
+helloUser.questionInformation = 'given a name, print hello to the user "Hello, _____."'
+helloUser.type = helloUser.questionTypeList[0]
+helloUser.testingDict = {("Gilbert", ): "Hello, Gilbert.",
+                         ("John", ): "Hello, John.",
+                         ("Phillip", ): "Hello, Phillip.",
+                         ("Shawn", ): "Hello, Shawn.",
+                         ("Willy", ): "Hello, Willy."}
+helloUser.hintList.append("Use format")
+helloUser.hintList.append("Don't forget the period")
+helloUser.hintList.append(" Remember spacing ")
+helloUser.example = "For instance, if you're given 'Charles', you would print \"Hello, Charles\""
+helloUser.answer = "return 'Hello, {}.'.format(name)"
+questionList.append(helloUser)

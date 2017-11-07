@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3b002da5-7696-4a58-b39c-1aa33b096dff" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ApplicationFiles/MainWindow.py" afterPath="$PROJECT_DIR$/ApplicationFiles/MainWindow.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ApplicationFiles/Resources/QuestionClass.py" afterPath="$PROJECT_DIR$/ApplicationFiles/Resources/QuestionClass.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/CodingWindow.py" afterPath="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/CodingWindow.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/GlossaryWidgets/Definitions.py" afterPath="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/GlossaryWidgets/Definitions.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/SidebarWidgets/HintsAndHelp.py" afterPath="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/SidebarWidgets/HintsAndHelp.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/SidebarWidgets/QuestionInformation.py" afterPath="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/SidebarWidgets/QuestionInformation.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/SiderbarWidget.py" afterPath="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/SiderbarWidget.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,8 +22,8 @@
       <file leaf-file-name="QuestionBrowser.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ApplicationFiles/TestrWidgets/NavigationPageWidgets/QuestionBrowser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="439">
-              <caret line="108" column="0" lean-forward="true" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
+            <state relative-caret-position="2600">
+              <caret line="108" column="0" lean-forward="false" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -36,7 +32,7 @@
       <file leaf-file-name="HintsAndHelp.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ApplicationFiles/TestrWidgets/SidebarWidgets/HintsAndHelp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-182">
+            <state relative-caret-position="1975">
               <caret line="82" column="36" lean-forward="false" selection-start-line="82" selection-start-column="36" selection-end-line="82" selection-end-column="36" />
               <folding />
             </state>
@@ -46,7 +42,7 @@
       <file leaf-file-name="CodingWindow.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ApplicationFiles/TestrWidgets/CodingWindow.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
+            <state relative-caret-position="714">
               <caret line="162" column="111" lean-forward="false" selection-start-line="162" selection-start-column="111" selection-end-line="162" selection-end-column="111" />
               <folding />
             </state>
@@ -66,7 +62,7 @@
       <file leaf-file-name="MainWindow.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ApplicationFiles/MainWindow.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2375">
+            <state relative-caret-position="-2457">
               <caret line="49" column="99" lean-forward="false" selection-start-line="49" selection-start-column="99" selection-end-line="49" selection-end-column="99" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
@@ -75,12 +71,44 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SiderbarWidget.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SiderbarWidget.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ApplicationFiles/TestrWidgets/SiderbarWidget.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
+            <state relative-caret-position="3225">
               <caret line="138" column="107" lean-forward="false" selection-start-line="138" selection-start-column="107" selection-end-line="138" selection-end-column="107" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="QuestionClass.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ApplicationFiles/Resources/QuestionClass.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2000">
+              <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="11" column="4" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Definitions.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ApplicationFiles/TestrWidgets/GlossaryWidgets/Definitions.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="468">
+              <caret line="96" column="0" lean-forward="true" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -88,7 +116,7 @@
       <file leaf-file-name="QuestionInformation.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ApplicationFiles/TestrWidgets/SidebarWidgets/QuestionInformation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
+            <state relative-caret-position="975">
               <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
@@ -109,16 +137,16 @@
         <option value="$PROJECT_DIR$/ApplicationFiles/Resources/loginInformation.txt" />
         <option value="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/LoginWidgets/RegistrationPage.py" />
         <option value="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/LoginWidgets/LoginWindow.py" />
-        <option value="$PROJECT_DIR$/Main.py" />
         <option value="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/NavigationPageWidgets/QuestionBrowser.py" />
         <option value="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/navigationPage.py" />
-        <option value="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/GlossaryWidgets/Definitions.py" />
         <option value="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/CodingWindow.py" />
-        <option value="$PROJECT_DIR$/ApplicationFiles/Resources/QuestionClass.py" />
         <option value="$PROJECT_DIR$/ApplicationFiles/MainWindow.py" />
         <option value="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/SidebarWidgets/HintsAndHelp.py" />
         <option value="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/SidebarWidgets/QuestionInformation.py" />
         <option value="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/SiderbarWidget.py" />
+        <option value="$PROJECT_DIR$/ApplicationFiles/Resources/QuestionClass.py" />
+        <option value="$PROJECT_DIR$/Main.py" />
+        <option value="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/GlossaryWidgets/Definitions.py" />
       </list>
     </option>
   </component>
@@ -143,6 +171,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -296,7 +325,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -547,6 +575,40 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/ApplicationFiles/TestrWidgets/SiderbarWidget.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3225">
+          <caret line="138" column="107" lean-forward="false" selection-start-line="138" selection-start-column="107" selection-end-line="138" selection-end-column="107" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ApplicationFiles/Resources/QuestionClass.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2000">
+          <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ApplicationFiles/TestrWidgets/SidebarWidgets/QuestionInformation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="975">
+          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ApplicationFiles/TestrWidgets/NavigationPageWidgets/QuestionBrowser.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1875">
@@ -559,7 +621,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="900">
           <caret line="41" column="27" lean-forward="true" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -575,7 +636,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="675">
           <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -619,9 +679,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4050">
           <caret line="166" column="0" lean-forward="false" selection-start-line="166" selection-start-column="0" selection-end-line="166" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#26#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -629,7 +687,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -687,7 +744,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -695,9 +751,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3475">
           <caret line="142" column="59" lean-forward="true" selection-start-line="142" selection-start-column="59" selection-end-line="142" selection-end-column="59" />
-          <folding>
-            <element signature="e#0#26#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -738,7 +791,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -746,9 +798,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3475">
           <caret line="142" column="59" lean-forward="true" selection-start-line="142" selection-start-column="59" selection-end-line="142" selection-end-column="59" />
-          <folding>
-            <element signature="e#0#26#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -821,7 +870,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="900">
           <caret line="41" column="27" lean-forward="true" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -829,7 +877,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="675">
           <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -837,53 +884,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1011">
           <caret line="102" column="35" lean-forward="true" selection-start-line="102" selection-start-column="35" selection-end-line="102" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#26#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="12" column="4" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ApplicationFiles/Resources/QuestionClass.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="643">
-          <caret line="193" column="77" lean-forward="false" selection-start-line="193" selection-start-column="77" selection-end-line="193" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ApplicationFiles/TestrWidgets/GlossaryWidgets/Definitions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="114" column="94" lean-forward="false" selection-start-line="114" selection-start-column="37" selection-end-line="114" selection-end-column="94" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ApplicationFiles/TestrWidgets/NavigationPageWidgets/QuestionBrowser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="108" column="0" lean-forward="true" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
+        <state relative-caret-position="2600">
+          <caret line="108" column="0" lean-forward="false" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ApplicationFiles/MainWindow.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2375">
-          <caret line="49" column="99" lean-forward="false" selection-start-line="49" selection-start-column="99" selection-end-line="49" selection-end-column="99" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -895,17 +903,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ApplicationFiles/TestrWidgets/CodingWindow.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="162" column="111" lean-forward="false" selection-start-line="162" selection-start-column="111" selection-end-line="162" selection-end-column="111" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ApplicationFiles/TestrWidgets/SidebarWidgets/HintsAndHelp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-182">
+        <state relative-caret-position="1975">
           <caret line="82" column="36" lean-forward="false" selection-start-line="82" selection-start-column="36" selection-end-line="82" selection-end-column="36" />
           <folding />
         </state>
@@ -913,7 +913,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ApplicationFiles/TestrWidgets/SidebarWidgets/QuestionInformation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
+        <state relative-caret-position="975">
           <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
@@ -923,9 +923,53 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ApplicationFiles/TestrWidgets/SiderbarWidget.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
+        <state relative-caret-position="3225">
           <caret line="138" column="107" lean-forward="false" selection-start-line="138" selection-start-column="107" selection-end-line="138" selection-end-column="107" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ApplicationFiles/Resources/QuestionClass.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2000">
+          <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="11" column="4" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ApplicationFiles/MainWindow.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2457">
+          <caret line="49" column="99" lean-forward="false" selection-start-line="49" selection-start-column="99" selection-end-line="49" selection-end-column="99" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ApplicationFiles/TestrWidgets/CodingWindow.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="162" column="111" lean-forward="false" selection-start-line="162" selection-start-column="111" selection-end-line="162" selection-end-column="111" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ApplicationFiles/TestrWidgets/GlossaryWidgets/Definitions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="96" column="0" lean-forward="true" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -12,9 +12,12 @@ class Definitions(QWidget):
     questionSelectedSignal = pyqtSignal(int)
     changePageSignal = pyqtSignal(int)
 
-    definitionTermList = ["Lists", "Loops", "Functions", "Classes"]
+    definitionLinks = {"Lists" : '<span><a href="https://stackoverflow.com/search?q=lists">Click for additional help.</a><span>',
+                       "Loops" : '<a href="https://stackoverflow.com/search?q=loops">Click for additional help.</a>',
+                       "Functions": '<a href="https://stackoverflow.com/search?q=functions">Click for additional help.</a>',
+                       "Classes" : '<a href="https://stackoverflow.com/search?q=classes">Click for additional help.</a>'}
                 #LISTS
-    definitionInfoList = ["The most basic data structure in Python is the sequence. Each element of a sequence is assigned a number - its position or index. "
+    definitionList = {"Lists" : "The most basic data structure in Python is the sequence. Each element of a sequence is assigned a number - its position or index. "
                           "The first index is zero, the second index is one, and so forth.\n\nPython has six built-in types of sequences, "
                           "but the most common ones are lists and tuples, which we would see in this tutorial.\nThere are certain things you can do with all sequence types. "
                           "These operations include indexing, slicing, adding, multiplying, and checking for membership. In addition, "
@@ -25,7 +28,7 @@ class Definitions(QWidget):
                           "list1 = [ \'physics\' ,  \'chemistry\' , 1997 , 2000];\nlist2 = [ 1 , 2 , 3 , 4 , 5 ];\nlist3 = "
                           "[ \"a\" , \"b\" , \"c\" , \"d\"]",
                #LOOPS
-                          "In general, statements are executed sequentially: The first statement in a funct"
+                          "Loops" : "In general, statements are executed sequentially: The first statement in a funct"
                           "ion is executed first, followed by the second, and so on. There may be a situat"
                           "ion when you need to execute a block of code several number of times.\n\nProgrammi"
                           "ng languages provide various control structures that allow for more complicated"
@@ -40,7 +43,7 @@ class Definitions(QWidget):
                           "\nNested loops - "
                           "You can use one or more loop inside any another while, for or do..while loop",
                 #FUNCTION
-                          "A function is a block of organized, reusable code that is used to perform a sing"
+                          "Functions" : "A function is a block of organized, reusable code that is used to perform a sing"
                           "le, related action. Functions provide better modularity for your application an"
                           "d a high degree of code reusing.\n\nAs you already know, Python gives you many bui"
                           "lt-in functions like print(), etc. but you can also create your own functions. "
@@ -60,7 +63,7 @@ class Definitions(QWidget):
                           "rd screen.\n\n"
                           "def printme( str ):\n   #This prints a passed string into this function\n   print(str)\n   return",
                  #CLASSES
-                          "Python has been an object-oriented language since it existed. Because of this, c"
+                          "Classes" : "Python has been an object-oriented language since it existed. Because of this, c"
                           "reating and using classes and objects are downright easy. This chapter helps yo"
                           "u become an expert in using Python's object-oriented programming support.\n\nIf yo"
                           "u do not have any previous experience with object-oriented (OO) programming, yo"
@@ -86,22 +89,28 @@ class Definitions(QWidget):
                           " __init__(self, name, salary):\n      self.name = name\n      self.salary = salar"
                           "y\n      Employee.empCount += 1\n   \n   def displayCount(self):\n     print(\"Total"
                           " Employee %d\") % Employee.empCount\n\ndef displayEmployee(self): \n    print(\"Name : \", self.name, \", Salary: \", self.salary)"
-                          ]
+                          }
 
     def __init__(self, parent=None):
 
         super(Definitions, self).__init__(parent)
-        self.resize(1000, 700)
 
-        self.table = QTableWidget(len(self.definitionTermList), 1)
+
+        self.table = QTableWidget(len(self.definitionList), 1)
+        self.table.setMaximumWidth(450)
+
 
         self.definitionTitle = QLabel("Definitions")
         self.termTitle = QLabel("Terms")
+
         font = QFont()
         font.setPointSize(16)
         self.definitionTitle.setFont(font)
         self.termTitle.setFont(font)
-        self.definitionInfo = QTextEdit("definition information")
+
+        self.definitionInfo = QTextBrowser()
+
+        self.definitionInfo.setOpenExternalLinks(True)
         self.definitionInfo.setReadOnly(True)
 
         self.defineLayout()
@@ -120,19 +129,30 @@ class Definitions(QWidget):
         questionListSide. addWidget(self.termTitle)
         questionListSide.addWidget(self.table)
 
+        #place holder for embedded hyperlink
+        self.tablespacer = QSpacerItem(100, 500, QSizePolicy.Expanding, QSizePolicy.Preferred)
+        #questionListSide.addItem(self.tablespacer)
+
         totalLayout = QHBoxLayout()
         totalLayout.addLayout(questionListSide)
         totalLayout.addLayout(questionInfoSide)
+
+
 
         self.setLayout(totalLayout)
         self.defineTable()
 
     def defineTable(self):
 
-        #define items in list
-        for i in range(len(self.definitionTermList)):
-            newTitle = QTableWidgetItem(self.definitionTermList[i])
-            self.table.setItem(i, 0, newTitle)
+        dictList = list()
+        for key in self.definitionList.keys() :
+            dictList.append(key)
+
+        dictList.sort()
+
+        for i in range(len(dictList)) :
+            dictItem = QTableWidgetItem(dictList[i])
+            self.table.setItem(i, 0, dictItem)
 
         self.table.horizontalHeader().hide()
         # hide vertical headers (no numbers)
@@ -153,16 +173,9 @@ class Definitions(QWidget):
 
     def definitionSelected(self):
         row = self.table.currentRow()
-        self.definitionInfo.setText(self.definitionInfoList[row])
-"""
-app = QApplication(sys.argv)
-form = Definitions()
-form.show()
-sys.exit(app.exec_())
-"""
+        tableText = self.table.item(row, 0).text()
 
+        self.definitionInfo.setText(self.definitionList[tableText])
 
-
-
-
-
+        self.definitionInfo.append("\n\n")
+        self.definitionInfo.append(self.definitionLinks[tableText])
