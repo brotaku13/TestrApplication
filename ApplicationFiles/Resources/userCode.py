@@ -1,2 +1,2 @@
 def isUnique(str):
-	biatch
+	save code

@@ -164,7 +164,7 @@ class CodingWindow(QWidget):
         self.sidebar.hintsAndHelpTab.hyperLinkLabel.setText(qc.questionList[qc.currentQuestionIndex].hyperlink)
 
         ## checks if code created exists, and loads that instead of template
-        if save.checkExists(qc.questionList[qc.currentQuestionIndex].title):
+        if save.checkExists():
             self.textEdit.setText(save.openCode())
         else:
             self.textEdit.setText(qc.questionList[qc.currentQuestionIndex].initialFunction)

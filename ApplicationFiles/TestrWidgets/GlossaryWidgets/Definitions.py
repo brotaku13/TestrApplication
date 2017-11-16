@@ -12,6 +12,8 @@ class Definitions(QWidget):
     questionSelectedSignal = pyqtSignal(int)
     changePageSignal = pyqtSignal(int)
 
+
+
     definitionLinks = {"Lists" : '<a href="https://stackoverflow.com/search?q=lists">Click for additional help.</a>',
                        "Loops" : '<a href="https://stackoverflow.com/search?q=loops">Click for additional help.</a>',
                        "Functions": '<a href="https://stackoverflow.com/search?q=functions">Click for additional help.</a>',
@@ -177,6 +179,7 @@ class Definitions(QWidget):
         tableText = self.table.item(row, 0).text()
 
         self.definitionInfo.setText(self.definitionList[tableText])
+
 
         self.definitionInfo.append("\n\n")
         #self.definitionInfo.append("<span>{}</span>".format(self.definitionLinks[tableText]))

@@ -29,6 +29,8 @@ class MainLoginWindow(QDialog):
         self.registrationPage.pageIndexSignal.connect(self.changePage)
         self.loginPage.pageIndexSignal.connect(self.changePage)
 
+
+
     @pyqtSlot()
     def acceptDialog(self):
 

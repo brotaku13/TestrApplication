@@ -9,6 +9,7 @@ class LoginPage(QWidget):
     acceptSignal = pyqtSignal()
     pageIndexSignal = pyqtSignal(int)
 
+
     def __init__(self, parent=None):
         super(LoginPage, self).__init__(parent)
 
@@ -108,7 +109,7 @@ class LoginPage(QWidget):
             save.saveAccount(self.userName)
 
             self.acceptSignal.emit()
-            print("accepted....")
+
         else:
             self.showLoginError()
             self.userNameField.setFocus()

@@ -2,6 +2,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 import ApplicationFiles.Resources.filepaths as path
+import ApplicationFiles.Resources.SaveInfo as save
 
 class RegistrationPage(QWidget):
 
@@ -92,6 +93,8 @@ class RegistrationPage(QWidget):
         self.lastName = self.lastName.title()
 
 
+
+
         try:
             self.checkName(self.firstName)
             self.checkName(self.lastName)
@@ -112,6 +115,10 @@ class RegistrationPage(QWidget):
             f = open(path.loginCredentialsPath, 'a')
             f.write("\n{};{}".format(self.username, self.password))
             f.close()
+
+            save.saveAccount(self.username)
+            save.createnewAccountInfo(self.firstName, self.lastName, self.email, self.username, "Path")
+
             self.emit_pageSignal_on_click()
 
     def checkEmail(self, email: str) -> bool:

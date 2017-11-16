@@ -6,6 +6,7 @@ import ApplicationFiles.Resources.filepaths as path
 from ApplicationFiles.TestrWidgets.navigationPage import NavigationPage
 from ApplicationFiles.TestrWidgets.GlossaryWidgets.Definitions import Definitions
 import ApplicationFiles.Resources.QuestionClass as qc
+
 import os
 import sys
 
@@ -48,6 +49,8 @@ class mainWindow(QMainWindow):
         self.codingWindow.updateShowAnswer.connect(self.codingWindow.sidebar.hintsAndHelpTab.stateCheck)
 
         self.codingWindow.sidebar.hintsAndHelpTab.changeToGlossary.connect(self.changePageIndexSlot)
+
+
 
 
     def mainWindowProperties(self):
