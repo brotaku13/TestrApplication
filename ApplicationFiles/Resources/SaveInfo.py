@@ -1,6 +1,7 @@
 import ApplicationFiles.Resources.filepaths as path
 import os
 import ApplicationFiles.Resources.QuestionClass as qc
+from shutil import copy2
 
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
@@ -72,18 +73,24 @@ def checkExists():
         return os.path.isfile(codeFilePath)
 
 
-def createnewAccountInfo(firstName, lastName, email, username, picturePath):
+def createnewAccountInfo(firstName, lastName, email, username, picturePath=''):
     global accountPath
+
+    if picturePath != '':
+        copy2(picturePath, accountPath)
+
+        file = picturePath.split('/')
+        pictureFileName = os.path.join(accountPath, file[-1])
+    else:
+        pictureFileName = ""
+
 
     infoList = [firstName, lastName, email, username]
     with open(accountPath + "\\AccountInfo.txt", 'w') as file:
         infoLine = ';'.join(infoList)
 
-
         file.write("info: " + infoLine + '\n')
-
-        file.write("PicturePath: " + picturePath + '\n')
-
+        file.write("PicturePath: " + pictureFileName + '\n')
         file.write("ProblemsSolved: 0" + '\n')
         file.write("AverageTimePerProblem: 0.00" + '\n')
         file.write("TotalTimeSpent: 0.00" + '\n')

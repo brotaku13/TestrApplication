@@ -1,2 +1,2 @@
-firstname;lastname;email;username
-filepathofpicture
+accountInfo: firstname;lastname;email;username
+pictureFilePath: ApplicationFiles/Resources/Users/a/userPicture.png

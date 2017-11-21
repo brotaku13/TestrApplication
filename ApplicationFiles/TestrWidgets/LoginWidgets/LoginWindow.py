@@ -39,3 +39,4 @@ class MainLoginWindow(QDialog):
     @pyqtSlot(int)
     def changePage(self, index):
         self.stack.setCurrentIndex(index)
+        self.registrationPage.pictureFilePath.setText('')

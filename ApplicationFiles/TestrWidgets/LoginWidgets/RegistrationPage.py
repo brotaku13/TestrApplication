@@ -11,7 +11,13 @@ class RegistrationPage(QWidget):
 
     def __init__(self, parent=None):
         super(RegistrationPage, self).__init__(parent)
+        font = QFont()
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setFamily("Helvetica")
+
         self.nameLabel = QLabel("Name")
+        self.nameLabel.setFont(font)
 
         self.firstNameField = QLineEdit()
         self.firstNameLabel = QLabel("First")
@@ -22,16 +28,27 @@ class RegistrationPage(QWidget):
         self.lastNameLabel.setAlignment(Qt.AlignTop)
 
         self.emailLabel = QLabel("Email")
+        self.emailLabel.setFont(font)
         self.emailField = QLineEdit()
 
         self.userNameLabel = QLabel("Username")
+        self.userNameLabel.setFont(font)
         self.userNameField = QLineEdit()
 
         self.passwordLabel = QLabel("Password")
+        self.passwordLabel.setFont(font)
         self.passwordField = QLineEdit()
 
         self.regiserBtn = QPushButton("Register")
         self.cancelBtn = QPushButton("Cancel")
+
+        self.selectPicture = QLabel("Select an Account Picture")
+        self.selectPictureButton = QPushButton("...")
+        self.selectPictureButton.setMaximumWidth(40)
+        self.selectPictureButton.setMaximumHeight(30)
+        self.pictureFilePath = QLabel()
+
+        self.filePath = ''
 
         self.defineButtonClick()
         self.defineLayout()
@@ -46,6 +63,8 @@ class RegistrationPage(QWidget):
         form.addWidget(self.lastNameField, 1, 1)
         form.addWidget(self.firstNameLabel, 2, 0)
         form.addWidget(self.lastNameLabel, 2, 1)
+        vspacer3 = QSpacerItem(0, 50, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        form.addItem(vspacer3, 3, 1)
         form.addWidget(self.emailLabel, 3, 0)
         form.addWidget(self.emailField, 4, 0, 1, 2)
         form.addWidget(self.userNameLabel, 5, 0)
@@ -53,16 +72,31 @@ class RegistrationPage(QWidget):
         form.addWidget(self.passwordLabel, 7, 0)
         form.addWidget(self.passwordField, 8, 0, 1, 2)
 
+
         buttonLayout = QHBoxLayout()
         buttonLayout.addWidget(self.regiserBtn)
         buttonLayout.addWidget(self.cancelBtn)
+
+        selectPictureLayout = QVBoxLayout()
+        pictureLabelAndButton = QHBoxLayout()
+        pictureLabelAndButton.addWidget(self.selectPicture)
+        hspacer = QSpacerItem(20, 50, QSizePolicy.Expanding, QSizePolicy.Preferred)
+        pictureLabelAndButton.addWidget(self.selectPictureButton)
+        pictureLabelAndButton.addItem(hspacer)
+
+        selectPictureLayout.addLayout(pictureLabelAndButton)
+        selectPictureLayout.addWidget(self.pictureFilePath)
+
+
 
         totalFormLayout = QVBoxLayout()
         vspacer1 = QSpacerItem(20, 100, QSizePolicy.Expanding, QSizePolicy.Preferred)
         totalFormLayout.addItem(vspacer1)
 
         totalFormLayout.addLayout(form)
-        vspacer2 = QSpacerItem(20, 100, QSizePolicy.Expanding, QSizePolicy.Preferred)
+        totalFormLayout.addLayout(selectPictureLayout)
+
+        vspacer2 = QSpacerItem(0, 100, QSizePolicy.Expanding, QSizePolicy.Minimum)
         totalFormLayout.addItem(vspacer2)
         totalFormLayout.addLayout(buttonLayout)
 
@@ -71,9 +105,26 @@ class RegistrationPage(QWidget):
     def defineButtonClick(self):
         self.regiserBtn.clicked.connect(self.registerUser)
         self.cancelBtn.clicked.connect(self.emit_pageSignal_on_click)
+        self.selectPictureButton.clicked.connect(self.openFileDialog)
 
     def emit_pageSignal_on_click(self):
         self.pageIndexSignal.emit(0)
+
+    def openFileDialog(self):
+        options = QFileDialog.Options()
+        options = QFileDialog.DontUseNativeDialog
+        fileName = QFileDialog.getOpenFileName(self, "QSelect an Account Picture", "",
+                                                  "Images (*.png *.bmp *.jpg)", options=options)
+        if fileName != '':
+            #split file to get filename
+            file = fileName[0].split('/')
+            pictureFileName = file[-1]
+
+            self.pictureFilePath.setText(pictureFileName)
+
+            self.filePath = fileName[0]
+
+
 
     """
     function which retrieves information from user and stores in variables
@@ -92,9 +143,6 @@ class RegistrationPage(QWidget):
         self.firstName = self.firstName.title()
         self.lastName = self.lastName.title()
 
-
-
-
         try:
             self.checkName(self.firstName)
             self.checkName(self.lastName)
@@ -102,6 +150,7 @@ class RegistrationPage(QWidget):
             self.checkUsername(self.username)
             self.checkPassword(self.password)
             noAcceptionsThrown = True
+
         except name_exception as e:
             self.showRegisterError("Name Error", e)
         except email_exception as e:
@@ -117,7 +166,7 @@ class RegistrationPage(QWidget):
             f.close()
 
             save.saveAccount(self.username)
-            save.createnewAccountInfo(self.firstName, self.lastName, self.email, self.username, "Path")
+            save.createnewAccountInfo(self.firstName, self.lastName, self.email, self.username, self.filePath)
 
             self.emit_pageSignal_on_click()
 

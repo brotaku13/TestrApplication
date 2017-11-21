@@ -1,0 +1,6 @@
+accountInfo: Brian;Caulfield;Brian.caulfield13@gmail.com;Brotaku13
+PicturePath: C:/Users/brian/Documents/Programming/Python/pythonProjects/Testr/ApplicationFiles/Resources/Users/admin/userPicture.jpg
+ProblemsSolved: 0
+AverageTimePerProblem: 0.00
+TotalTimeSpent: 0.00
+RecentProblems:

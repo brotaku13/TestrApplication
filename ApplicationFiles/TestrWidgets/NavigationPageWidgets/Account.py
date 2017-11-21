@@ -54,6 +54,8 @@ class Account(QWidget):
         nameLayout = QHBoxLayout()
         nameLayout.addWidget(self.firstName)
         nameLayout.addWidget(self.lastName)
+        hspacer3 = QSpacerItem(20, 50, QSizePolicy.Expanding, QSizePolicy.Preferred)
+        nameLayout.addItem(hspacer3)
 
         userNameLayout = QVBoxLayout()
         userNameLayout.addWidget(self.username)
