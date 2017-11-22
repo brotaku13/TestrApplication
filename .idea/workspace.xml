@@ -2,14 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3b002da5-7696-4a58-b39c-1aa33b096dff" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ApplicationFiles/Resources/Users/admin/userPicture.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ApplicationFiles/Resources/userCode.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ApplicationFiles/Resources/SaveInfo.py" afterPath="$PROJECT_DIR$/ApplicationFiles/Resources/SaveInfo.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ApplicationFiles/Resources/Users/a/AccountInfo.txt" afterPath="$PROJECT_DIR$/ApplicationFiles/Resources/Users/a/AccountInfo.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ApplicationFiles/Resources/Users/admin/AccountInfo.txt" afterPath="$PROJECT_DIR$/ApplicationFiles/Resources/Users/admin/AccountInfo.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ApplicationFiles/Resources/loginInformation.txt" afterPath="$PROJECT_DIR$/ApplicationFiles/Resources/loginInformation.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/LoginWidgets/LoginWindow.py" afterPath="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/LoginWidgets/LoginWindow.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/LoginWidgets/RegistrationPage.py" afterPath="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/LoginWidgets/RegistrationPage.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/GlossaryWidgets/Definitions.py" afterPath="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/GlossaryWidgets/Definitions.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/NavigationPageWidgets/Account.py" afterPath="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/NavigationPageWidgets/Account.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/SiderbarWidget.py" afterPath="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/SiderbarWidget.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,48 +24,14 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="Account.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ApplicationFiles/TestrWidgets/NavigationPageWidgets/Account.py">
+      <file leaf-file-name="Definitions.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ApplicationFiles/TestrWidgets/GlossaryWidgets/Definitions.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="23" column="8" lean-forward="false" selection-start-line="23" selection-start-column="8" selection-end-line="25" selection-end-column="39" />
+            <state relative-caret-position="450">
+              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding>
-                <element signature="e#0#26#0" expanded="true" />
+                <element signature="e#1#26#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SaveInfo.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ApplicationFiles/Resources/SaveInfo.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2050">
-              <caret line="82" column="51" lean-forward="false" selection-start-line="82" selection-start-column="51" selection-end-line="82" selection-end-column="51" />
-              <folding>
-                <element signature="e#0#51#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RegistrationPage.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ApplicationFiles/TestrWidgets/LoginWidgets/RegistrationPage.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="168" column="0" lean-forward="false" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
-              <folding>
-                <element signature="e#1827#3601#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginWindow.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ApplicationFiles/TestrWidgets/LoginWidgets/LoginWindow.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="875">
-              <caret line="41" column="57" lean-forward="false" selection-start-line="41" selection-start-column="57" selection-end-line="41" selection-end-column="57" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -91,29 +57,30 @@
         <option value="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/SidebarWidgets/QuestionInformation.py" />
         <option value="$PROJECT_DIR$/ApplicationFiles/Resources/QuestionClass.py" />
         <option value="$PROJECT_DIR$/ApplicationFiles/Resources/filepaths.py" />
-        <option value="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/SiderbarWidget.py" />
         <option value="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/CodingWindow.py" />
         <option value="$PROJECT_DIR$/ApplicationFiles/Resources/loginInformation.txt" />
         <option value="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/navigationPage.py" />
         <option value="$PROJECT_DIR$/ApplicationFiles/MainWindow.py" />
         <option value="$PROJECT_DIR$/Main.py" />
-        <option value="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/GlossaryWidgets/Definitions.py" />
         <option value="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/LoginWidgets/LoginPage.py" />
         <option value="$PROJECT_DIR$/ApplicationFiles/Resources/Users/brian/AccountInfo.txt" />
         <option value="$PROJECT_DIR$/ApplicationFiles/Resources/Users/a/AccountInfo.txt" />
-        <option value="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/NavigationPageWidgets/Account.py" />
         <option value="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/LoginWidgets/LoginWindow.py" />
         <option value="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/LoginWidgets/RegistrationPage.py" />
+        <option value="$PROJECT_DIR$/ApplicationFiles/Resources/Users/username/AccountInfo.txt" />
+        <option value="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/NavigationPageWidgets/Account.py" />
+        <option value="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/SiderbarWidget.py" />
         <option value="$PROJECT_DIR$/ApplicationFiles/Resources/Users/admin/AccountInfo.txt" />
         <option value="$PROJECT_DIR$/ApplicationFiles/Resources/SaveInfo.py" />
+        <option value="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/GlossaryWidgets/Definitions.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-11" />
     <option name="y" value="-11" />
-    <option name="width" value="1942" />
-    <option name="height" value="1102" />
+    <option name="width" value="1934" />
+    <option name="height" value="1094" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -130,7 +97,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -303,6 +269,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="username" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Testr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Testr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ApplicationFiles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Users" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="admin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -335,6 +327,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -601,19 +594,19 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="1942" height="1102" extended-state="7" />
+    <frame x="-11" y="-11" width="1934" height="1094" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20901857" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2088439" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852387" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3281075" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39955604" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39865622" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -635,7 +628,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="61" />
+      <option name="time" value="65" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -761,27 +754,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ApplicationFiles/TestrWidgets/NavigationPageWidgets/QuestionBrowser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2625">
-          <caret line="109" column="0" lean-forward="false" selection-start-line="109" selection-start-column="0" selection-end-line="114" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ApplicationFiles/TestrWidgets/CodingWindow.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="166" column="0" lean-forward="false" selection-start-line="166" selection-start-column="0" selection-end-line="166" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ApplicationFiles/TestrWidgets/SiderbarWidget.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="814">
-          <caret line="45" column="27" lean-forward="false" selection-start-line="45" selection-start-column="27" selection-end-line="45" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ApplicationFiles/TestrWidgets/navigationPage.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
@@ -789,45 +761,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="10" column="27" lean-forward="false" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ApplicationFiles/TestrWidgets/GlossaryWidgets/Definitions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="643">
-          <caret line="181" column="8" lean-forward="false" selection-start-line="181" selection-start-column="8" selection-end-line="181" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ApplicationFiles/MainWindow.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-400">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ApplicationFiles/TestrWidgets/SidebarWidgets/HintsAndHelp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="889">
-          <caret line="52" column="0" lean-forward="true" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ApplicationFiles/TestrWidgets/SidebarWidgets/QuestionInformation.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
           <caret line="12" column="8" lean-forward="false" selection-start-line="12" selection-start-column="8" selection-end-line="14" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/ntpath.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -846,21 +783,124 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ApplicationFiles/Resources/Users/brianAccountInfo.txt" />
-    <entry file="file://$PROJECT_DIR$/ApplicationFiles/Resources/userCode.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/ApplicationFiles/Resources/userCode.py" />
     <entry file="file://$PROJECT_DIR$/ApplicationFiles/Resources/Users/brian.caulfield/AccountInfo.txt" />
     <entry file="file://$PROJECT_DIR$/ApplicationFiles/Resources/Users/brian/userPicture.png" />
     <entry file="file://$PROJECT_DIR$/ApplicationFiles/Resources/Users/brian/AccountInfo.txt" />
     <entry file="file://$PROJECT_DIR$/ApplicationFiles/Resources/Users/brotaku13/AccountInfo.txt" />
     <entry file="file://$PROJECT_DIR$/ApplicationFiles/Resources/Users/brian2/AccountInfo.txt" />
-    <entry file="file://$PROJECT_DIR$/ApplicationFiles/Resources/Users/admin/userPicture.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
+    <entry file="file://$PROJECT_DIR$/ApplicationFiles/Resources/Users/admin/userPicture.png" />
+    <entry file="file://$PROJECT_DIR$/ApplicationFiles/Resources/filepaths.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="10" column="120" lean-forward="false" selection-start-line="10" selection-start-column="120" selection-end-line="10" selection-end-column="120" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ApplicationFiles/Resources/Users/TheBest/AccountInfo.txt" />
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/shutil.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="96" column="0" lean-forward="false" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ApplicationFiles/Resources/Users/username/userPicture.jpg" />
+    <entry file="file://$PROJECT_DIR$/ApplicationFiles/TestrWidgets/LoginWidgets/RegistrationPage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-769">
+          <caret line="168" column="0" lean-forward="false" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ApplicationFiles/TestrWidgets/LoginWidgets/LoginWindow.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="875">
+          <caret line="41" column="57" lean-forward="false" selection-start-line="41" selection-start-column="57" selection-end-line="41" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ApplicationFiles/TestrWidgets/LoginWidgets/LoginPage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="106">
+          <caret line="109" column="0" lean-forward="false" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ApplicationFiles/Resources/Users/username/AccountInfo.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="1" column="125" lean-forward="false" selection-start-line="1" selection-start-column="125" selection-end-line="1" selection-end-column="125" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/ntpath.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ApplicationFiles/TestrWidgets/SidebarWidgets/HintsAndHelp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1225">
+          <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ApplicationFiles/TestrWidgets/CodingWindow.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4025">
+          <caret line="166" column="0" lean-forward="false" selection-start-line="166" selection-start-column="0" selection-end-line="166" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ApplicationFiles/Resources/SaveInfo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3200">
+          <caret line="131" column="22" lean-forward="false" selection-start-line="131" selection-start-column="22" selection-end-line="131" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ApplicationFiles/TestrWidgets/NavigationPageWidgets/Account.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="101" column="0" lean-forward="false" selection-start-line="101" selection-start-column="0" selection-end-line="104" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#1664#3132#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="10" column="27" lean-forward="false" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ApplicationFiles/MainWindow.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="18" column="8" lean-forward="false" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ApplicationFiles/TestrWidgets/NavigationPageWidgets/QuestionBrowser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="806">
+          <caret line="106" column="0" lean-forward="true" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ApplicationFiles/Resources/Users/a/AccountInfo.txt">
@@ -871,35 +911,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ApplicationFiles/Resources/filepaths.py">
+    <entry file="file://$PROJECT_DIR$/ApplicationFiles/TestrWidgets/SiderbarWidget.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="10" column="120" lean-forward="false" selection-start-line="10" selection-start-column="120" selection-end-line="10" selection-end-column="120" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ApplicationFiles/TestrWidgets/LoginWidgets/LoginPage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="109" column="0" lean-forward="false" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ApplicationFiles/Resources/Users/TheBest/AccountInfo.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="5" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36-32/Lib/shutil.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="96" column="0" lean-forward="false" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="541">
+          <caret line="158" column="0" lean-forward="false" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -911,54 +929,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ApplicationFiles/TestrWidgets/LoginWidgets/RegistrationPage.py">
+    <entry file="file://$PROJECT_DIR$/ApplicationFiles/TestrWidgets/GlossaryWidgets/Definitions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="168" column="0" lean-forward="false" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
+        <state relative-caret-position="450">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding>
-            <element signature="e#1827#3601#0" expanded="false" />
+            <element signature="e#1#26#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ApplicationFiles/TestrWidgets/NavigationPageWidgets/Account.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="23" column="8" lean-forward="false" selection-start-line="23" selection-start-column="8" selection-end-line="25" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ApplicationFiles/Resources/Users/username/userPicture.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ApplicationFiles/Resources/Users/username/AccountInfo.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ApplicationFiles/Resources/SaveInfo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2050">
-          <caret line="82" column="51" lean-forward="false" selection-start-line="82" selection-start-column="51" selection-end-line="82" selection-end-column="51" />
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ApplicationFiles/TestrWidgets/LoginWidgets/LoginWindow.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="875">
-          <caret line="41" column="57" lean-forward="false" selection-start-line="41" selection-start-column="57" selection-end-line="41" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>

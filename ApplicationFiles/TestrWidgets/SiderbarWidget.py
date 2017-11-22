@@ -139,7 +139,8 @@ class Sidebar(QWidget):
                 testNumber += 1
 
             self.questionInformationTab.grade.setText("{:d}%".format(int((testsPassed / testNumber) * 100)))
-
+            if int((testsPassed / testNumber) * 100) == 100:
+                save.incrementProblemsSolved()
         else:
             self.showError("Function was not found. Do not delete the original function name.")
 

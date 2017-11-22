@@ -15,6 +15,8 @@ class Account(QWidget):
 
         self.picture.load(save.getInfo("picturePath"))
         self.pictureLabel.setPixmap(self.picture)
+        self.pictureLabel.setMaximumHeight(250)
+        self.pictureLabel.setMaximumWidth(250)
 
         userNameFont = QFont()
         userNameFont.setPointSize(30)
@@ -39,7 +41,7 @@ class Account(QWidget):
         self.email = QLabel(save.getInfo("email"))
         self.email.setFont(nameFont)
 
-        self.questionsCompletedLabel = QLabel("Questions completed: ")
+        self.questionsCompletedLabel = QLabel("Questions completed: {}".format(save.getProblemsSolved()))
         self.averageTimePerQuestion = QLabel("Average time per question: ")
         self.totalTime = QLabel("Total Time spent in Program: ")
 
@@ -90,6 +92,8 @@ class Account(QWidget):
         totalLayout.addLayout(rightSide)
 
         self.setLayout(totalLayout)
+
+
 
 
 

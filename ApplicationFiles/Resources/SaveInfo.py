@@ -3,10 +3,6 @@ import os
 import ApplicationFiles.Resources.QuestionClass as qc
 from shutil import copy2
 
-from PyQt5.QtCore import *
-from PyQt5.QtGui import *
-from PyQt5.QtWidgets import *
-
 accountPath = ""
 loggedIn = False
 
@@ -23,7 +19,6 @@ def saveAccount(userName):
     else:
         os.makedirs(userDirectory)
         accountPath = userDirectory
-
 
     loggedIn = True
 
@@ -126,4 +121,26 @@ def getInfo(type):
             pictureInfo = lines[1].split(' ')
             return pictureInfo[1].strip()
 
+def getProblemsSolved():
+    global accountPath
+    accountInfoPath = os.path.join(accountPath, "AccountInfo.txt")
+
+    with open(accountInfoPath, 'r') as file:
+        lines = file.readlines()
+        info = lines[2].split(' ')
+
+        return info[1]
+
+def incrementProblemsSolved():
+    global accountPath
+    accountInfoPath = os.path.join(accountPath, "AccountInfo.txt")
+
+    lines = open(accountInfoPath, 'r').readlines()
+    info = lines[2].split(' ')
+    numProblems = int(info[1].strip())
+    numProblems += 1
+    lines[2] = "{} {}\n".format(info[0], numProblems)
+    out = open(accountInfoPath, 'w')
+    out.writelines(lines)
+    out.close()
 
