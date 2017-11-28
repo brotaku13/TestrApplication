@@ -28,6 +28,7 @@ class Question():
         self.answerShown = False
         self.answer = ""
         self.hyperlink = ""
+        self.questionDifficulty = 0
 
 
 questionList = []
@@ -57,6 +58,7 @@ isUnique.answer = "# Assuming character set is ASCII (128 characters)\n    i" \
 ":\n            # Char already found in string\n            return False\n        c" \
 "har_set[val] = True\n\n    return True"
 isUnique.hyperlink = '<a href="https://www.youtube.com/watch?v=UqEU-obRUnI">Need more help?</a>'
+isUnique.questionDifficulty = 2
 questionList.append(isUnique)
 
 
@@ -80,6 +82,7 @@ URLify.hintList.append("Try building a string and when you encounter a space add
 URLify.example = "For instance, \"Interviews are important!\" will become \"Interviews%20are%20important!\""
 URLify.answer = URLify.answer = "import string\nimport re\n\ndef URLify(string):\n\tstring = string.strip()\n\tstring = re.sub(r\"[\s+]\", '%20', string)\n\n\treturn string"
 URLify.hyperlink = '<a href="https://www.youtube.com/watch?v=IlsikVwUffI">Need more help?</a>'
+URLify.questionDifficulty = 1
 questionList.append(URLify)
 
 
@@ -102,6 +105,7 @@ conversion.hintList.append("Think about what an XOR indicates. If you do a XOR b
 conversion.example = "Input: 29 (or: 11101), 15 (or: 01111) \nOutput: 2"
 conversion.answer = "Answer goes here"
 conversion.hyperlink = '<a href="https://www.youtube.com/watch?v=frwqnS9ICxw">Need more help?</a>'
+conversion.questionDifficulty = 2
 questionList.append(conversion)
 
 
@@ -131,6 +135,7 @@ tripleStep.answer = "def tripleStep(num):\n\tif num < 0:\n\t\treturn 0\n\tif num
 "0]\n\tif num > 2:\n\t\tfor i in range(3, num + 1):\n\t\t\tmemo[i] = memo[i - 1] + memo[i - 2" \
 "] + memo[i - 3]\n\treturn memo[num]"
 tripleStep.hyperlink = '<a href="https://www.youtube.com/watch?v=urF1XreNtXI">Need more help?</a>'
+tripleStep.questionDifficulty = 3
 questionList.append(tripleStep)
 
 #jonathon done
@@ -156,6 +161,7 @@ romanInteger.answer = "    roman = {'I':1, 'V':5, 'X':10, 'L':50, 'C':100, 'D':5
 "an[num[index+1]] else -1\n        total += type*roman[num[index]]\n    return total +"
 " roman[num[len(num)-1]]"
 romanInteger.hyperlink = '<a href="https://www.youtube.com/watch?v=os4x1oFB9iY">Need more help?</a>'
+romanInteger.questionDifficulty = 4
 questionList.append(romanInteger)
 
 
@@ -179,6 +185,7 @@ oneAway.hintList.append("Check to make sure that you are iterating through the s
 oneAway.example = "if str1 = 'Coding' and str2 = 'Coing, then you would return True, as the two strings are only 1 edit away (inserting d). Also, if str1 = 'Tester' and str2 = 'tastr' then you would return false, as there are two edits that would need to be performed."
 oneAway.answer = ""
 oneAway.hyperlink = '<a href="https://www.youtube.com/watch?v=nYFd7VHKyWQ">Need more help?</a>'
+oneAway.questionDifficulty = 5
 questionList.append(oneAway)
 
 
@@ -201,6 +208,7 @@ charCounter.hintList.append("Slice the string!")
 charCounter.example = "For instance, if you have the word 'Coding', it would return 'oding'"
 charCounter.answer = "return str1[1:]"
 charCounter.hyperlink = '<a href="https://www.youtube.com/watch?v=k9TUPpGqYTo">Need more help?</a>'
+charCounter.questionDifficulty = 1
 questionList.append(charCounter)
 
 elementPrint = Question()
@@ -221,6 +229,7 @@ elementPrint.hintList.append("don't worry about negatives ")
 elementPrint.example = "For e.g. if you were given 10, you would\
 print 1 on the first line and 0 on the second"
 elementPrint.answer = "    for i in str(num):\n        print(i)"
+elementPrint.questionDifficulty = 1
 questionList.append(elementPrint)
 
 negativeCheck = Question()
@@ -241,6 +250,7 @@ negativeCheck.hintList.append(" 0 is not a negative nor positive number ")
 negativeCheck.example = "For instance, if you're given '10', \
 you would return False because 10 is positive and not negative"
 negativeCheck.answer = "return num < 0"
+negativeCheck.questionDifficulty = 1
 questionList.append(negativeCheck)
 
 helloUser = Question()
@@ -260,4 +270,5 @@ helloUser.hintList.append("Don't forget the period")
 helloUser.hintList.append(" Remember spacing ")
 helloUser.example = "For instance, if you're given 'Charles', you would print \"Hello, Charles\""
 helloUser.answer = "return 'Hello, {}.'.format(name)"
+helloUser.questionDifficulty = 1
 questionList.append(helloUser)

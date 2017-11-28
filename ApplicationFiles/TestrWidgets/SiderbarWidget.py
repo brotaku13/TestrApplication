@@ -10,6 +10,8 @@ import ApplicationFiles.Resources.SaveInfo as save
 import os
 import importlib
 
+#added
+import ApplicationFiles.Resources.filepaths as imagePath
 
 class Sidebar(QWidget):
 
@@ -21,9 +23,9 @@ class Sidebar(QWidget):
 
         self.hintsAndHelpTab = HintsAndHelp()
         self.questionInformationTab = QuestionInformation()
+
         self.sidebarPages.addWidget(self.questionInformationTab)
         self.sidebarPages.addWidget(self.hintsAndHelpTab)
-
         self.runCodeButton = QPushButton("Run Code")
 
 
@@ -39,6 +41,21 @@ class Sidebar(QWidget):
         self.questionInformationTab.questionTextBox.setText(qc.questionList[qc.currentQuestionIndex].questionInformation)
         self.questionInformationTab.exampleTextBox.setText(qc.questionList[qc.currentQuestionIndex].example)
         self.hintsAndHelpTab.resetHints()
+#added
+        if(qc.questionList[qc.currentQuestionIndex].questionDifficulty == 1) :
+            starPix = QPixmap(imagePath.star1)
+        elif(qc.questionList[qc.currentQuestionIndex].questionDifficulty == 2) :
+            starPix = QPixmap(imagePath.star2)
+        elif(qc.questionList[qc.currentQuestionIndex].questionDifficulty == 3):
+            starPix = QPixmap(imagePath.star3)
+        elif(qc.questionList[qc.currentQuestionIndex].questionDifficulty == 4):
+            starPix = QPixmap(imagePath.star4)
+        elif(qc.questionList[qc.currentQuestionIndex].questionDifficulty == 5):
+            starPix = QPixmap(imagePath.star5)
+
+        starPix = starPix.scaled(150, 2000, Qt.KeepAspectRatio)
+        self.questionInformationTab.questionDiff1.setPixmap(starPix)
+        self.questionInformationTab.questionDiff1.setAlignment(Qt.AlignBottom | Qt.AlignRight)
 
     @pyqtSlot(str)
     def runUserCode(self, code):
@@ -139,8 +156,7 @@ class Sidebar(QWidget):
                 testNumber += 1
 
             self.questionInformationTab.grade.setText("{:d}%".format(int((testsPassed / testNumber) * 100)))
-            if int((testsPassed / testNumber) * 100) == 100:
-                save.incrementProblemsSolved()
+
         else:
             self.showError("Function was not found. Do not delete the original function name.")
 

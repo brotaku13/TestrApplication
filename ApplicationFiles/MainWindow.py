@@ -134,6 +134,22 @@ class mainWindow(QMainWindow):
         self.menuBar.addAction(self.glossaryPage)
 
 
+    def showAbout(self):
+        about = QMessageBox()
+        about.information()
+        about.setText("\t\tAbout the programmers\nPhillip Nguyen: Being the youngest programmer in Five Guys, Phillip"
+                      " had to show that he was no joke, he helped by keeping morale high and provided comedic relief"
+                      " he helped with the overall quirks of the project, including this 'about' operation of Testr. "
+                      "\nJonathan Ishii: Jonathan was a great member of Testr, he often helped manage and clean up code"
+                      " for Testr, he also has a dog and a great smile. "
+                      "\nBrian Caulfield: Brian is the most eager of Testr. Hailing from Boston, Massachusetts,"
+                      " Brian sure loves to work hard and program, this entire software would not be possible without him."
+                      "\nNhat Le: Born in Vietnam, Nhat knows how to work hard... or rather work smart, Nhat is clever "
+                      " and is always trying to shorten code or write less or write code that is more efficient."
+                      "\nCarlos Jimenez: Last but, absolutely not least is Carlos Jimenez. Carlos Jimenez is very innovative."
+                      " Some of the very most vital functions of Testr were implemented by Carlos, not only that, he may be "
+                      "your boss someday.")
+
 
     def defineStyleSheets(self):
         self.setStyleSheet("""

@@ -1,15 +1,20 @@
-
+from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 import sys
 from bs4 import BeautifulSoup
 import requests
-
+from PyQt5.QtWebEngineWidgets import *
 
 
 class Definitions(QWidget):
 
     def __init__(self, parent=None):
+
+
+        self.web = QWebEngineView()
+        self.web.setMaximumWidth(450)
+        self.web.setMaximumHeight(380)
 
         super(Definitions, self).__init__(parent)
         self.resize(1300, 900)
@@ -47,10 +52,10 @@ class Definitions(QWidget):
         questionListSide = QVBoxLayout()
         questionListSide. addWidget(self.termTitle)
         questionListSide.addWidget(self.table)
+        questionListSide.addWidget(self.web)
 
         #place holder for embedded hyperlink
         self.tablespacer = QSpacerItem(100, 500, QSizePolicy.Expanding, QSizePolicy.Preferred)
-
 
         totalLayout = QHBoxLayout()
         totalLayout.addLayout(questionListSide)
@@ -106,6 +111,11 @@ class Definitions(QWidget):
 
     def definitionSelected(self):
         #determining which item has been selected
+
+        #Weblist for the video URLs
+        webList = [""""""]
+        ######
+
         currentItemIndex = self.table.currentRow()
         pageList = [page for page in self.URLDict.keys()]
 
@@ -128,3 +138,12 @@ class Definitions(QWidget):
 
 
         self.definitionInfo.setText(pageText)
+
+        htmlString = """<iframe width="460" height="315" src="http://www.youtube.com/embed/ZDa-Z5JzLYM?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>"""
+
+        self.web.settings().setAttribute(QWebEngineSettings.FullScreenSupportEnabled, True)
+        self.web.page().fullScreenRequested.connect(lambda request: request.accept())
+        baseUrl = "local"
+        self.web.setHtml(htmlString, QUrl(baseUrl))
+
+

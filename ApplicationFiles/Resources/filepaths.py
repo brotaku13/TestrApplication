@@ -9,3 +9,14 @@ userCodeSavePath = "C:\\Users\\brian\\Documents\\Programming\\Python\\pythonProj
 mainWindowIcon = "C:\\Users\\brian\\Documents\\Programming\\Python\\pythonProjects\\Testr\\ApplicationFiles\\Resources\\test_passed-512.png"
 
 UsersDirectory = "C:\\Users\\brian\\Documents\\Programming\\Python\\pythonProjects\\Testr\\ApplicationFiles\\Resources\\Users"
+
+star1 = "C:\\Users\\brian\\Documents\\Programming\\Python\\pythonProjects\\Testr\\ApplicationFiles\\Resources\\Star1.png"
+
+star2 = "C:\\Users\\brian\\Documents\\Programming\\Python\\pythonProjects\\Testr\\ApplicationFiles\\Resources\\Star2.png"
+
+star3 = "C:\\Users\\brian\\Documents\\Programming\\Python\\pythonProjects\\Testr\\ApplicationFiles\\Resources\\Star3.png"
+
+star4 = "C:\\Users\\brian\\Documents\\Programming\\Python\\pythonProjects\\Testr\\ApplicationFiles\\Resources\\Star4.png"
+
+star5 = "C:\\Users\\brian\\Documents\\Programming\\Python\\pythonProjects\\Testr\\ApplicationFiles\\Resources\\Star5.png"
+

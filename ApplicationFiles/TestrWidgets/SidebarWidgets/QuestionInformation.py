@@ -3,6 +3,9 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 import ApplicationFiles.Resources.QuestionClass as qc
 
+#added
+import ApplicationFiles.Resources.filepaths as imagePath
+
 class QuestionInformation(QWidget):
 
     def __init__(self, parent=None):
@@ -15,6 +18,26 @@ class QuestionInformation(QWidget):
         labelFont.setFamily("Trebuchet MS")
         self.questionInfoLabel.setFont(labelFont)
         self.questionInfoLabel.setAlignment(Qt.AlignBottom | Qt.AlignLeft)
+#added
+        self.questionDiff1 = QLabel()
+        self.diffHBox = QHBoxLayout()
+        self.diffHBox.addWidget(self.questionInfoLabel)
+
+        if(qc.questionList[qc.currentQuestionIndex].questionDifficulty == 1) :
+            starPix = QPixmap(imagePath.star1)
+        elif(qc.questionList[qc.currentQuestionIndex].questionDifficulty == 2) :
+            starPix = QPixmap(imagePath.star2)
+        elif(qc.questionList[qc.currentQuestionIndex].questionDifficulty == 3):
+            starPix = QPixmap(imagePath.star3)
+        elif(qc.questionList[qc.currentQuestionIndex].questionDifficulty == 4):
+            starPix = QPixmap(imagePath.star4)
+        elif(qc.questionList[qc.currentQuestionIndex].questionDifficulty == 5):
+            starPix = QPixmap(imagePath.star5)
+
+        starPix = starPix.scaled(150, 2000, Qt.KeepAspectRatio)
+        self.questionDiff1.setPixmap(starPix)
+        self.questionDiff1.setAlignment(Qt.AlignBottom | Qt.AlignRight)
+        self.diffHBox.addWidget(self.questionDiff1)
 
         # Question information...
         self.questionTextBox = QTextEdit()
@@ -60,7 +83,11 @@ class QuestionInformation(QWidget):
 
         # setting up the layout
         infoLayout = QVBoxLayout()
-        infoLayout.addWidget(self.questionInfoLabel)
+#added
+        infoLayout.addLayout(self.diffHBox)
+#removed
+        #infoLayout.addWidget(self.questionInfoLabel)
+
         infoLayout.addWidget(self.questionTextBox)
         infoLayout.addWidget(self.exampleLabel)
         infoLayout.addWidget(self.exampleTextBox)
@@ -90,7 +117,5 @@ class QuestionInformation(QWidget):
         for i in range(neededRows):
             self.report.insertRow(self.report.rowCount())
 
-
-
-
-
+#added
+ #   def updateQuestionDifficulty(self):
