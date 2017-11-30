@@ -9,7 +9,6 @@ import sys
 class MainLoginWindow(QDialog):
 
 
-
     def __init__(self, parent=None):
         super(MainLoginWindow, self).__init__(parent)
         self.resize(500, 700)

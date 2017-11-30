@@ -1,2 +1,4 @@
-accountInfo: firstname;lastname;email;username
-pictureFilePath: ApplicationFiles/Resources/Users/a/userPicture.png
+accountInfo: Brian;Caulfield;Brian.caulfield13@gmail.com;Brotaku13
+PicturePath: C:/Users/brian/Documents/Programming/Python/pythonProjects/Testr/ApplicationFiles/Resources/Users/admin/userPicture.jpg
+ProblemsSolved: 4
+RecentProblems;Is Unique:True:11/30/2017;Triple Step:True:11/30/2017;Roman to Integer:False:11/30/2017;URLify:False:11/30/2017;Bit Manipulation:False:11/30/2017

@@ -16,6 +16,8 @@ import ApplicationFiles.Resources.filepaths as imagePath
 class Sidebar(QWidget):
 
     firstRun = True
+    updateAccountInformation = pyqtSignal()
+    updateProblemsSolved = pyqtSignal()
 
     def __init__(self, parent=None):
         super(Sidebar, self).__init__(parent)
@@ -110,6 +112,7 @@ class Sidebar(QWidget):
             incorrectColor = QColor(255, 178, 178)
             correctColor = QColor(143, 224, 162)
 
+
             for variables, expected in qc.questionList[qc.currentQuestionIndex].testingDict.items():
                 correct = False
                 if len(variables) == 1:
@@ -156,10 +159,24 @@ class Sidebar(QWidget):
                 testNumber += 1
 
             self.questionInformationTab.grade.setText("{:d}%".format(int((testsPassed / testNumber) * 100)))
+            correct = False
+            if int((testsPassed / testNumber) * 100) == 100:
+                correct = True
 
+
+            save.writeProblemsSolved(qc.questionList[qc.currentQuestionIndex].title, correct)
+            self.emitUpdateAccount()
+            if correct:
+                self.emitProblemsSolvedUpdate()
         else:
             self.showError("Function was not found. Do not delete the original function name.")
 
+    def emitUpdateAccount(self):
+        self.updateAccountInformation.emit()
+
+    def emitProblemsSolvedUpdate(self):
+        save.incrementProblemsSolved()
+        self.updateProblemsSolved.emit()
 
 
 
@@ -167,9 +184,6 @@ class Sidebar(QWidget):
     executes an error dialog box...effectively acts as a debugger of sorts for the user.... albeit not a very good one
     :param the exception which will be displayed..
     """
-
-
-
 
     def showError(self, exception):
         errorMsg = QMessageBox()

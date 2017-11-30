@@ -27,7 +27,9 @@ class Account(QWidget):
         nameFont.setPointSize(20)
         nameFont.setFamily("Helvetica")
 
-
+        infoFont = QFont()
+        infoFont.setPointSize(16)
+        infoFont.setFamily("Helvetica")
 
         self.username = QLabel(save.getInfo("username"))
         self.username.setFont(userNameFont)
@@ -42,14 +44,28 @@ class Account(QWidget):
         self.email.setFont(nameFont)
 
         self.questionsCompletedLabel = QLabel("Questions completed: {}".format(save.getProblemsSolved()))
-        self.averageTimePerQuestion = QLabel("Average time per question: ")
-        self.totalTime = QLabel("Total Time spent in Program: ")
+        self.questionsCompletedLabel.setFont(infoFont)
 
         self.recentsLabel = QLabel("Recent Activity")
-        self.recentsTable = QTableWidget()
+        self.recentsLabel.setFont(infoFont)
+        self.recentsTable = QTableWidget(10, 2)
         self.recentsTable.setMaximumWidth(400)
 
+        self.recentsTable.verticalHeader().hide()
+        header = self.recentsTable.horizontalHeader()
+        header.setSectionResizeMode(0, QHeaderView.Stretch)
+        header.setSectionResizeMode(1, QHeaderView.ResizeToContents)
+
+        horHeaders = ["Question", "Type"]
+        self.recentsTable.setHorizontalHeaderLabels(horHeaders)
+
+        self.recentsTable.setShowGrid(False)
+        self.recentsTable.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.recentsTable.setSelectionBehavior(QAbstractItemView.SelectRows)
+
+
         self.defineLayout()
+        self.updateTable()
 
     def defineLayout(self):
 
@@ -76,8 +92,6 @@ class Account(QWidget):
 
         statsLayout = QVBoxLayout()
         statsLayout.addWidget(self.questionsCompletedLabel)
-        statsLayout.addWidget(self.averageTimePerQuestion)
-        statsLayout.addWidget(self.totalTime)
 
         leftSide = QVBoxLayout()
         leftSide.addLayout(pictureLayout)
@@ -90,9 +104,40 @@ class Account(QWidget):
         totalLayout = QHBoxLayout()
         totalLayout.addLayout(leftSide)
         totalLayout.addLayout(rightSide)
-
         self.setLayout(totalLayout)
 
+    def updateTable(self):
+
+        problemHistory = save.getProblemHistory()
+
+        inProgress = QColor(247, 222, 148)
+        completed = QColor(143, 224, 162)
+
+        self.recentsTable.clearContents()
+        self.recentsTable.setRowCount(len(problemHistory))
+
+        for i in range(len(problemHistory)):
+            log = problemHistory[i].split(':')
+            problem = QTableWidgetItem(log[0])
+            date = QTableWidgetItem(log[2])
+
+            if log[1] ==  'True':
+                problem.setBackground(completed)
+                date.setBackground(completed)
+            else:
+                problem.setBackground(inProgress)
+                date.setBackground(inProgress)
+
+            self.recentsTable.setItem(i, 0, problem)
+            self.recentsTable.setItem(i, 1, date)
+
+    @pyqtSlot()
+    def callUpdateTable(self):
+        self.updateTable()
+
+    @pyqtSlot()
+    def updateQuestionsSolved(self):
+        self.questionsCompletedLabel.setText("Questions completed: {}".format(save.getProblemsSolved()))
 
 
 

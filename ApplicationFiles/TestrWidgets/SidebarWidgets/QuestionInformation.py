@@ -83,10 +83,9 @@ class QuestionInformation(QWidget):
 
         # setting up the layout
         infoLayout = QVBoxLayout()
-#added
+
         infoLayout.addLayout(self.diffHBox)
-#removed
-        #infoLayout.addWidget(self.questionInfoLabel)
+
 
         infoLayout.addWidget(self.questionTextBox)
         infoLayout.addWidget(self.exampleLabel)
