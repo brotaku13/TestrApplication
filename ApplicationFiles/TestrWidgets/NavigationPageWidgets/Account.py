@@ -56,7 +56,7 @@ class Account(QWidget):
         header.setSectionResizeMode(0, QHeaderView.Stretch)
         header.setSectionResizeMode(1, QHeaderView.ResizeToContents)
 
-        horHeaders = ["Question", "Type"]
+        horHeaders = ["Question", "Date"]
         self.recentsTable.setHorizontalHeaderLabels(horHeaders)
 
         self.recentsTable.setShowGrid(False)

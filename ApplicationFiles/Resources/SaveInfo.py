@@ -88,7 +88,7 @@ def createnewAccountInfo(firstName, lastName, email, username, picturePath=''):
         file.write("info: " + infoLine + '\n')
         file.write("PicturePath: " + pictureFileName + '\n')
         file.write("ProblemsSolved: 0" + '\n')
-        file.write("RecentProblems" + '\n')
+        file.write("RecentProblems")
 
 
 def getInfo(type):

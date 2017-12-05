@@ -123,7 +123,7 @@ class mainWindow(QMainWindow):
         """
         todo: create menubar actions
         """
-        self.questionBrowserNavAction = self.createAction("Question Browser", self.changePageEmit, "Crtl+2", "Navigate to Question Browser")
+        self.questionBrowserNavAction = self.createAction("Account", self.changePageEmit, "Crtl+2", "Navigate to Question Browser")
         self.questionBrowserNavAction.setObjectName("questionbrowsernavaction")
 
 
@@ -138,7 +138,6 @@ class mainWindow(QMainWindow):
         self.menuBar.addAction(self.questionBrowserNavAction)
         self.menuBar.addAction(self.glossaryPage)
 
-
     def defineStyleSheets(self):
         self.setStyleSheet("""
            QCentralWidget {
@@ -146,35 +145,51 @@ class mainWindow(QMainWindow):
            }
            QStackedWidget {
                background-color:rgb(63, 63, 63);
-               color:rgb(26, 198, 26);
+               color:rgb(244, 66, 66);
                selection-color:rgb(0,0,0);
-               selection-background-color:rgb(26, 198, 26);
+               selection-background-color:rgb(63, 63, 63);
                font-family: "Ariel";
+               border-style: outset;
+               border-width: 2px;
+               border-radius: 4px;
 
            }
            QTextEdit {
                background-color:rgb(44, 45, 44);
-               color:rgb(26, 198, 26);
+               color:rgb(66, 244, 179);
                selection-color:rgb(0,0,0);
-               selection-background-color:rgb(26, 198, 26);
+               selection-background-color:rgb(63, 63, 63);
                font-family: "Consolas";
                font-size: 10pt;
-               border:0px;
+               border:1px;
            }
+
            QLabel {
-               color:rgb(26, 198, 26);
-               selection-color:rgb(0,0,0);
-               selection-background-color:rgb(26, 198, 26);
+               color:rgb(244, 66, 66);
+               selection-color:red;
+               selection-background-color:rgb(63, 63, 63);
            }
 
            QPushButton {
-               background-color:black;
+               background-color:rgb(63,63,63);
                color:rgb(26, 198, 26);
                border-radius:10px;
            }
            QMenuBar{
-               background-color:black;
-               color:rgb(26, 198, 26);
+               background-color:reb(63, 63, 63);
+               color:rgb(44, 45, 44);
+           }
+
+           QTableWidget {
+                background-color: rgb(44, 45, 44);
+                color: rgb(66, 244, 179);
+                selection-color: rgb(63, 63, 63);
+                font-family: "Consolas";
+           }
+
+           QHeaderView {
+                background-color: rgb(63, 63, 63);
+                color: red;
            }
            """)
 

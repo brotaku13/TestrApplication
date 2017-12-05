@@ -113,7 +113,22 @@ class Definitions(QWidget):
         #determining which item has been selected
 
         #Weblist for the video URLs
-        webList = [""""""]
+        webList = ["""<iframe width="460" height="315" src="http://www.youtube.com/embed/l9v1ewQXv5M?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>""",
+                   """<iframe width="460" height="315" src="http://www.youtube.com/embed/_XpD71zR6kI?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>""",
+                   """<iframe width="460" height="315" src="http://www.youtube.com/embed/cpPG0bKHYKc?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>""",
+                   """<iframe width="460" height="315" src="http://www.youtube.com/embed/RpoUAGp7Pcc?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>""",
+                   """<iframe width="460" height="315" src="http://www.youtube.com/embed/R-HLU9Fl5ug?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>""",
+                   """<iframe width="460" height="315" src="http://www.youtube.com/embed/sKYiQLRe254?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>""",
+                   """<iframe width="460" height="315" src="http://www.youtube.com/embed/ZEuQypLGUgw?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>""",
+                   """<iframe width="460" height="315" src="http://www.youtube.com/embed/NIWwJbo-9_8?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>""",
+                   """<iframe width="460" height="315" src="http://www.youtube.com/embed/ZDa-Z5JzLYM?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>""",
+                   """<iframe width="460" height="315" src="http://www.youtube.com/embed/CqvZ3vGoGs0?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>""",
+                   """<iframe width="460" height="315" src="http://www.youtube.com/embed/CqvZ3vGoGs0?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>""",
+                   """<iframe width="460" height="315" src="http://www.youtube.com/embed/N5vscPTWKOk?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>""",
+                   """<iframe width="460" height="315" src="http://www.youtube.com/embed/N5vscPTWKOk?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>""",
+                   """<iframe width="460" height="315" src="http://www.youtube.com/embed/ZDa-Z5JzLYM?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>""",
+                   """<iframe width="460" height="315" src="http://www.youtube.com/embed/ZDa-Z5JzLYM?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>""",
+                   """<iframe width="460" height="315" src="http://www.youtube.com/embed/ZDa-Z5JzLYM?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>"""]
         ######
 
         currentItemIndex = self.table.currentRow()
@@ -139,11 +154,9 @@ class Definitions(QWidget):
 
         self.definitionInfo.setText(pageText)
 
-        htmlString = """<iframe width="460" height="315" src="http://www.youtube.com/embed/ZDa-Z5JzLYM?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>"""
+        htmlString = webList[currentItemIndex]
 
         self.web.settings().setAttribute(QWebEngineSettings.FullScreenSupportEnabled, True)
         self.web.page().fullScreenRequested.connect(lambda request: request.accept())
         baseUrl = "local"
         self.web.setHtml(htmlString, QUrl(baseUrl))
-
-
