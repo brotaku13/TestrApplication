@@ -1,4 +1,0 @@
-info: Brian;Caulfield;brian.caulfield13@gmail.com;brotaku13
-PicturePath: C:\Users\brian\Documents\Programming\Python\pythonProjects\Testr\ApplicationFiles\Resources\Users\brotaku13\userPicture.jpg
-ProblemsSolved: 1
-RecentProblems;Is Unique:True:12/5/2017

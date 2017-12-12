@@ -1,2 +1,2 @@
 def bitSwapRequired(num1, num2):
-	return True
+	return 2

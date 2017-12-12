@@ -1,4 +1,4 @@
 accountInfo: Brian;Caulfield;Brian.caulfield13@gmail.com;Brotaku13
 PicturePath: C:/Users/brian/Documents/Programming/Python/pythonProjects/Testr/ApplicationFiles/Resources/Users/admin/userPicture.jpg
-ProblemsSolved: 4
-RecentProblems;URLify:True:12/5/2017
+ProblemsSolved: 3
+RecentProblems;Is Unique:True:12/12/2017;Triple Step:True:12/12/2017;Bit Manipulation:False:12/11/2017;URLify:True:12/11/2017

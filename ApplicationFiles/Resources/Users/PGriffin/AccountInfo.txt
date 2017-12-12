@@ -1,0 +1,4 @@
+info: Peter;Griffin;peterGriffin@gmail.com;PGriffin
+PicturePath: C:\Users\brian\Documents\Programming\Python\pythonProjects\Testr\ApplicationFiles\Resources\Users\PGriffin\profilePic.jpg
+ProblemsSolved: 2
+RecentProblems;Is Unique:False:12/12/2017;Triple Step:True:12/12/2017;URLify:True:12/12/2017

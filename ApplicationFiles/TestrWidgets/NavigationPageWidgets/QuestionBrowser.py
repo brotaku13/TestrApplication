@@ -4,6 +4,8 @@ from PyQt5.QtWidgets import *
 import ApplicationFiles.Resources.QuestionClass as qc
 import sys
 
+import ApplicationFiles.Resources.filepaths as imagePath
+
 class QuestionBrowser(QWidget):
 
     questionSelectedSignal = pyqtSignal(int)
@@ -27,6 +29,24 @@ class QuestionBrowser(QWidget):
         #self.questionInfo.viewport().setAutoFillBackground(False)
         #self.questionInfo.setFrameStyle(QFrame.NoFrame)
 
+        self.questBrowDiff = QLabel()
+
+        if(qc.questionList[qc.currentQuestionIndex].questionDifficulty == 1) :
+            starPix = QPixmap(imagePath.star1)
+        elif(qc.questionList[qc.currentQuestionIndex].questionDifficulty == 2) :
+            starPix = QPixmap(imagePath.star2)
+        elif(qc.questionList[qc.currentQuestionIndex].questionDifficulty == 3):
+            starPix = QPixmap(imagePath.star3)
+        elif(qc.questionList[qc.currentQuestionIndex].questionDifficulty == 4):
+            starPix = QPixmap(imagePath.star4)
+        elif(qc.questionList[qc.currentQuestionIndex].questionDifficulty == 5):
+            starPix = QPixmap(imagePath.star5)
+
+        starPix = starPix.scaled(150, 2000, Qt.KeepAspectRatio)
+        self.questBrowDiff.setPixmap(starPix)
+        self.questBrowDiff.setAlignment(Qt.AlignBottom | Qt.AlignRight)
+
+
         self.goToQuestionBtn = QPushButton("Go to Question")
         self.goToQuestionBtn.clicked.connect(self.emit_new_question_selected)
 
@@ -35,9 +55,12 @@ class QuestionBrowser(QWidget):
 
 
     def defineLayout(self):
+        questionTitleDesc = QHBoxLayout()
+        questionTitleDesc.addWidget(self.questionTitle)
+        questionTitleDesc.addWidget(self.questBrowDiff)
 
         questionInfoSide = QVBoxLayout()
-        questionInfoSide.addWidget(self.questionTitle)
+        questionInfoSide.addLayout(questionTitleDesc)
         questionInfoSide.addWidget(self.questionInfo)
 
         buttonLayout = QHBoxLayout()
@@ -104,6 +127,21 @@ class QuestionBrowser(QWidget):
         self.questionTitle.setText(qc.questionList[index].title)
         self.questionInfo.setText(qc.questionList[index].questionInformation)
 
+        if(qc.questionList[qc.currentQuestionIndex].questionDifficulty == 1) :
+            starPix = QPixmap(imagePath.star1)
+        elif(qc.questionList[qc.currentQuestionIndex].questionDifficulty == 2) :
+            starPix = QPixmap(imagePath.star2)
+        elif(qc.questionList[qc.currentQuestionIndex].questionDifficulty == 3):
+            starPix = QPixmap(imagePath.star3)
+        elif(qc.questionList[qc.currentQuestionIndex].questionDifficulty == 4):
+            starPix = QPixmap(imagePath.star4)
+        elif(qc.questionList[qc.currentQuestionIndex].questionDifficulty == 5):
+            starPix = QPixmap(imagePath.star5)
+
+        starPix = starPix.scaled(150, 2000, Qt.KeepAspectRatio)
+        self.questBrowDiff.setPixmap(starPix)
+        self.questBrowDiff.setAlignment(Qt.AlignBottom | Qt.AlignRight)
+
 
 
 
@@ -113,7 +151,3 @@ form = QuestionBrowser()
 form.show()
 sys.exit(app.exec_())
 """
-
-
-
-

@@ -11,7 +11,6 @@ class Definitions(QWidget):
 
     def __init__(self, parent=None):
 
-
         self.web = QWebEngineView()
         self.web.setMaximumWidth(450)
         self.web.setMaximumHeight(380)

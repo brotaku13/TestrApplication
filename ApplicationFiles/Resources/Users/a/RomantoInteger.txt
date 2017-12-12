@@ -1,2 +1,0 @@
-def romanInteger(num):
-	return 12

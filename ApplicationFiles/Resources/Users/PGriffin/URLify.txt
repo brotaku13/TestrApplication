@@ -1,0 +1,8 @@
+import string
+import re
+
+def URLify(string):
+	string = string.strip()
+	string = re.sub(r"[\s+]", '%20', string)
+
+	return string
