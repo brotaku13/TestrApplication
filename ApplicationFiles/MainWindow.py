@@ -10,8 +10,11 @@ import ApplicationFiles.Resources.QuestionClass as qc
 import os
 import sys
 from ApplicationFiles.about import *
-class mainWindow(QMainWindow):
 
+
+class mainWindow(QMainWindow):
+    """The mainwindow container class for the Testr Widgets
+    """
     changePageSignal = pyqtSignal(int)
 
     def __init__(self, parent=None):
@@ -36,10 +39,8 @@ class mainWindow(QMainWindow):
         self.glossary = Definitions()   # Defintions should be index 2
         self.stack.addWidget(self.glossary)
 
-
         self.mainWindowProperties()
-        #self.defineStyleSheets()
-        #connect function for changing the page index
+
         self.changePageSignal.connect(self.changePageIndexSlot)
 
         self.navigationPage.questionBrowser.questionSelectedSignal.connect(self.changeQuestionIndexSlot)
@@ -54,6 +55,8 @@ class mainWindow(QMainWindow):
         self.codingWindow.sidebar.updateProblemsSolved.connect(self.navigationPage.account.updateQuestionsSolved)
 
     def mainWindowProperties(self):
+        """special function to set up the status bar located at the bottom of the page. 
+        """
 
         # setting up status bar
         self.questionStatus = QLabel()
@@ -66,6 +69,9 @@ class mainWindow(QMainWindow):
         self.defineMenuBarActions()
 
     def changePageEmit(self):
+        """Emitting signals based on object name. 
+        Responsible for changing the page of the stacked widget and allowing the user to navigate through different pages
+        """
         if self.sender().objectName() == "questionbrowsernavaction":
             self.changePageSignal.emit(0)
         elif self.sender().objectName() == "codingpage":
@@ -76,19 +82,22 @@ class mainWindow(QMainWindow):
 
     @pyqtSlot(int)
     def changePageIndexSlot(self, index):
+        """catchs the change page signal and changes the stacked widget's current index
+        
+        Arguments:
+            index {int} -- the index of the page to change to. 
+        """
         self.stack.setCurrentIndex(index)
 
     @pyqtSlot(int)
     def changeQuestionIndexSlot(self, index):
+        """Changes the current question index. 
+        """
         self.codingWindow.updateQuestionInformation()
 
-
-
-    """
-    factory method for creating an action...used in menubar creation
-    """
-
     def createAction(self, text, slot=None, shortcut=None, tip=None, checkable=False, signal="triggered"):
+        """Factory Method for creating menu bar buttons. 
+        """
         action = QAction(text, self)
         if shortcut is not None:
             action.setShortcut(shortcut)
@@ -101,17 +110,11 @@ class mainWindow(QMainWindow):
             action.setCheckable(True)
         return action
 
-
-    """
-    function defines any actions or buttons / shortcuts in the menubar.
-    add all menu bar functionality here
-    """
     def defineMenuBarActions(self):
-
+        """Defining the menu bar actions and giving them trigger actions. 
+        """
         self.about = About
 
-
-        # creating menu actions:
         quitAction = self.createAction("&Quit", self.close, "Ctrl+q", "Close the application", False)
         aboutAction = self.createAction("&About", self.about, "Ctrl+a", "Pops about", False)
 
@@ -120,9 +123,6 @@ class mainWindow(QMainWindow):
         self.fileMenu.addAction(quitAction)
         self.fileMenu.addAction(aboutAction)
 
-        """
-        todo: create menubar actions
-        """
         self.questionBrowserNavAction = self.createAction("Account", self.changePageEmit, "Crtl+2", "Navigate to Question Browser")
         self.questionBrowserNavAction.setObjectName("questionbrowsernavaction")
 
@@ -133,65 +133,6 @@ class mainWindow(QMainWindow):
         self.glossaryPage = self.createAction("&Glossary", self.changePageEmit, "Ctrl+3", "Navigate to Glossary")
         self.glossaryPage.setObjectName("glossarypage")
 
-
         self.menuBar.addAction(self.questionPage)
         self.menuBar.addAction(self.questionBrowserNavAction)
         self.menuBar.addAction(self.glossaryPage)
-
-    def defineStyleSheets(self):
-        self.setStyleSheet("""
-           QCentralWidget {
-               background-color:rgb(63, 63, 63);
-           }
-           QStackedWidget {
-               background-color:rgb(63, 63, 63);
-               color:rgb(244, 66, 66);
-               selection-color:rgb(0,0,0);
-               selection-background-color:rgb(63, 63, 63);
-               font-family: "Ariel";
-               border-style: outset;
-               border-width: 2px;
-               border-radius: 4px;
-
-           }
-           QTextEdit {
-               background-color:rgb(44, 45, 44);
-               color:rgb(66, 244, 179);
-               selection-color:rgb(0,0,0);
-               selection-background-color:rgb(63, 63, 63);
-               font-family: "Consolas";
-               font-size: 10pt;
-               border:1px;
-           }
-
-           QLabel {
-               color:rgb(244, 66, 66);
-               selection-color:red;
-               selection-background-color:rgb(63, 63, 63);
-           }
-
-           QPushButton {
-               background-color:rgb(63,63,63);
-               color:rgb(26, 198, 26);
-               border-radius:10px;
-           }
-           QMenuBar{
-               background-color:reb(63, 63, 63);
-               color:rgb(44, 45, 44);
-           }
-
-           QTableWidget {
-                background-color: rgb(44, 45, 44);
-                color: rgb(66, 244, 179);
-                selection-color: rgb(63, 63, 63);
-                font-family: "Consolas";
-           }
-
-           QHeaderView {
-                background-color: rgb(63, 63, 63);
-                color: red;
-           }
-           """)
-
-
-

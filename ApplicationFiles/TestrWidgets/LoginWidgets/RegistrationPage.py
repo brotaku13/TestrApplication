@@ -5,9 +5,15 @@ import ApplicationFiles.Resources.filepaths as path
 import ApplicationFiles.Resources.SaveInfo as save
 
 class RegistrationPage(QWidget):
+    """Registration page which allows new users to register for the testr service and saves the new informtion to the users profile. 
 
+    Raises:
+        email_exception -- raised when the email is incorrectly formatted
+        name_exception --   raised when the name does not meet certain standards. such as being only 1 character in length or containing specil characters
+        username_Exception -- raised when the username is less than 6 characters long or contains incorrect characters. 
+        password_exception -- raised when the password is incorrectly formatted. 
+    """
     pageIndexSignal = pyqtSignal(int)
-
 
     def __init__(self, parent=None):
         super(RegistrationPage, self).__init__(parent)
@@ -87,8 +93,6 @@ class RegistrationPage(QWidget):
         selectPictureLayout.addLayout(pictureLabelAndButton)
         selectPictureLayout.addWidget(self.pictureFilePath)
 
-
-
         totalFormLayout = QVBoxLayout()
         vspacer1 = QSpacerItem(20, 100, QSizePolicy.Expanding, QSizePolicy.Preferred)
         totalFormLayout.addItem(vspacer1)
@@ -103,14 +107,20 @@ class RegistrationPage(QWidget):
         self.setLayout(totalFormLayout)
 
     def defineButtonClick(self):
+        """Defines button click behavior
+        """
         self.regiserBtn.clicked.connect(self.registerUser)
         self.cancelBtn.clicked.connect(self.emit_pageSignal_on_click)
         self.selectPictureButton.clicked.connect(self.openFileDialog)
 
     def emit_pageSignal_on_click(self):
+        """Emits the page signal to change the page index of the stacked widget which is the cnotaining widget
+        """
         self.pageIndexSignal.emit(0)
 
     def openFileDialog(self):
+        """Opens a file dialog so that the user can choose a profile picture. 
+        """
         options = QFileDialog.Options()
         options = QFileDialog.DontUseNativeDialog
         fileName = QFileDialog.getOpenFileName(self, "QSelect an Account Picture", "",
@@ -124,13 +134,10 @@ class RegistrationPage(QWidget):
 
             self.filePath = fileName[0]
 
-
-
-    """
-    function which retrieves information from user and stores in variables
-    calls the function to store variables in SQL
-    """
     def registerUser(self):
+        """Error checks the information the user entered in and raises an exception if the users information is incorrectly formatted. 
+        If the information is correctly formatted, then it registers the user's information in the "database".
+        """
         # this function needs to do the error checking too! dont forget!
         noAcceptionsThrown = False
 
@@ -170,7 +177,18 @@ class RegistrationPage(QWidget):
 
             self.emit_pageSignal_on_click()
 
-    def checkEmail(self, email: str) -> bool:
+    def checkEmail(self, email: str):
+        """Checks the email for correct formatting
+        
+        Arguments:
+            email {str} -- The email to be checked. gotten from the lineEdit's current text. 
+        Raises:
+            email_exception -- email not the correct length
+            email_exception -- email has no @ sign
+            email_exception -- email does not contain '.com'
+
+        """
+        
         if len(email) < 7:
             raise email_exception("not an email of appropriate length")
 
@@ -181,14 +199,32 @@ class RegistrationPage(QWidget):
             raise email_exception("no .com found in email")
 
 
-    def checkName(self, name: str) -> bool:
+    def checkName(self, name: str):
+        """checks the name entered into the name field. 
+        
+        Arguments:
+            name {str} -- name from the name field's current text. 
+        
+        Raises:
+            name_exception -- Name is shorter than 2 characters. 
+            name_exception -- there are special character sin the name. 
+        """
         if len(name) <= 1:
             raise name_exception("Name length must be more than 1")
 
         if not name.isalpha():
             raise name_exception("only letters are allowed in name")
 
-    def checkUsername(self, username: str) -> bool:
+    def checkUsername(self, username: str):
+        """Checks the formatting of the username. 
+        
+        Arguments:
+            username {str} -- the string in the username field's current text. 
+        
+        Raises:
+            username_Exception -- raised if username is too short. 
+            username_Exception -- raised if the username contains illegal characters. 
+        """
         legit_characters = '0123456789_abcdefghijklmnopqrstuvwxyz.'
 
         if len(username) < 5:
@@ -198,7 +234,17 @@ class RegistrationPage(QWidget):
             if letter.lower() not in legit_characters:
                 raise username_Exception("Illegal character found in username")
 
-    def checkPassword(self, password: str) -> bool:
+    def checkPassword(self, password: str):
+        """Checks the password entered into the password field
+        
+        Arguments:
+            password {str} -- string of the password field's current text
+        
+        Raises:
+            password_exception -- raised if password is too short
+            password_exception -- raised if the password has spaces in it. 
+        """
+
         if len(password) < 6:
             raise password_exception("Password must be longer than 6 characters")
 
@@ -207,6 +253,13 @@ class RegistrationPage(QWidget):
 
 
     def showRegisterError(self, title, e):
+        """Shows a dialog Box based on an exception which occured during the registration process
+        
+        Arguments:
+            title {string} -- The title the popup should have
+            e {Exception} -- The exception that was raised due to an error. 
+        """
+
         errorMsg = QMessageBox()
         errorMsg.setIcon(QMessageBox.Warning)
         errorMsg.setWindowTitle(title)

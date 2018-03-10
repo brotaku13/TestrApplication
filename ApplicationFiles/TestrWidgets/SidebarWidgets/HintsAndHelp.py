@@ -4,9 +4,10 @@ from PyQt5.QtWidgets import *
 import ApplicationFiles.Resources.QuestionClass as qc
 
 class HintsAndHelp(QWidget):
-
+    """Hints and help widget. Shows hints available to the user. 
+    Also allows the user to look for information on the internet. Provides resources for the student's success. 
+    """
     changeToGlossary = pyqtSignal(int)
-
 
     def __init__(self, parent=None):
         super(HintsAndHelp, self).__init__(parent)
@@ -26,7 +27,6 @@ class HintsAndHelp(QWidget):
         self.hyperLinkLabel = QLabel("Hyperlink Here")
         self.hyperLinkLabel.setOpenExternalLinks(True)
         self.hyperLinkLabel.setAlignment(Qt.AlignRight | Qt.AlignBottom)
-
 
         self.answerView = QTextEdit()
         self.answerView.setMinimumHeight(400)
@@ -75,25 +75,29 @@ class HintsAndHelp(QWidget):
         self.setLayout(totalLayout)
 
     def defineButtonActions(self):
+        """Defines the actions to be taken when each button is pressed. 
+        """
         self.showHint.clicked.connect(self.revealHint)
         self.showAnswer.stateChanged.connect(self.stateCheck)
         self.glossary.clicked.connect(self.change_to_glossary_emit)
 
     def change_to_glossary_emit(self):
+        """Switches page to the glossary page. 
+        """
         self.changeToGlossary.emit(2)
 
-    """
-    reveals hint based upon which button was clicked
-    """
-
     def stateCheck(self):
+        """reveals a hint based on whether a check box is checked or not. 
+        """
+
         if self.showAnswer.isChecked():
             self.answerView.setText(qc.questionList[qc.currentQuestionIndex].answer)
         else:
             self.answerView.setText('')
 
     def revealHint(self):
-
+        """Shows the three hints available to the user. 
+        """
         sender = self.sender()
         if sender.objectName() == "hint1button" and qc.questionList[qc.currentQuestionIndex].hintNumber < 3:
             self.hintView.append("***Hint {}***\n".format(qc.questionList[qc.currentQuestionIndex].hintNumber + 1))
@@ -105,6 +109,9 @@ class HintsAndHelp(QWidget):
             self.answerView.setText(qc.questionList[qc.currentQuestionIndex].answer)
 
     def resetHints(self):
+        """resets the hints shows to zero. 
+        """
+
         self.hintView.clear()
         hintIndex = 0
         for hintRevealed in qc.questionList[qc.currentQuestionIndex].hintShown:

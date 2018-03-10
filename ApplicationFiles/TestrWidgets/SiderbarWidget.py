@@ -10,11 +10,11 @@ import ApplicationFiles.Resources.SaveInfo as save
 import os
 import importlib
 
-#added
 import ApplicationFiles.Resources.filepaths as imagePath
 
 class Sidebar(QWidget):
-
+    """Sidebar widget. a container for the results of the question as well as hints and tips. 
+    """
     firstRun = True
     updateAccountInformation = pyqtSignal()
     updateProblemsSolved = pyqtSignal()
@@ -30,7 +30,6 @@ class Sidebar(QWidget):
         self.sidebarPages.addWidget(self.hintsAndHelpTab)
         self.runCodeButton = QPushButton("Run Code")
 
-
         self.defineLayout()
 
     def defineLayout(self):
@@ -40,10 +39,12 @@ class Sidebar(QWidget):
         self.setLayout(vlayout)
 
     def updateQuestionInformation(self):
+        """Updates the question information based on the current question index. 
+        """
         self.questionInformationTab.questionTextBox.setText(qc.questionList[qc.currentQuestionIndex].questionInformation)
         self.questionInformationTab.exampleTextBox.setText(qc.questionList[qc.currentQuestionIndex].example)
         self.hintsAndHelpTab.resetHints()
-#added
+
         if(qc.questionList[qc.currentQuestionIndex].questionDifficulty == 1) :
             starPix = QPixmap(imagePath.star1)
         elif(qc.questionList[qc.currentQuestionIndex].questionDifficulty == 2) :
@@ -61,6 +62,11 @@ class Sidebar(QWidget):
 
     @pyqtSlot(str)
     def runUserCode(self, code):
+        """Runs the code the user has entered into the coding window. 
+        
+        Arguments:
+            code {str} -- the code the user has entered into the coding window. 
+        """
         self.saveCode(code)
         save.saveCode(code)
         try:
@@ -71,6 +77,8 @@ class Sidebar(QWidget):
 
 
     def saveCode(self, userCode):
+        """Saves the users last run code so that it reloads if the user wants to revisit the problem
+        """
         self.filePath = os.path.join(path.userCodeSavePath, "userCode.py")
 
         try:
@@ -82,14 +90,12 @@ class Sidebar(QWidget):
             self.showError(str(e))
             print(e)
 
-
-    """
-    import the code into the current system
-    reloads the module after any editing takes place
-    sets the output text
-    """
-
     def importAndRunCode(self):
+        """imports the code into the folder and runs it using eval
+        NOTE: This code was written without knowledge of the subprocess library. If I were to redo this, I would save the users code as it's own 
+        .py file and run the .py file as a subprocess with the arguments given, and then pipe the output and use diff to check it based on the 
+        answer section.
+        """
         from ApplicationFiles.Resources import userCode
 
         if self.firstRun:
@@ -111,7 +117,6 @@ class Sidebar(QWidget):
 
             incorrectColor = QColor(255, 178, 178)
             correctColor = QColor(143, 224, 162)
-
 
             for variables, expected in qc.questionList[qc.currentQuestionIndex].testingDict.items():
                 correct = False
@@ -163,7 +168,6 @@ class Sidebar(QWidget):
             if int((testsPassed / testNumber) * 100) == 100:
                 correct = True
 
-
             save.writeProblemsSolved(qc.questionList[qc.currentQuestionIndex].title, correct)
             self.emitUpdateAccount()
             if correct:
@@ -178,14 +182,12 @@ class Sidebar(QWidget):
         save.incrementProblemsSolved()
         self.updateProblemsSolved.emit()
 
-
-
-    """
-    executes an error dialog box...effectively acts as a debugger of sorts for the user.... albeit not a very good one
-    :param the exception which will be displayed..
-    """
-
     def showError(self, exception):
+        """Simple dialog popup debugger. Dispays very basic debugging informaion which is parsed form the Exception that is raised when the code is run. 
+        
+        Arguments:
+            exception {Exception} -- Exception raised when the code is run. 
+        """
         errorMsg = QMessageBox()
         errorMsg.setIcon(QMessageBox.Warning)
         errorMsg.setWindowTitle("Exception Detected")

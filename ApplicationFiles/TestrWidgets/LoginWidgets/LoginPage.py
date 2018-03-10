@@ -5,10 +5,10 @@ import ApplicationFiles.Resources.filepaths as path
 import ApplicationFiles.Resources.SaveInfo as save
 
 class LoginPage(QWidget):
-
+    """General Login Page. allows the user to enter in credentials and checks them against database pairs of username/passwords
+    """
     acceptSignal = pyqtSignal()
     pageIndexSignal = pyqtSignal(int)
-
 
     def __init__(self, parent=None):
         super(LoginPage, self).__init__(parent)
@@ -85,9 +85,13 @@ class LoginPage(QWidget):
         self.newUserBtn.clicked.connect(self.emit_pageSignal_on_click)
 
     def emit_pageSignal_on_click(self):
+        """Emits the page index when a button which changes the page is clicked. connects to the container widget. 
+        """
         self.pageIndexSignal.emit(1)
 
     def loginCheck(self):
+        """Checks credentials entered into the text fields against the text file in the given save path. 
+        """
         try:
            f = open(path.loginCredentialsPath, 'r')
         except Exception as e:
@@ -122,10 +126,10 @@ class LoginPage(QWidget):
     def changePageIndex(self, index):
         self.stack.setCurrentIndex(index)
 
-    """
-    shows an error dialog
-    """
+
     def showLoginError(self):
+        """Shows an error dialog box which pops up when the user enters the incorrect login credentials. 
+        """
         errorMsg = QMessageBox()
         errorMsg.setIcon(QMessageBox.Warning)
         errorMsg.setWindowTitle("Username or password incorrect")

@@ -8,7 +8,9 @@ from PyQt5.QtWebEngineWidgets import *
 
 
 class Definitions(QWidget):
-
+    """This class provides access to the documentation available on python.com. The Tutorial page is web scraped each time the program starts up so that
+    the information is always kept as up to date as possible. 
+    """
     def __init__(self, parent=None):
 
         self.web = QWebEngineView()
@@ -64,6 +66,9 @@ class Definitions(QWidget):
         self.defineTable()
 
     def getURLItems(self):
+        """Gets the main points of the tutorial page and appends it to the list  widget so that the user can easily navigae to the tutorial that
+        they want to access. 
+        """
         url = "https://docs.python.org/3/tutorial/"
         r = requests.get(url)
         data = r.text
@@ -83,6 +88,8 @@ class Definitions(QWidget):
         return linkDict
 
     def defineTable(self):
+        """Defines the table for displaying the tutorial information available. 
+        """
 
         termList = [title for title in self.URLDict.keys()]
 
@@ -109,8 +116,8 @@ class Definitions(QWidget):
         self.table.itemSelectionChanged.connect(self.definitionSelected)
 
     def definitionSelected(self):
-        #determining which item has been selected
-
+        """A video tutorial is displayed along with each main tutorial topic. 
+        """
         #Weblist for the video URLs
         webList = ["""<iframe width="460" height="315" src="http://www.youtube.com/embed/l9v1ewQXv5M?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>""",
                    """<iframe width="460" height="315" src="http://www.youtube.com/embed/_XpD71zR6kI?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>""",
@@ -149,7 +156,6 @@ class Definitions(QWidget):
         divs = soup.find("div", {"id" : id})
 
         pageText = divs.get_text().replace('Â¶', '')
-
 
         self.definitionInfo.setText(pageText)
 

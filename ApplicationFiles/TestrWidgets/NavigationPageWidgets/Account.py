@@ -5,7 +5,8 @@ import ApplicationFiles.Resources.SaveInfo as save
 import sys
 
 class Account(QWidget):
-
+    """Shows the current login users account information. 
+    """
     def __init__(self, parent=None):
         super(Account, self).__init__(parent)
         self.setMinimumHeight(450)
@@ -68,7 +69,6 @@ class Account(QWidget):
         self.updateTable()
 
     def defineLayout(self):
-
         nameLayout = QHBoxLayout()
         nameLayout.addWidget(self.firstName)
         nameLayout.addWidget(self.lastName)
@@ -107,6 +107,8 @@ class Account(QWidget):
         self.setLayout(totalLayout)
 
     def updateTable(self):
+        """Display's the users problem history as well as problems to be completed, or that are in progress. 
+        """
 
         problemHistory = save.getProblemHistory()
 
@@ -133,22 +135,12 @@ class Account(QWidget):
 
     @pyqtSlot()
     def callUpdateTable(self):
+        """slot which calls the table's update feature when the user attempts a question. 
+        """
         self.updateTable()
 
     @pyqtSlot()
     def updateQuestionsSolved(self):
+        """Updates the table for questions solved when the user completes a question. 
+        """
         self.questionsCompletedLabel.setText("Questions completed: {}".format(save.getProblemsSolved()))
-
-
-
-
-
-'''
-app = QApplication(sys.argv)
-form = Account()
-form.show()
-sys.exit(app.exec_())
-'''
-
-
-

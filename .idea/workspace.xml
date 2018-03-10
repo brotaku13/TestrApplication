@@ -2,29 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3b002da5-7696-4a58-b39c-1aa33b096dff" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ApplicationFiles/Resources/Users/a/AccountInfo.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ApplicationFiles/Resources/Users/a/BitManipulation.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ApplicationFiles/Resources/Users/a/IsUnique.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ApplicationFiles/Resources/Users/a/RomantoInteger.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ApplicationFiles/Resources/Users/a/TripleStep.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ApplicationFiles/Resources/Users/a/URLify.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ApplicationFiles/Resources/Users/a/charCut.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ApplicationFiles/Resources/Users/a/userPicture.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ApplicationFiles/Resources/Users/brotaku13/AccountInfo.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ApplicationFiles/Resources/Users/brotaku13/IsUnique.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ApplicationFiles/Resources/Users/brotaku13/userPicture.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ApplicationFiles/Resources/Users/username/AccountInfo.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ApplicationFiles/Resources/Users/username/picofme.jpg" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ApplicationFiles/Resources/Star1.png" afterPath="$PROJECT_DIR$/ApplicationFiles/Resources/Star1.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ApplicationFiles/Resources/Star2.png" afterPath="$PROJECT_DIR$/ApplicationFiles/Resources/Star2.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ApplicationFiles/Resources/Star3.png" afterPath="$PROJECT_DIR$/ApplicationFiles/Resources/Star3.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ApplicationFiles/Resources/Star4.png" afterPath="$PROJECT_DIR$/ApplicationFiles/Resources/Star4.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ApplicationFiles/Resources/Star5.png" afterPath="$PROJECT_DIR$/ApplicationFiles/Resources/Star5.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ApplicationFiles/Resources/Users/admin/AccountInfo.txt" afterPath="$PROJECT_DIR$/ApplicationFiles/Resources/Users/admin/AccountInfo.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ApplicationFiles/Resources/loginInformation.txt" afterPath="$PROJECT_DIR$/ApplicationFiles/Resources/loginInformation.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/GlossaryWidgets/Definitions.py" afterPath="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/GlossaryWidgets/Definitions.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/NavigationPageWidgets/QuestionBrowser.py" afterPath="$PROJECT_DIR$/ApplicationFiles/TestrWidgets/NavigationPageWidgets/QuestionBrowser.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -87,7 +65,7 @@
         <entry file="file://$PROJECT_DIR$/ApplicationFiles/Resources/Users/admin/AccountInfo.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
-              <caret line="3" column="93" lean-forward="true" selection-start-line="3" selection-start-column="93" selection-end-line="3" selection-end-column="93" />
+              <caret line="3" column="93" lean-forward="false" selection-start-line="3" selection-start-column="93" selection-end-line="3" selection-end-column="93" />
               <folding />
             </state>
           </provider>
@@ -96,7 +74,7 @@
       <file leaf-file-name="Definitions.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ApplicationFiles/TestrWidgets/GlossaryWidgets/Definitions.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
+            <state relative-caret-position="250">
               <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding />
             </state>
@@ -279,12 +257,12 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../network_graphs" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -546,26 +524,26 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="1942" height="1102" extended-state="7" />
+    <frame x="-11" y="-11" width="1942" height="1102" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20848806" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20742705" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21531631" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39844617" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21531631" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32963374" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39844617" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -803,13 +781,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ApplicationFiles/Resources/Users/a/BitManipulation.txt" />
     <entry file="file://$PROJECT_DIR$/ApplicationFiles/Resources/Users/a/AccountInfo.txt" />
-    <entry file="file://$PROJECT_DIR$/ApplicationFiles/Resources/Users/Brotaku13/AccountInfo.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="3" column="14" lean-forward="false" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/ApplicationFiles/Resources/Users/Brotaku13/AccountInfo.txt" />
     <entry file="file://$PROJECT_DIR$/ApplicationFiles/TestrWidgets/NavigationPageWidgets/Account.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1350">
@@ -850,7 +822,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ApplicationFiles/TestrWidgets/GlossaryWidgets/Definitions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
+        <state relative-caret-position="250">
           <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding />
         </state>
@@ -859,7 +831,7 @@
     <entry file="file://$PROJECT_DIR$/ApplicationFiles/Resources/Users/admin/AccountInfo.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
-          <caret line="3" column="93" lean-forward="true" selection-start-line="3" selection-start-column="93" selection-end-line="3" selection-end-column="93" />
+          <caret line="3" column="93" lean-forward="false" selection-start-line="3" selection-start-column="93" selection-end-line="3" selection-end-column="93" />
           <folding />
         </state>
       </provider>

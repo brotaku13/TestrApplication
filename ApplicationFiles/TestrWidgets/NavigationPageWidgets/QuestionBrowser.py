@@ -7,7 +7,9 @@ import sys
 import ApplicationFiles.Resources.filepaths as imagePath
 
 class QuestionBrowser(QWidget):
+    """Class used to browse through the current question. Implimented as a listview of questions. 
 
+    """
     questionSelectedSignal = pyqtSignal(int)
     changePageSignal = pyqtSignal(int)
 
@@ -52,8 +54,6 @@ class QuestionBrowser(QWidget):
 
         self.defineLayout()
 
-
-
     def defineLayout(self):
         questionTitleDesc = QHBoxLayout()
         questionTitleDesc.addWidget(self.questionTitle)
@@ -80,6 +80,8 @@ class QuestionBrowser(QWidget):
         self.defineTable()
 
     def defineTable(self):
+        """Defines the table and populates it with available questions. 
+        """
 
         #define items in list
         for i in range(len(qc.questionList)):
@@ -110,11 +112,14 @@ class QuestionBrowser(QWidget):
 
 
     def emit_new_question_selected(self):
+        """when the current question highlighted is changed, this signal is emitted. 
+        """
         self.questionSelectedSignal.emit(qc.currentQuestionIndex)
         self.changePageSignal.emit(1)
 
-
     def questionSelected(self):
+        """Update the information for the question highlighted. 
+        """
         row = self.table.currentRow()
         itemText = self.table.item(row, 0).text()
 
@@ -141,13 +146,3 @@ class QuestionBrowser(QWidget):
         starPix = starPix.scaled(150, 2000, Qt.KeepAspectRatio)
         self.questBrowDiff.setPixmap(starPix)
         self.questBrowDiff.setAlignment(Qt.AlignBottom | Qt.AlignRight)
-
-
-
-
-"""
-app = QApplication(sys.argv)
-form = QuestionBrowser()
-form.show()
-sys.exit(app.exec_())
-"""

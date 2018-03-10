@@ -45,11 +45,3 @@ class About(QWidget):
                                 "\n\n{}\n\n\t"
                                 "© Copyright Testr 2017\n"
                                 "\tAll Rights Reserved.".format(*self.five_hot_guys))
-
-
-'''
-App = QApplication(sys.argv)
-about = About()
-about.show()
-sys.exit(App.exec_())
-'''

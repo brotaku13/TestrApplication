@@ -7,7 +7,8 @@ import ApplicationFiles.Resources.SaveInfo as save
 
 
 class CodingWindow(QWidget):
-
+    """Coding window. Allows the user to enter their code into a text box and then sends the code over to the testing module to display the results. 
+    """
     #changeQuestionSignal = pyqtSignal(int)  # signal which emits which button was pressed "previous/next"
     sidebarIndexSignal = pyqtSignal(int)
     userCodeSignal = pyqtSignal(str)
@@ -17,7 +18,6 @@ class CodingWindow(QWidget):
     def __init__(self, parent=None):
         super(CodingWindow, self).__init__(parent)
 
-        # problem title setup
         self.questionTitleLabel = QLabel("Problem Title Here")
         self.questionTitleLabel.setText("Problem Title Goes Here")
         titleFont = QFont()
@@ -26,13 +26,11 @@ class CodingWindow(QWidget):
         self.questionTitleLabel.setFont(titleFont)
         self.questionTitleLabel.setAlignment(Qt.AlignBottom | Qt.AlignCenter)
 
-
         self.defineButtons()
         self.defineTextEdit()
         self.defineSidebar()
         self.updateQuestionInformation()
         self.defineLayout()
-
 
         #self.changeQuestionSignal.connect(self.changeQuestion)
         self.sidebarIndexSignal.connect(self.changeSideBarIndex)
@@ -40,9 +38,14 @@ class CodingWindow(QWidget):
         self.sidebar.runCodeButton.clicked.connect(self.emitUserCode)
 
     def emitUserCode(self):
+        """Sends the user code over to the sidebar. 
+        """
         self.userCodeSignal.emit(self.textEdit.toPlainText())
 
     def changeQuestionIndex(self):
+        """Changes the current question when either the prev or next button are clicked on. 
+        """
+
         sender = self.sender()
         questionListLen = len(qc.questionList)
 
@@ -57,9 +60,10 @@ class CodingWindow(QWidget):
         #self.changeQuestionSignal.emit(qc.currentQuestionIndex)
         self.updateQuestionInformation()
 
-
-
     def sidebar_index_emit(self):
+        """Changes the sidebar widgets index. 
+        """
+
         sender = self.sender()
         if sender.objectName() == "hintsandhelpbutton":
             self.sidebarIndexSignal.emit(1)
@@ -72,7 +76,8 @@ class CodingWindow(QWidget):
 
 
     def defineButtons(self):
-
+        """Defines the button's look, feel, and actions
+        """
         #previous and next buttons
         navButtonSizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
         self.prevButton = QPushButton("<< Prev")
@@ -90,7 +95,8 @@ class CodingWindow(QWidget):
         self.nextButton.clicked.connect(self.changeQuestionIndex)
 
     def defineTextEdit(self):
-
+        """Defines the coding boxes look, feel, and actions. 
+        """
         # setting up textEdit
         self.textEdit = QTextEdit()
         self.textEdit.setText("def functionName(): \n\tetc...")
@@ -110,7 +116,6 @@ class CodingWindow(QWidget):
         self.textEdit.setMinimumSize(QSize(0, 0))
 
     def defineLayout(self):
-
         self.pageIndexNavLayout = QHBoxLayout()
         self.pageIndexNavLayout.addWidget(self.questionInfoButton)
 
@@ -139,6 +144,9 @@ class CodingWindow(QWidget):
         self.setLayout(self.totalLayout)
 
     def defineSidebar(self):
+        """Defines the sidebar widget as well as instantiates it. 
+        """
+
         self.sidebar = Sidebar()
         sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
@@ -157,13 +165,14 @@ class CodingWindow(QWidget):
         self.hintsAndHelpButton.clicked.connect(self.sidebar_index_emit)
 
     def updateQuestionInformation(self):
+        """Primary update_ui feature. changes everythign when the current question's index is changed. 
+        """
 
         self.questionTitleLabel.setText(qc.questionList[qc.currentQuestionIndex].title)
 
         self.sidebar.updateQuestionInformation()
         self.sidebar.hintsAndHelpTab.hyperLinkLabel.setText(qc.questionList[qc.currentQuestionIndex].hyperlink)
 
-        ## checks if code created exists, and loads that instead of template
         if save.checkExists():
             self.textEdit.setText(save.openCode())
         else:
@@ -171,11 +180,3 @@ class CodingWindow(QWidget):
 
         self.updateReportRows.emit()
         self.updateShowAnswer.emit()
-
-
-        #self.status.showMessage("You Switched to {}".format(qc.questionList[qc.currentQuestionIndex].title), 3000)
-
-        # initialize hints section here as well
-
-
-

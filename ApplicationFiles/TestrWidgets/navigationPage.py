@@ -8,7 +8,9 @@ import ApplicationFiles.Resources.SaveInfo as save
 
 
 class NavigationPage(QWidget):
-
+    """Container Widget for the navigation page. 
+    Shows account information as well as different available questions. 
+    """
     def __init__(self, parent=None):
         super(NavigationPage, self).__init__(parent)
 
@@ -23,13 +25,6 @@ class NavigationPage(QWidget):
         totalLayout.addWidget(self.questionBrowser)
 
         self.setLayout(totalLayout)
-
-"""
-app = QApplication(sys.argv)
-form = NavigationPage()
-form.show()
-sys.exit(app.exec_())
-"""
 
 
 

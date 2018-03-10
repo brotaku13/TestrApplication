@@ -7,7 +7,8 @@ import ApplicationFiles.Resources.QuestionClass as qc
 import ApplicationFiles.Resources.filepaths as imagePath
 
 class QuestionInformation(QWidget):
-
+    """shows the data related to the current question. Information such as the actual questions, examples, and the results of the user's code. 
+    """
     def __init__(self, parent=None):
         super(QuestionInformation, self).__init__(parent)
 
@@ -18,7 +19,7 @@ class QuestionInformation(QWidget):
         labelFont.setFamily("Trebuchet MS")
         self.questionInfoLabel.setFont(labelFont)
         self.questionInfoLabel.setAlignment(Qt.AlignBottom | Qt.AlignLeft)
-#added
+
         self.questionDiff1 = QLabel()
         self.diffHBox = QHBoxLayout()
         self.diffHBox.addWidget(self.questionInfoLabel)
@@ -86,7 +87,6 @@ class QuestionInformation(QWidget):
 
         infoLayout.addLayout(self.diffHBox)
 
-
         infoLayout.addWidget(self.questionTextBox)
         infoLayout.addWidget(self.exampleLabel)
         infoLayout.addWidget(self.exampleTextBox)
@@ -96,15 +96,14 @@ class QuestionInformation(QWidget):
         gradeLayout.addWidget(self.grade)
 
         infoLayout.addLayout(gradeLayout)
-
-
         infoLayout.addWidget(self.report)
-
 
         self.setLayout(infoLayout)
 
     @pyqtSlot()
     def updateReportRows(self):
+        """Updates the results of the user's code. 
+        """
 
         currentRows = self.report.rowCount()
         neededRows = len(qc.questionList[qc.currentQuestionIndex].testingDict)
@@ -115,6 +114,3 @@ class QuestionInformation(QWidget):
 
         for i in range(neededRows):
             self.report.insertRow(self.report.rowCount())
-
-#added
- #   def updateQuestionDifficulty(self):
